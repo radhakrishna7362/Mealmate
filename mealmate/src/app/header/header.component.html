@@ -1,0 +1,27 @@
+<!-- <mat-toolbar color="primary">
+    <div fxLayout="row" fxLayoutGap="5px">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+        <img routerLink="/home" src="/assets/images/logo.jpeg" alt="Logo">
+        <h2>MealMate</h2>
+      </div>
+      <div color="primary" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+        <a mat-button routerLink='/home' routerLinkActive='active'><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-button routerLink='/about' routerLinkActive='active'><span class="fa fa-info fa-lg"></span> About</a>
+        <a mat-button routerLink='/menu' routerLinkActive='active'><span class="fa fa-list fa-lg"></span> Food & Recipes</a>
+        <a mat-button routerLink="/contactus" routerLinkActive='active'><span class="fa fa-address-card fa-lg"></span> Contact</a>
+      </div>
+    </div>
+</mat-toolbar> -->
+  
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px" style="background-color: #2874f0;color: #FFFFFF;">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <span style="margin-left: 1%;"><img routerLink="/home" src="/assets/images/logo.jpeg" alt="Logo"></span>
+    <span style="font-weight: bold;font-family: sans-serif;font-size: large;padding: 20px;">MealMate</span>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <a style="color: floralwhite;" mat-button routerLink='/home' routerLinkActive='active'><span class="fa fa-home fa-lg"></span> Home</a>
+    <a style="color: floralwhite;" mat-button routerLink='/about' routerLinkActive='active'><span class="fa fa-info fa-lg"></span> About</a>
+    <a style="color: floralwhite;" mat-button routerLink='/menu' routerLinkActive='active'><span class="fa fa-list fa-lg"></span> Food & Recipes</a>
+    <a style="color: floralwhite;" mat-button routerLink="/contactus" routerLinkActive='active'><span class="fa fa-address-card fa-lg"></span> Contact</a>
+  </div>
+</div>

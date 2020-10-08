@@ -1,0 +1,16 @@
+.example-card {
+    max-width: 300px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  
+  .jumbo {
+    margin: 0px auto;
+    padding: 70px 30px;
+    background: #9575cd;
+    color: floralwhite;
+    min-height: 100px;
+}

@@ -1,0 +1,43 @@
+<!-- <div fxLayout="row wrap" fxLayoutGap="grid"> 
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let f of food.results">
+        <mat-card class="example-card" style="margin-left:5%;margin-top: 5%;margin-bottom: 5%;">
+            <mat-card-title>{{f.title}}</mat-card-title>
+            <img mat-card-image height="200px" src="{{f.image}}" alt="Photo of {{f.title}}">
+            <button mat-raised-button>VIEW</button>
+          </mat-card>
+    </div>
+</div> -->
+
+<!-- <div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex *ngIf="food">
+    <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile *ngFor="let f of food.results">        
+        <img routerLink='details/{{f.id}}' height="200px" src="{{f.image}}" alt={{f.title}}>
+        <mat-grid-tile-footer>
+          <h1>{{f.title}}</h1>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div fxFlex [hidden]="food">
+    <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+</div> -->
+
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  <div *ngFor="let f of food.results" style="padding: 10px;">
+    <mat-card class="example-card">
+      <img mat-card-image height="200px" src="{{f.image}}" alt="Photo of {{f.title}}">
+      <mat-card-content>
+        {{f.title}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex [hidden]="food">
+    <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+</div>
