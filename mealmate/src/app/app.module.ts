@@ -24,6 +24,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDividerModule} from '@angular/material/divider';
+// For MDB Angular Free
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MatDividerModule} from '@angular/material/divider';
     MatGridListModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatDividerModule
+    MatDividerModule,
+    CarouselModule,
+    WavesModule
   ],
   providers: [FoodService,IngredientsService],
   bootstrap: [AppComponent]

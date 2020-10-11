@@ -1,170 +1,83 @@
-<div class="jumbo"
-    fxLayout="row"
-    fxLayout.sm="column" 
-    fxLayout.xs="column" 
-    fxLayoutAlign.xs="start center"
-    fxLayoutAlign.sm="start center" 
-    fxLayoutAlign.gt-sm="start center" 
-    fxLayoutGap="10px">
-  
-    <div fxFlex fxFlex.gt-sm="50%">
-      <h1 style="font-weight: bold;font-size: x-large;color:floralwhite;">MealMate</h1>
-      <p style="font-weight: bold;font-size: large;color: floralwhite;">We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations
-        will tickle your culinary senses!</p>
-    </div>
+<div class="container">
+  <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img height="400px" class="d-block w-100 img-fluid" src="../../assets/images/img7.jpg" alt="">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+      <!-- <div class="carousel-caption">
+        <h3 class="h3-responsive">{{f.title}}</h3>
+        <p>First text</p>
+      </div> -->
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img height="400px" class="d-block w-100 img-fluid" src="../../assets/images/img4.jpg" alt="">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+      <!-- <div class="carousel-caption">
+        <h3 class="h3-responsive">{{f.title}}</h3>
+        <p>First text</p>
+      </div> -->
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img height="400px" class="d-block w-100 img-fluid" src="../../assets/images/img2.jpg" alt="">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+      <!-- <div class="carousel-caption">
+        <h3 class="h3-responsive">{{f.title}}</h3>
+        <p>First text</p>
+      </div> -->
+    </mdb-carousel-item>
+  </mdb-carousel>
 </div>
 
-<!-- <div fxLayout="column" fxLayoutGap="20px" style="margin: 5%;"> 
-    <div fxFlex fxLayoutAlign="space-between">
-        <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
+<!-- <div class="container mt-4">
+  <mat-card fxLayoutAlign="center center" style="background-color: #65e76d ;">
+    <mat-card-content>
+      <h1 class="font-weight-bold">Top Food</h1>
+    </mat-card-content>
+  </mat-card>
+  <div class="row" fxLayoutAlign="space-around">
+    <div *ngFor="let f of food" style="padding: 10px;">
+      <mat-card class="example-card">
+        <img mat-card-image height="200px" src="{{f.image}}" alt="Photo of {{f.title}}">
+        <mat-card-content class="font-weight-bold">
+          {{f.title}}
+        </mat-card-content>
+      </mat-card>
     </div>
-      <div fxFlex fxLayoutAlign="space-between">
-        <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-      </div>
+    <div fxFlex [hidden]="food">
+      <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+  </div>
 </div> -->
 
-<div class="container">
-  <div class="row row-content align-items-center">
-      <div class="col-12 col-sm-4 order-sm-last col-md-3">
-          <h3>Our Lipsmacking Culinary Creations</h3>
-      </div>
-      <div class="col col-sm order-sm-first col-md">
-          <h2>Uthappizza</h2>
-          <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
-      </div>
-  </div>
-
-
-  <div class="row row-content align-items-center">
-      <div class="col-12 col-sm-4 col-md-3">
-          <h3>This Month's Promotions</h3>
-      </div>
-      <div class="col col-sm col-md">
-          <h2>Weekend Grand Buffet</h2>
-          <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
-      </div>
-  </div>
-
-  <div class="row row-content align-items-center">
-      <div class="col-12 col-sm-4 order-sm-last col-md-3">
-          <h3>Meet our Culinary Specialists</h3>
-      </div>
-      <div class="col col-sm order-sm-first col-md">
-          <h2>Alberto Somayya</h2>
-          <h4>Executive Chef</h4>
-          <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
-      </div>
+<div class="container mt-2">
+  <mat-card fxLayoutAlign="center center" style="background-color: #65e76d ;">
+    <mat-card-content>
+      <h1 class="font-weight-bold">Browse By Category</h1>
+    </mat-card-content>
+  </mat-card>
+  <div class="row mt-2 mb-2" fxLayoutAlign="space-around">
+    <mat-card class="example-card">
+      <img mat-card-image height="200px" src="../../assets/images/img9.jpg" alt="Photo of">
+      <mat-card-content class="font-weight-bold text-center">
+        Vegetarian
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card">
+      <img mat-card-image height="200px" src="../../assets/images/img11.jpg" alt="Photo of">
+      <mat-card-content class="font-weight-bold text-center">
+        Non-Vegetarian
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card">
+      <img mat-card-image height="200px" src="../../assets/images/img12.jpg" alt="Photo of">
+      <mat-card-content class="font-weight-bold text-center">
+        Desserts
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

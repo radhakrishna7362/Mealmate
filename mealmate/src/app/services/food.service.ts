@@ -13,4 +13,8 @@ export class FoodService {
   getFood(){
     return this.http.get("https://api.spoonacular.com/recipes/complexSearch?apiKey=e82a3794a93d4652bda1b3e63fabd8ea&number=5078");
   }
+
+  getMainFood(){
+    return this.http.get("https://api.spoonacular.com/recipes/complexSearch?apiKey=e82a3794a93d4652bda1b3e63fabd8ea&number=3");
+  }
 }
