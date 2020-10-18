@@ -14,6 +14,7 @@ import { FoodService } from './services/food.service';
 import {IngredientsService} from './services/ingredients.service';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {FormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
@@ -41,6 +42,7 @@ import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatButtonModule,

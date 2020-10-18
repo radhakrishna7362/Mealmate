@@ -14,10 +14,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.foodservice.getMainFood().subscribe((data)=>{
-      this.food=data;
-      this.food=this.food.results;
-    })
+    // this.foodservice.getMainFood().subscribe((data)=>{
+    //   this.food=data;
+    //   this.food=this.food.results;
+    // })
+    this.food=this.foodservice.getMainFood();
   }
 
 }

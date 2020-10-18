@@ -1,50 +1,54 @@
 <div class="container">
-  <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img height="400px" class="d-block w-100 img-fluid" src="../../assets/images/img7.jpg" alt="">
-        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      </div>
-      <!-- <div class="carousel-caption">
-        <h3 class="h3-responsive">{{f.title}}</h3>
-        <p>First text</p>
-      </div> -->
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img height="400px" class="d-block w-100 img-fluid" src="../../assets/images/img4.jpg" alt="">
-        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      </div>
-      <!-- <div class="carousel-caption">
-        <h3 class="h3-responsive">{{f.title}}</h3>
-        <p>First text</p>
-      </div> -->
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img height="400px" class="d-block w-100 img-fluid" src="../../assets/images/img2.jpg" alt="">
-        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      </div>
-      <!-- <div class="carousel-caption">
-        <h3 class="h3-responsive">{{f.title}}</h3>
-        <p>First text</p>
-      </div> -->
-    </mdb-carousel-item>
-  </mdb-carousel>
-</div>
+  <div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <img class="d-block img-fluid" 
+                src="../../assets/images/img3-1.jpg" alt="uthappizza">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="mt-0">Pot FriedRice <span class="badge badge-danger">HOT</span></h2>
+                <p>A unique combination of Indian Rice (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>    
+            </div>
+        </div>
+        <div class="carousel-item" active>
+            <img class="d-block img-fluid" 
+                src="../../assets/images/img15.jpg" alt="buffet">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="mt-0">Pizza <span class="badge badge-danger">NEW</span></h2>
+                <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+            </div>
+        </div>
+        <div class="carousel-item" active>
+            <img class="d-block img-fluid" 
+                src="../../assets/images/img16.jpg" alt="alberto">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="mt-0">Chicken</h2>
+                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+            </div>
+        </div>
+    </div>
+    <ol class="carousel-indicators">
+        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mycarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#mycarousel" data-slide-to="2" class="active"></li>
+    </ol>
+    <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
 
-<!-- <div class="container mt-4">
-  <mat-card fxLayoutAlign="center center" style="background-color: #65e76d ;">
-    <mat-card-content>
-      <h1 class="font-weight-bold">Top Food</h1>
-    </mat-card-content>
-  </mat-card>
-  <div class="row" fxLayoutAlign="space-around">
+  <div class="row mt-4">
+    <h1 class="font-weight-bold">Top Food</h1>
+  </div>
+  <div class="row row-content" fxLayoutAlign="space-around">
     <div *ngFor="let f of food" style="padding: 10px;">
       <mat-card class="example-card">
         <img mat-card-image height="200px" src="{{f.image}}" alt="Photo of {{f.title}}">
         <mat-card-content class="font-weight-bold">
           {{f.title}}
+          <span class="badge badge-danger">NEW</span>
         </mat-card-content>
       </mat-card>
     </div>
@@ -52,31 +56,27 @@
       <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
     </div>
   </div>
-</div> -->
-
-<div class="container mt-2">
-  <mat-card fxLayoutAlign="center center" style="background-color: #65e76d ;">
-    <mat-card-content>
-      <h1 class="font-weight-bold">Browse By Category</h1>
-    </mat-card-content>
-  </mat-card>
-  <div class="row mt-2 mb-2" fxLayoutAlign="space-around">
-    <mat-card class="example-card">
+  
+  <div class="row mt-4">
+    <h1 class="font-weight-bold">Browse By Category</h1>
+  </div>
+  <div class="row row-content" style="margin-bottom: 25px; padding: 10px;" fxLayoutAlign="space-around">
+    <mat-card class="example">
       <img mat-card-image height="200px" src="../../assets/images/img9.jpg" alt="Photo of">
       <mat-card-content class="font-weight-bold text-center">
-        Vegetarian
+        <button mat-raised-button color="warn">Vegetarian</button>
       </mat-card-content>
     </mat-card>
-    <mat-card class="example-card">
+    <mat-card class="example">
       <img mat-card-image height="200px" src="../../assets/images/img11.jpg" alt="Photo of">
       <mat-card-content class="font-weight-bold text-center">
-        Non-Vegetarian
+        <button mat-raised-button color="warn">Non-Vegetarian</button>
       </mat-card-content>
     </mat-card>
-    <mat-card class="example-card">
+    <mat-card class="example">
       <img mat-card-image height="200px" src="../../assets/images/img12.jpg" alt="Photo of">
       <mat-card-content class="font-weight-bold text-center">
-        Desserts
+        <button mat-raised-button color="warn">Desserts</button>
       </mat-card-content>
     </mat-card>
   </div>
