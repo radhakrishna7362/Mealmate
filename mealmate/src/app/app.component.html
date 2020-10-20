@@ -1,3 +1,38 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="side-nav">
+        <mat-list role="list" class="side-list">
+            <mat-list-item routerLink='/home' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <div mat-line>Home</div>
+            </mat-list-item>
+            <mat-list-item routerLink='/about' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="fa fa-info-circle fa-md" aria-hidden="true"></i>
+                </mat-icon>
+                <div mat-line>About</div>
+            </mat-list-item>
+            <mat-list-item routerLink='/menu' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>list</mat-icon>
+                <div mat-line>Food & Recipes</div>
+            </mat-list-item>
+            <mat-list-item routerLink='/contactus' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>contacts</mat-icon>
+                <div mat-line>Contact</div>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="background-color: #512da8;height: 65px;">
+            <div fxLayoutAlign="center center">
+                <button mat-button (click)="drawer.toggle()" style="outline: none;color: floralwhite;"><span class="material-icons">menu</span></button>
+                <span class="font-weight-bold" style="font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: large;color: floralwhite;">MealMate</span>
+            </div>
+            <div fxLayoutAlign="center center">
+                <button style="outline: none;color: floralwhite;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
+            </div>
+        </div>
+        <app-header></app-header>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </mat-drawer-content>
+</mat-drawer-container>

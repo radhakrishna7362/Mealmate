@@ -1,0 +1,22 @@
+.side-nav{
+    width: 200px;
+    background: #9575cd;
+}
+
+.side-list{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.list-item{
+    outline: none;
+    color: floralwhite;
+    font-size: medium;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.active {
+    color: floralwhite;
+    background-color: #4307aa;
+}
