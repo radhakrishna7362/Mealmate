@@ -1,0 +1,10 @@
+.row-content{
+    border-bottom: 1px ridge;
+    padding: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.row-content-step{
+  border-bottom: 1px ridge;
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
+}

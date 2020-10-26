@@ -12,8 +12,9 @@ import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component'
 import { FoodService } from './services/food.service';
 import {IngredientsService} from './services/ingredients.service';
+import {FooddetailsComponent} from './fooddetails/fooddetails.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -35,7 +36,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    MenuComponent
+    MenuComponent,
+    FooddetailsComponent
   ],
   imports: [
     BrowserModule,

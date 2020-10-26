@@ -14,11 +14,11 @@ export class MenuComponent implements OnInit {
   productsList=[];
   filterList=[];
   pagedList;
-  breakpoint: number = 4;  //to adjust to screen
+  breakpoint: number = 3;  //to adjust to screen
   // MatPaginator Inputs
   length: number = 0;
   pageSize: number = 10;  //displaying three cards each row
-  pageSizeOptions: number[] = [10,15,20];
+  pageSizeOptions: number[] = [5,10];
 
   constructor(private foodService:FoodService) {
     
@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
     //   this.food=data;
     // })
     this.productsList=this.foodService.getFood();
-    this.breakpoint = (window.innerWidth <= 800) ? 1 : 4;
+    this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
     this.pagedList = this.productsList.slice(0, 10);
     this.length = this.productsList.length;
   }
@@ -44,11 +44,11 @@ export class MenuComponent implements OnInit {
   }
 
   onResize(event) { //to adjust to screen size
-    this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 4;
+    this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
   }
 
   OnChange(){
-    this.breakpoint = (window.innerWidth <= 800) ? 1 : 4;
+    this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
     this.pagedList = this.filterList.slice(0, 10);
     this.length = this.filterList.length;
   }

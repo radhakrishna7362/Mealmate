@@ -12,7 +12,7 @@
   </div>
 </div> -->
 
-<div class="container mb-4">
+<!-- <div class="container mb-4">
   <p style="text-align: right;margin: 4px;padding: 4px;">
     <input style="outline: none;width: 200px;height: 40px;" placeholder="Search Food...." matInput type="text" [(ngModel)]="name" (input)="Search()">
     <i class="fa fa-search" style="transform: translate(-25px);"></i>
@@ -28,6 +28,28 @@
           </mat-card-actions>
           <mat-card-content class="font-weight-bold text-center">
             <p>{{f.title}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)"></mat-paginator>
+</div> -->
+<div>
+  <div style="text-align: right;margin-right: 25px;">
+    <input style="outline: none;width: 200px;height: 40px;" placeholder="Search Food...." matInput type="text" [(ngModel)]="name" (input)="Search()">
+    <i class="fa fa-search" style="transform: translate(-25px);"></i>
+  </div>
+
+  <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
+    <mat-grid-tile *ngFor="let f of pagedList" [routerLink]="['/details',f.id]">
+      <div>
+        <mat-card class="example-card">
+          <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
+          <mat-card-content class="font-weight-bold">
+            <mat-card-title>{{f.title}}</mat-card-title>
+            <mat-card-subtitle>{{f.subtitle}}</mat-card-subtitle>
+            <i class="fas fa-clock"> {{f.time}}</i>
           </mat-card-content>
         </mat-card>
       </div>

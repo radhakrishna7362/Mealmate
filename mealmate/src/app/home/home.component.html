@@ -42,13 +42,14 @@
   <div class="row mt-4">
     <h1 class="font-weight-bold">Top Food</h1>
   </div>
-  <div class="row row-content" fxLayoutAlign="space-around">
+  <div class="row row-content mb-4" fxLayoutAlign="space-around">
     <div *ngFor="let f of food" style="padding: 10px;">
       <mat-card class="example-card">
-        <img mat-card-image height="200px" src="{{f.image}}" alt="Photo of {{f.title}}">
+        <img mat-card-image height="225px" src="{{f.image}}" alt="Photo of {{f.title}}">
         <mat-card-content class="font-weight-bold">
-          {{f.title}}
-          <span class="badge badge-danger">NEW</span>
+          <mat-card-title>{{f.title}}</mat-card-title>
+          <mat-card-subtitle>{{f.subtitle}}</mat-card-subtitle>
+          <i class="fas fa-clock">{{f.time}}</i>
         </mat-card-content>
       </mat-card>
     </div>
@@ -57,7 +58,7 @@
     </div>
   </div>
   
-  <div class="row mt-4">
+  <!-- <div class="row mt-4">
     <h1 class="font-weight-bold">Browse By Category</h1>
   </div>
   <div class="row row-content" style="margin-bottom: 25px; padding: 10px;" fxLayoutAlign="space-around">
@@ -79,5 +80,5 @@
         <button mat-raised-button color="warn">Desserts</button>
       </mat-card-content>
     </mat-card>
-  </div>
+  </div> -->
 </div>

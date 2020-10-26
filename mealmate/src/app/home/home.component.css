@@ -1,12 +1,12 @@
 .example-card {
-  width: 300px;
-  height: 275px;
-  border-color: teal;
+    width: 250px;
+    height: 390px;
+    border-color: teal;
 }  
 
 .example {
-  width: 300px;
-  height: 275px;
+  width: 250px;
+  height: 290px;
   border-color: teal;
 }
 
