@@ -16,8 +16,8 @@
 }
 
 .carousel{
-  background: #512dab;
-  margin-top: 25px;
+  border-bottom: 3px ridge;
+  padding: 25px;
 }
 
 .carousel-item{
@@ -32,5 +32,6 @@
 }
 
 .row-content{
-  border-bottom: 1px ridge;
+  padding: 25px;
+  border-bottom: 3px ridge;
 }

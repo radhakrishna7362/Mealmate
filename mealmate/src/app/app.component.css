@@ -1,6 +1,6 @@
 .side-nav{
     width: 200px;
-    background: #9575cd;
+    background: teal;
 }
 
 .side-list{
@@ -18,5 +18,5 @@
 
 .active {
     color: floralwhite;
-    background-color: #4307aa;
+    background-color: rgb(2, 59, 59);
 }

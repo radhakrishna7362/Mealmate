@@ -1,7 +1,7 @@
 .footer {
-    background-color: #d1c4e9;
+    background-color: teal;
     margin: 0px auto;
-    padding: 20px 0px;
+    padding: 20px;
 }
 .btn-facebook {
     color: #fff !important;
@@ -29,8 +29,5 @@
 }
 
 .row-content{
-    margin: 0px auto;
-    padding: 50px 0px 50px 0px;
-    border-bottom: 1px ridge;
-    height: 250px;
+    padding: 20px;
 }
