@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// mongoose.connect('mongodb://localhost:27017/Business',{useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://rk:190031187@first.cpozf.mongodb.net/mealmate?retryWrites=true&w=majoritys',{useNewUrlParser: true , useUnifiedTopology: true});
 
 const connection = mongoose.connection;
 
@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 const port = process.env.port || 3000;
 
 
-// const Signin=require('./route/signinRouter');
+const FoodRoute=require('./routes/detailsRoute');
 
-// app.use('/project',Signin);
+app.use('/food',FoodRoute);
 
 app.listen(port, () => console.log(`running on the server ${port}`));

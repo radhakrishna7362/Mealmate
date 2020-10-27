@@ -42,9 +42,9 @@
     <h1 class="font-weight-bold">Top Food</h1>
   </div>
   <div class="row" fxLayoutAlign="space-around">
-    <div *ngFor="let f of food" style="padding: 10px;">
+    <div *ngFor="let f of food" style="padding: 10px;" [routerLink]="['/details',f.id]">
       <mat-card class="example-card">
-        <img mat-card-image height="225px" src="{{f.image}}" alt="Photo of {{f.title}}">
+        <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
         <mat-card-content class="font-weight-bold">
           <mat-card-title>{{f.title}}</mat-card-title>
           <mat-card-subtitle>{{f.subtitle}}</mat-card-subtitle>

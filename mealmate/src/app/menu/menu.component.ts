@@ -25,13 +25,14 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.foodService.getFood().subscribe((data)=>{
-    //   this.food=data;
-    // })
-    this.productsList=this.foodService.getFood();
-    this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
-    this.pagedList = this.productsList.slice(0, 10);
-    this.length = this.productsList.length;
+    this.foodService.getFood().subscribe((data:any[])=>{
+      this.productsList=data;
+      console.log(this.productsList);
+      this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
+      this.pagedList = this.productsList.slice(0, 10);
+      this.length = this.productsList.length;
+    })
+    // this.productsList=this.foodService.getFood();
   }
 
   OnPageChange(event: PageEvent){

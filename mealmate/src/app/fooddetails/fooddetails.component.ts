@@ -16,13 +16,10 @@ export class FooddetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let id=this.route.snapshot.params['id'];
-    this.food=this.foodService.getAFood(parseInt(id));
-    this.breakpoint = (window.innerWidth <= 800) ? 1 : 2;
-    console.log(this.food);
+    // this.food=this.foodService.getAFood(parseInt(id));
+    this.foodService.getAFood(parseInt(id)).subscribe((data)=>{
+      this.food=data[0];
+      console.log(this.food);
+    })
   }
-
-  onResize(event) { //to adjust to screen size
-    this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 2;
-  }
-
 }

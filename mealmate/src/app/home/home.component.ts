@@ -9,16 +9,15 @@ import { FoodService } from '../services/food.service';
 export class HomeComponent implements OnInit {
 
   food;
-  constructor(private foodservice:FoodService){
+  constructor(private foodService:FoodService){
     
   }
 
   ngOnInit(): void {
-    // this.foodservice.getMainFood().subscribe((data)=>{
-    //   this.food=data;
-    //   this.food=this.food.results;
-    // })
-    this.food=this.foodservice.getMainFood();
+    this.foodService.getMainFood().subscribe((data)=>{
+      this.food=data;
+    })
+    // this.food=this.foodservice.getMainFood();
   }
 
 }
