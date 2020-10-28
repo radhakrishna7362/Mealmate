@@ -1,11 +1,11 @@
 const express=require('express');
 
-const Food=express.Router();
+const Kitchen=express.Router();
 
-const FoodDetail=require('../models/fooddetails');
+const KitchenTool=require('../models/kitchentools');
 
-Food.route('/menu').get((req,res,next) => {
-    FoodDetail.find({})
+Kitchen.route('/menu').get((req,res,next) => {
+    KitchenTool.find({})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -14,8 +14,8 @@ Food.route('/menu').get((req,res,next) => {
     .catch((err) => next(err));
 });
 
-Food.route('/home').get((req,res,next) => {
-    FoodDetail.find({}).limit(3)
+Kitchen.route('/home').get((req,res,next) => {
+    KitchenTool.find({}).limit(3)
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -24,8 +24,8 @@ Food.route('/home').get((req,res,next) => {
     .catch((err) => next(err));
 });
 
-Food.route('/particular/:id').get((req,res,next) => {
-    FoodDetail.find({id:req.params.id})
+Kitchen.route('/particular/:id').get((req,res,next) => {
+    KitchenTool.find({id:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -34,4 +34,4 @@ Food.route('/particular/:id').get((req,res,next) => {
     .catch((err) => next(err));
 });
 
-module.exports = Food;
+module.exports = Kitchen;

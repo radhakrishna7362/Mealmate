@@ -17,7 +17,9 @@ const port = process.env.port || 3000;
 
 
 const FoodRoute=require('./routes/detailsRoute');
+const KitchenRoute=require('./routes/kitchentoolsRoute');
 
 app.use('/food',FoodRoute);
+app.use('/kitchen',KitchenRoute);
 
 app.listen(port, () => console.log(`running on the server ${port}`));

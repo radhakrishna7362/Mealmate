@@ -1,0 +1,22 @@
+<div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content" *ngIf="food" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
+        <img class="img-fluid" style="border-radius: 5px;" height="500px" width="450px" src="{{food.img}}" alt="{{food.name}}">
+    </div>
+    <div fxFlex.md="50" fxFlex.lg="50">
+        <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{food.name}}</h1>
+        <h3 style="border-bottom: 2px ridge;">Price: ${{food.price}}</h3>
+        <div fxLayout="column" fxLayoutGap="20px">
+            <div fxLayout="column" style="border-bottom: 2px ridge;padding-bottom: 10px;">
+                <h2 style="margin: 0;font-weight: bold;font-family: 'Times New Roman', Times, serif;">Details</h2>
+                <li *ngFor="let d of food.details">{{d.msg}}</li>
+            </div>
+            <div fxLayout="column" style="border-bottom: 2px ridge;">
+                <h2 style="margin: 0;font-weight: bold;font-family: 'Times New Roman', Times, serif;">Return Policy</h2>
+                <p>{{food.returnpolicy}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div fxFlex [hidden]="food">
+    <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>

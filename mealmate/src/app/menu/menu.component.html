@@ -1,11 +1,13 @@
-<div>
-  <div style="text-align: right;margin-right: 25px;margin-top: 10px;">
-    <input style="outline: none;width: 200px;height: 40px;" placeholder="Search Food...." matInput type="text" [(ngModel)]="name" (input)="Search()">
-    <i class="fa fa-search" style="transform: translate(-25px);"></i>
-  </div>
-
+<!-- <div style="text-align: right;margin-right: 25px;margin-top: 10px;">
+  <input style="outline: none;width: 200px;height: 40px;" placeholder="Search Food...." matInput type="text" [(ngModel)]="name" (input)="Search()">
+  <i class="fa fa-search" style="transform: translate(-25px);"></i>
+</div> -->
+<div [hidden]="pagedList">
+  <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+<div *ngIf="pagedList">
   <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
-    <mat-grid-tile *ngFor="let f of pagedList" [routerLink]="['/details',f.id]">
+    <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/details',f.id]">
       <div>
         <mat-card class="example-card">
           <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
@@ -19,7 +21,4 @@
     </mat-grid-tile>
   </mat-grid-list>
   <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)"></mat-paginator>
-</div>
-<div [hidden]="pagedList">
-  <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
 </div>

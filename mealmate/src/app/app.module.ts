@@ -9,10 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { MenuComponent } from './menu/menu.component'
+import { MenuComponent } from './menu/menu.component';
+import { FooddetailsComponent } from './fooddetails/fooddetails.component';
+import { KitchenMenuComponent } from './kitchen-menu/kitchen-menu.component';
+import { KitchentoolDetailsComponent } from './kitchentool-details/kitchentool-details.component';
+
 import { FoodService } from './services/food.service';
-import {IngredientsService} from './services/ingredients.service';
-import {FooddetailsComponent} from './fooddetails/fooddetails.component';
+import { KitchentoolsService } from './services/kitchentools.service'
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
@@ -37,7 +40,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FooterComponent,
     AboutComponent,
     MenuComponent,
-    FooddetailsComponent
+    FooddetailsComponent,
+    KitchenMenuComponent,
+    KitchentoolDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatSidenavModule
   ],
-  providers: [FoodService,IngredientsService],
+  providers: [FoodService,KitchentoolsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

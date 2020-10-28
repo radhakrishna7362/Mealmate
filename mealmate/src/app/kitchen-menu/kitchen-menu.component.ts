@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FoodService} from '../services/food.service';
+import {KitchentoolsService} from '../services/kitchentools.service';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-kitchen-menu',
+  templateUrl: './kitchen-menu.component.html',
+  styleUrls: ['./kitchen-menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class KitchenMenuComponent implements OnInit {
 
   // food;
   name:String;
@@ -20,12 +20,12 @@ export class MenuComponent implements OnInit {
   pageSize: number = 10;  //displaying three cards each row
   pageSizeOptions: number[] = [5,10];
 
-  constructor(private foodService:FoodService) {
+  constructor(private kitchentoolService:KitchentoolsService) {
     
   }
 
   ngOnInit(): void {
-    this.foodService.getFood().subscribe((data:any[])=>{
+    this.kitchentoolService.getKitchenTools().subscribe((data:any[])=>{
       this.productsList=data;
       console.log(this.productsList);
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;

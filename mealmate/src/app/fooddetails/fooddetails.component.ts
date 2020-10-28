@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { FoodService } from '../services/food.service';
-import { food } from '../services/food';
+// import { food } from '../services/food';
 
 @Component({
   selector: 'app-fooddetails',
@@ -11,7 +11,6 @@ import { food } from '../services/food';
 export class FooddetailsComponent implements OnInit {
 
   food;
-  breakpoint: number = 2;  //to adjust to screen
   constructor(private route:ActivatedRoute,private foodService:FoodService) { }
 
   ngOnInit(): void {
