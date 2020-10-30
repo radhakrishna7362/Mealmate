@@ -1,10 +1,5 @@
 .row-content{
     padding: 25px;
-    font-family: 'Times New Roman', Times, serif;
-}
-.row-content-step{
-  padding: 5px;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .title{
@@ -14,4 +9,5 @@
     color: #0f346c;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    text-align: center;
 }

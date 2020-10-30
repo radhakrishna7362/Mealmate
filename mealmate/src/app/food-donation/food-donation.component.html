@@ -1,0 +1,52 @@
+<div class="row-content">
+    <h1 class="title">FOOD DONATION FORM</h1>
+    <form novalidate class="example-form" [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput type="text" formControlName="fname" placeholder="FirstName" required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>LastName</mat-label>
+                    <input matInput type="text" formControlName="lname" placeholder="LastName" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Address 1</mat-label>
+                    <input matInput type="text" formControlName="add1" placeholder="Address 1" required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Address 2</mat-label>
+                    <input matInput type="text" formControlName="add2" placeholder="Address 2" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput type="text" formControlName="city" placeholder="City" required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Pincode</mat-label>
+                    <input matInput type="text" formControlName="pincode" placeholder="Pincode" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <input matInput type="tel" formControlName="phone" placeholder="PhoneNo" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matSuffix><span class="material-icons">email</span></mat-icon>
+                    <input matInput type="email" formControlName="email" placeholder="email" required>
+                </mat-form-field>
+            </div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="donationForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>

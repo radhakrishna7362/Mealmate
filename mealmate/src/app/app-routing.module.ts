@@ -6,6 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 import {FooddetailsComponent} from './fooddetails/fooddetails.component';
 import { KitchenMenuComponent } from './kitchen-menu/kitchen-menu.component';
 import { KitchentoolDetailsComponent } from './kitchentool-details/kitchentool-details.component';
+import { FoodDonationComponent } from './food-donation/food-donation.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'kitchenmenu',component:KitchenMenuComponent},
   {path:'details/:id',component:FooddetailsComponent},
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
+  {path:'fooddonation',component:FoodDonationComponent},
   {path:'',redirectTo:'home',pathMatch:'full'}
 ];
 

@@ -1,80 +1,90 @@
 <div *ngIf="food">
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content m-5">
-        <div fxFlex.md="50" fxFlex.lg="50">
-            <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{food.title}}</h1>
-            <h2 class="font-weight-bold" style="color:black;">{{food.subtitle}}</h2>
-            <h3><i class="fas fa-clock"> {{food.time}}</i></h3>
-            <div class="m-3">
-                <div class="row mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1" class="icon-svg icon-svg--serve">
-                        <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
-                        <title>icon-servings</title>
-                        <desc>Created with Sketch.</desc>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Recipe-Detail_1440-Copy" transform="translate(-130.000000, -284.000000)" stroke="#002C9B" stroke-width="1.5">
-                                <g id="icon-servings" transform="translate(130.000000, 285.000000)">
-                                    <path d="M3.2550842,22.3721251 C2.79899787,22.8354485 2.03885399,22.8354485 1.55236191,22.3721251 C1.09627558,21.9088018 1.09627558,21.1365963 1.55236191,20.6423847 L8.27203382,13.8160877 L9.97475611,15.5458281 L3.2550842,22.3721251 Z" id="Path" fill="#002C9B" fill-rule="nonzero" stroke-linejoin="round"></path>
-                                    <path d="M15.2653575,13.7851995 L21.9850294,20.6114965 C22.1978697,20.8277141 22.3498985,21.1365963 22.3498985,21.4763667 C22.3498985,21.8161371 22.2282755,22.0941311 21.9850294,22.3412369 C21.5289431,22.8045602 20.7383935,22.8045602 20.2823071,22.3412369 L13.5626352,15.5149399 L15.2653575,13.7851995 Z" id="Path" fill="#002C9B" fill-rule="nonzero" stroke-linejoin="round"></path>
-                                    <path d="M23.4740803,4.72408027 L18.7012079,9.58440135 C18.2147158,10.0786129 17.6066007,10.3257187 16.9376741,10.3257187 C16.2687474,10.3257187 15.6302266,10.0477247 15.1741403,9.58440135 L14.1707503,8.56509004 C13.1977662,7.54577872 13.1977662,5.93959119 14.1707503,4.9511681 L18.666388,0.397157191" id="Path" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
-                                    <path d="M1.43073888,1.46079905 C1.79560795,1.09014038 2.40372305,0.904811054 3.13346118,0.904811054 C3.71117053,0.904811054 4.34969139,1.02836394 5.07942951,1.24458149 C6.53890577,1.6770166 8.08959928,2.5418868 8.88014892,3.37586879 C9.6402928,4.14807433 10.0355676,5.13649743 10.0355676,6.21758519 C10.0355676,7.20600828 9.67069856,8.16354315 9.0321777,8.90486048 L8.72812014,9.21374269 C7.99838202,9.86239535 7.08620936,10.233054 6.08281944,10.233054 C5.018618,10.233054 4.04563384,9.8006189 3.28548996,9.05930158 C2.46453456,8.2253196 1.61317342,6.68090851 1.18749284,5.19827387 C0.701000759,3.46853346 0.792218025,2.14033992 1.43073888,1.46079905 Z" id="Path" fill="#002C9B" fill-rule="nonzero" stroke-linejoin="round"></path>
-                                    <path d="M9.15551839,9.44816054 L14.395213,14.6878552" id="Line" stroke-linecap="square"></path>
-                                    <path d="M9.15551839,2.00668896 L21.1828532,14.0340237" id="Line-Copy" stroke-linecap="round" stroke-linejoin="round" transform="translate(15.384615, 8.235786) scale(1, -1) translate(-15.384615, -8.235786) "></path>
+    <mat-card class="row-content m-5">
+        <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
+            <div fxFlex.md="50" fxFlex.lg="50">
+                <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{food.title}}</h1>
+                <h2 class="font-weight-bold" style="color:black;">{{food.subtitle}}</h2>
+                <h3><i class="fas fa-clock"> {{food.time}}</i></h3>
+                <div class="m-3">
+                    <div class="row mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1" class="icon-svg icon-svg--serve">
+                            <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+                            <title>icon-servings</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Recipe-Detail_1440-Copy" transform="translate(-130.000000, -284.000000)" stroke="#002C9B" stroke-width="1.5">
+                                    <g id="icon-servings" transform="translate(130.000000, 285.000000)">
+                                        <path d="M3.2550842,22.3721251 C2.79899787,22.8354485 2.03885399,22.8354485 1.55236191,22.3721251 C1.09627558,21.9088018 1.09627558,21.1365963 1.55236191,20.6423847 L8.27203382,13.8160877 L9.97475611,15.5458281 L3.2550842,22.3721251 Z" id="Path" fill="#002C9B" fill-rule="nonzero" stroke-linejoin="round"></path>
+                                        <path d="M15.2653575,13.7851995 L21.9850294,20.6114965 C22.1978697,20.8277141 22.3498985,21.1365963 22.3498985,21.4763667 C22.3498985,21.8161371 22.2282755,22.0941311 21.9850294,22.3412369 C21.5289431,22.8045602 20.7383935,22.8045602 20.2823071,22.3412369 L13.5626352,15.5149399 L15.2653575,13.7851995 Z" id="Path" fill="#002C9B" fill-rule="nonzero" stroke-linejoin="round"></path>
+                                        <path d="M23.4740803,4.72408027 L18.7012079,9.58440135 C18.2147158,10.0786129 17.6066007,10.3257187 16.9376741,10.3257187 C16.2687474,10.3257187 15.6302266,10.0477247 15.1741403,9.58440135 L14.1707503,8.56509004 C13.1977662,7.54577872 13.1977662,5.93959119 14.1707503,4.9511681 L18.666388,0.397157191" id="Path" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                                        <path d="M1.43073888,1.46079905 C1.79560795,1.09014038 2.40372305,0.904811054 3.13346118,0.904811054 C3.71117053,0.904811054 4.34969139,1.02836394 5.07942951,1.24458149 C6.53890577,1.6770166 8.08959928,2.5418868 8.88014892,3.37586879 C9.6402928,4.14807433 10.0355676,5.13649743 10.0355676,6.21758519 C10.0355676,7.20600828 9.67069856,8.16354315 9.0321777,8.90486048 L8.72812014,9.21374269 C7.99838202,9.86239535 7.08620936,10.233054 6.08281944,10.233054 C5.018618,10.233054 4.04563384,9.8006189 3.28548996,9.05930158 C2.46453456,8.2253196 1.61317342,6.68090851 1.18749284,5.19827387 C0.701000759,3.46853346 0.792218025,2.14033992 1.43073888,1.46079905 Z" id="Path" fill="#002C9B" fill-rule="nonzero" stroke-linejoin="round"></path>
+                                        <path d="M9.15551839,9.44816054 L14.395213,14.6878552" id="Line" stroke-linecap="square"></path>
+                                        <path d="M9.15551839,2.00668896 L21.1828532,14.0340237" id="Line-Copy" stroke-linecap="round" stroke-linejoin="round" transform="translate(15.384615, 8.235786) scale(1, -1) translate(-15.384615, -8.235786) "></path>
+                                    </g>
                                 </g>
                             </g>
-                        </g>
-                    </svg>
-                    <span class="font-weight-bold m-1">{{food.servings}}</span>
-                </div>
-                <div class="row mt-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19px" height="25px" viewBox="0 0 19 25" version="1.1" class="icon-svg icon-svg--nutrition">
-                        <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
-                        <title>icon-nutrition</title>
-                        <desc>Created with Sketch.</desc>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Recipe-Detail_1440-Copy" transform="translate(-282.000000, -283.000000)" fill="#002C9B" fill-rule="nonzero">
-                                <path d="M290.852468,292.25441 C290.810403,290.780509 289.991148,290.180123 288.875,289.25 C288.458333,288.902778 288.598499,288.541039 289.295496,288.164785 C289.569176,288.010967 289.785122,288.011248 290.031052,288.197344 C291.479707,289.295463 292.134442,290.476405 292.399951,291.968107 C292.402259,291.981074 292.404538,292.043876 292.406788,292.116547 C294.046122,291.635489 296.919676,290.62344 298.979167,292.257718 C301.198671,294.019824 300.976702,297.411701 300.397596,300.274765 C299.713877,303.658339 298.285352,305.401502 296.634612,307.25131 C295.015858,309.062197 293.216976,307.018819 291.423865,307.018819 C291.40679,307.018819 291.391639,307.009737 291.375285,307.007402 C291.359172,307.009737 291.34354,307.018819 291.326706,307.018819 C289.533595,307.018819 287.734952,309.062197 286.115958,307.25131 C284.465218,305.401502 283.036453,303.658339 282.352252,300.274765 C281.773147,297.411701 281.676709,294.019824 283.896454,292.257718 C286.187833,290.43926 289.389015,291.897212 290.852468,292.25441 Z M299.88316,283.412265 C299.280805,284.664627 295.667579,291.612932 291.312843,287.899497 C290.759735,282.010127 298.43753,282.977318 299.774276,283.189498 C299.883387,283.207218 299.933024,283.308621 299.88316,283.412265 Z" id="icon-nutrition"></path>
+                        </svg>
+                        <span class="font-weight-bold m-1">{{food.servings}}</span>
+                    </div>
+                    <div class="row mt-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19px" height="25px" viewBox="0 0 19 25" version="1.1" class="icon-svg icon-svg--nutrition">
+                            <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+                            <title>icon-nutrition</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Recipe-Detail_1440-Copy" transform="translate(-282.000000, -283.000000)" fill="#002C9B" fill-rule="nonzero">
+                                    <path d="M290.852468,292.25441 C290.810403,290.780509 289.991148,290.180123 288.875,289.25 C288.458333,288.902778 288.598499,288.541039 289.295496,288.164785 C289.569176,288.010967 289.785122,288.011248 290.031052,288.197344 C291.479707,289.295463 292.134442,290.476405 292.399951,291.968107 C292.402259,291.981074 292.404538,292.043876 292.406788,292.116547 C294.046122,291.635489 296.919676,290.62344 298.979167,292.257718 C301.198671,294.019824 300.976702,297.411701 300.397596,300.274765 C299.713877,303.658339 298.285352,305.401502 296.634612,307.25131 C295.015858,309.062197 293.216976,307.018819 291.423865,307.018819 C291.40679,307.018819 291.391639,307.009737 291.375285,307.007402 C291.359172,307.009737 291.34354,307.018819 291.326706,307.018819 C289.533595,307.018819 287.734952,309.062197 286.115958,307.25131 C284.465218,305.401502 283.036453,303.658339 282.352252,300.274765 C281.773147,297.411701 281.676709,294.019824 283.896454,292.257718 C286.187833,290.43926 289.389015,291.897212 290.852468,292.25441 Z M299.88316,283.412265 C299.280805,284.664627 295.667579,291.612932 291.312843,287.899497 C290.759735,282.010127 298.43753,282.977318 299.774276,283.189498 C299.883387,283.207218 299.933024,283.308621 299.88316,283.412265 Z" id="icon-nutrition"></path>
+                                </g>
                             </g>
-                        </g>
-                    </svg>
-                    <span class="font-weight-bold m-1">{{food.calories}}</span>
+                        </svg>
+                        <span class="font-weight-bold m-1">{{food.calories}}</span>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
+                <img class="img-fluid" height="500px" width="450px" src="{{food.image}}" alt="">
+            </div>
+        </div>
+    </mat-card>
+    <mat-card class="row-content m-5">
+        <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
+            <div fxFlex.md="60" fxFlex.lg="60">
+                <span class="font-weight-bold" style="font-size: x-large;">fresh</span>
+                <h1 class="title">Ingredients</h1>
+                <img height="650px" width="650px" class="img-fluid" src="{{food.ingredientsImg}}" alt="">
+            </div>
+            <div fxFlex.md="40" fxFlex.lg="40" fxLayout="column" fxLayoutAlign="center">
+                <div fxLayout="row">
+                    <div style="font-size: larger;" class="col-4 col-md-4 m-1 font-weight-bold">QTY</div>
+                    <div style="font-size: larger;" class="col-8 col-md-8 m-1 font-weight-bold">INGREDIENTS</div>
+                </div>
+                <div fxLayout="row" *ngFor="let f of food.ingredients">
+                    <div style="font-size: larger;" class="col-4 col-md-4 m-1">{{f.qty}}</div>
+                    <div style="font-size: larger;" class="col-8 col-md-8 m-1">{{f.name}}</div>
                 </div>
             </div>
         </div>
-        <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
-            <img class="img-fluid" height="500px" width="450px" src="{{food.image}}" alt="">
-        </div>
-    </div>
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content m-5">
-        <div fxFlex.md="60" fxFlex.lg="60">
-            <span class="font-weight-bold" style="font-size: larger;">fresh</span>
-            <h1 class="font-weight-bold text-uppercase" style="color: teal;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Ingredients</h1>
-            <img height="650px" width="650px" class="img-fluid" src="{{food.ingredientsImg}}" alt="">
-        </div>
-        <div fxFlex.md="40" fxFlex.lg="40" fxLayout="column" fxLayoutAlign="center">
-            <div fxLayout="row">
-                <div style="font-size: larger;" class="col-4 col-md-4 m-1 font-weight-bold">QTY</div>
-                <div style="font-size: larger;" class="col-8 col-md-8 m-1 font-weight-bold">INGREDIENTS</div>
-            </div>
-            <div fxLayout="row" *ngFor="let f of food.ingredients">
-                <div style="font-size: larger;" class="col-4 col-md-4 m-1">{{f.qty}}</div>
-                <div style="font-size: larger;" class="col-8 col-md-8 m-1">{{f.name}}</div>
-            </div>
-        </div>
-    </div>
-    <div class="row-content m-5">
+    </mat-card>
+    <mat-card class="row-content m-5">
         <div>
-            <span class="font-weight-bold" style="font-size: larger;">step-by-step</span>
-            <h1 class="font-weight-bold text-uppercase" style="color: teal;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Instructions</h1>
+            <span class="font-weight-bold" style="font-size: x-large;">step-by-step</span>
+            <h1 class="title">Instructions</h1>
         </div>
         <div *ngFor="let f of food.steps" class="mt-5">
-            <img width="600px" height="400px" class="img-fluid" src="{{f.img}}" alt="">
-            <div class="row ml-1">
-                <h2 class="font-weight-bold">{{f.number}}.</h2>
-                <h2 class="font-weight-bold">{{f.desc}}</h2>
-            </div>
-            <div class="row-content-step" style="font-size: large;margin-bottom: 5px;">{{f.step}}</div>
+            <mat-card>
+                <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
+                    <img width="600px" height="400px" class="img-fluid" src="{{f.img}}" alt="">
+                    <div class="ml-1" fxLayout="column">
+                        <div fxLayout="row">
+                            <h2 class="font-weight-bold">{{f.number}}.</h2>
+                            <h2 class="font-weight-bold">{{f.desc}}</h2>
+                        </div>
+                        <div class="row-content-step" style="font-size: large;margin-bottom: 5px;">{{f.step}}</div>
+                    </div>
+                </div>
+            </mat-card>
         </div>
-    </div>
+    </mat-card>
 </div>
 
 <div [hidden]="food">

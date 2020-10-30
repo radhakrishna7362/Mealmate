@@ -6,29 +6,21 @@
     <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
 </div>
 <div *ngIf="pagedList">
-    <div class="row-content">
-        <div class="mb-2">
-            <mat-card style="background-color: teal;">
-                <h1 style="font-family: 'Times New Roman', Times, serif;font-weight: bold;margin: 0;text-align: center;">Kitchen Tools</h1>
-            </mat-card>
-        </div>
-        <div class="mt-2">
-            <mat-card style="background-color: teal;">
-                <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
-                    <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/kitchendetails',f.id]">
-                      <div>
-                        <mat-card class="example-card">
-                          <img mat-card-image height="300px" src="{{f.img}}" alt="Photo of {{f.name}}">
-                          <mat-card-content class="font-weight-bold">
-                            <mat-card-title>{{f.name}}</mat-card-title>
-                            <mat-card-subtitle>Price: ${{f.price}}</mat-card-subtitle>
-                          </mat-card-content>
-                        </mat-card>
-                      </div>
-                    </mat-grid-tile>
-                  </mat-grid-list>
-            </mat-card>
-        </div>
-    </div>
+  <div class="m-2">
+    <h1 class="title">Kitchen Tools</h1>
+  </div>
+  <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
+    <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/kitchendetails',f.id]">
+      <div>
+        <mat-card class="example-card">
+          <img mat-card-image height="300px" src="{{f.img}}" alt="Photo of {{f.title}}">
+          <mat-card-content class="font-weight-bold">
+            <mat-card-title>{{f.name}}</mat-card-title>
+            <mat-card-subtitle>Price: ${{f.price}}</mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
     <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)"></mat-paginator>
 </div>
