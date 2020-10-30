@@ -13,6 +13,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooddetailsComponent } from './fooddetails/fooddetails.component';
 import { KitchenMenuComponent } from './kitchen-menu/kitchen-menu.component';
 import { KitchentoolDetailsComponent } from './kitchentool-details/kitchentool-details.component';
+import { FallWineBundlesComponent } from './fall-wine-bundles/fall-wine-bundles.component';
 
 import { FoodService } from './services/food.service';
 import { KitchentoolsService } from './services/kitchentools.service';
@@ -57,7 +58,8 @@ import { MatDividerModule } from '@angular/material/divider';
     FooddetailsComponent,
     KitchenMenuComponent,
     KitchentoolDetailsComponent,
-    FoodDonationComponent
+    FoodDonationComponent,
+    FallWineBundlesComponent
   ],
   imports: [
     BrowserModule,

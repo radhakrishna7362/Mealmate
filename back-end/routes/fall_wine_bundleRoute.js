@@ -2,7 +2,7 @@ const express=require('express');
 
 const FallWineBundle=express.Router();
 
-const FallWine=require('../models/kitchentools');
+const FallWine=require('../models/fall_wine_bundle');
 
 FallWineBundle.route('/menu').get((req,res,next) => {
     FallWine.find({})
