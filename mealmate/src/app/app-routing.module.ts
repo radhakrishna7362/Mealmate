@@ -8,6 +8,7 @@ import { KitchenMenuComponent } from './kitchen-menu/kitchen-menu.component';
 import { KitchentoolDetailsComponent } from './kitchentool-details/kitchentool-details.component';
 import { FoodDonationComponent } from './food-donation/food-donation.component';
 import { FallWineBundlesComponent } from './fall-wine-bundles/fall-wine-bundles.component';
+import { EssentialWinesComponent } from './essential-wines/essential-wines.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent},
   {path:'wines',component:FallWineBundlesComponent},
+  {path:'essentialwines',component:EssentialWinesComponent},
   {path:'',redirectTo:'home',pathMatch:'full'}
 ];
 

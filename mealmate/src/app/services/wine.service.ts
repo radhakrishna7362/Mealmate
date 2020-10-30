@@ -19,4 +19,16 @@ export class WineService {
   getAFallWineBundle(id){
     return this.http.get(`http://localhost:3000/fallwinebundle/particular/${id}`);
   }
+
+  getEssentialWine(){
+    return this.http.get("http://localhost:3000/essentialwine/menu");
+  }
+
+  getMainEssentialWine(){
+    return this.http.get("http://localhost:3000/essentialwine/home");
+  }
+
+  getAEssentialWine(id){
+    return this.http.get(`http://localhost:3000/essentialwine/particular/${id}`);
+  }
 }
