@@ -32,5 +32,4 @@ let essential_wine = new Schema({
 });
 
 essential_wine = mongoose.model("essential_wines", essential_wine);
-
 module.exports = essential_wine;
