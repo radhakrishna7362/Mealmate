@@ -9,17 +9,24 @@ import { KitchentoolDetailsComponent } from './kitchentool-details/kitchentool-d
 import { FoodDonationComponent } from './food-donation/food-donation.component';
 import { FallWineBundlesComponent } from './fall-wine-bundles/fall-wine-bundles.component';
 import { EssentialWinesComponent } from './essential-wines/essential-wines.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path:'menu',component:MenuComponent},
-  {path:'kitchenmenu',component:KitchenMenuComponent},
+  {path:'cart',component:CartComponent,canActivate: [AuthGuard]},
+  {path:'kitchenmenu',component:KitchenMenuComponent,canActivate: [AuthGuard]},
   {path:'details/:id',component:FooddetailsComponent},
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent},
   {path:'wines',component:FallWineBundlesComponent},
   {path:'essentialwines',component:EssentialWinesComponent},
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
   {path:'',redirectTo:'home',pathMatch:'full'}
 ];
 
