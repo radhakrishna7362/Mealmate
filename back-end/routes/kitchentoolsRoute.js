@@ -1,10 +1,24 @@
 const express=require('express');
+const jwt = require('jsonwebtoken');
 
 const Kitchen=express.Router();
 
 const KitchenTool=require('../models/kitchentools');
 
-Kitchen.route('/menu').get((req,res,next) => {
+function verifyToken(req, res, next) {
+    let token=req.query.token;
+    console.log(token);
+    jwt.verify(token,'112SecretKey',(err,tokendata)=>{
+        if(err)
+            return res.status(401).send('Unauthorized request')
+        if(tokendata){
+            decodedToken=tokendata
+            next()
+        }
+    })
+}
+
+Kitchen.route('/menu').get(verifyToken,(req,res,next) => {
     KitchenTool.find({})
     .then((resp) => {
         res.statusCode = 200;
