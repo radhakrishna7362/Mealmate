@@ -1,0 +1,34 @@
+.example-card {
+    width: 350px;
+    padding: 0;
+    margin: 0;
+}
+
+.example{
+    width: 250px;
+    margin-top: 10px;
+}
+
+.login-card{
+    margin: 25px;
+}
+
+.title{
+    font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: rgb(241, 156, 28);
+    color: white;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.example-button{
+    margin: 5px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    justify-content: center;
+    width: 100px;
+    background-color: rgb(241, 156, 28);
+    color: white;
+}

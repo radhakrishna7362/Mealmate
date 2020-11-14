@@ -1,0 +1,31 @@
+<div fxLayout="row" fxLayoutAlign="center" class="login-card">
+  <mat-card class="example-card">
+    <mat-toolbar class="title">
+      Login
+    </mat-toolbar>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+        <mat-icon>
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </mat-icon>
+        <mat-form-field class="example">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" [(ngModel)]="loginUserData.username" placeholder="Username">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+        <mat-icon>
+          <span class="material-icons">vpn_key</span>
+        </mat-icon>
+        <mat-form-field class="example">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [(ngModel)]="loginUserData.password" placeholder="Password">
+        </mat-form-field>
+      </div>
+      <p style="cursor: pointer;outline:none" routerLink="/register">New to MealMate? Create an account</p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
+      <button mat-raised-button (click)="loginUser()" class="example-button">Login</button>
+    </div>
+  </mat-card>
+</div>
