@@ -1,14 +1,33 @@
-<div fxLayout="column" class="row-content" class="footer" fxLayoutAlgin="center">
-  <div fxLayout="row" style="text-align:center" fxLayoutAlign="center center">
-    <a mat-icon-button class="btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
-    <a mat-icon-button class="btn-facebook" href="#"><i class="fa fa-facebook fa-lg"></i></a>
-    <a mat-icon-button class="btn-linkedin" href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-    <a mat-icon-button class="btn-twitter" href="#"><i class="fa fa-twitter fa-lg"></i></a>
-    <a mat-icon-button class="btn-youtube" href="#"><i class="fa fa-youtube fa-lg"></i></a>
-    <a mat-icon-button class="btn-mail" href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="footer" fxLayoutAlign="space-around">
+  <div fxLayout="column">
+    <h1 class="font-weight-bold">Navigation</h1>
+    <button style="text-align: left;" mat-button href="" routerLink="/home">Home</button>
+    <button style="text-align: left;" mat-button href="" routerLink="/about">About</button>
+    <button style="text-align: left;" mat-button href="" routerLink="/menu">Menu</button>
+    <button style="text-align: left;" mat-button href="" routerLink="/kitchenmenu">Kitchen Tools</button>
+    <button style="text-align: left;" mat-button href="" routerLink="/contactus">Contact</button>
   </div>
-  <div class="mt-4 font-weight-bold" fxLayout="column" fxLayoutAlign="center center">
-      <p>© Copyright 2020 MealMate</p>
-      <p>Creator: SDP PROJECT 26</p>
+  <div fxLayout="column">
+    <h2 class="font-weight-bold">Here You Can Find Us...!</h2>
+    <p> 2nd Line, 4th Street </p>
+      <p> Vijayawada </p>
+      <p> Andhra Pradesh </p>
+      <p> India </p>
   </div>
+  <div fxLayout="column" fxLayoutAlign="center center" class="mt-3">
+    <div fxLayout="row" style="text-align:center" >
+      <a mat-icon-button class="btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
+      <a mat-icon-button class="btn-facebook" href="#"><i class="fa fa-facebook fa-lg"></i></a>
+      <a mat-icon-button class="btn-linkedin" href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+      <a mat-icon-button class="btn-twitter" href="#"><i class="fa fa-twitter fa-lg"></i></a>
+      <a mat-icon-button class="btn-youtube" href="#"><i class="fa fa-youtube fa-lg"></i></a>
+      <a mat-icon-button class="btn-mail" href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+    </div>
+    <div class="mt-4 font-weight-bold" fxLayout="column">
+        <p>Creator: SDP PROJECT 26</p>
+    </div>
+  </div>
+</div>
+<div class="font-weight-bold" class="footer-title" fxLayout="column" fxLayoutAlign="center center">
+  <div>© Copyright 2020 MealMate</div>
 </div>

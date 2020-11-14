@@ -40,6 +40,7 @@
                         <span class="font-weight-bold m-1">{{food.calories}}</span>
                     </div>
                 </div>
+                <div class="mb-3"><button style="background-color:#ff9f00" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button></div>
             </div>
             <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
                 <img class="img-fluid" height="500px" width="450px" src="{{food.image}}" alt="">
@@ -71,18 +72,16 @@
             <h1 class="title">Instructions</h1>
         </div>
         <div *ngFor="let f of food.steps" class="mt-5">
-            <mat-card>
-                <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
-                    <img width="600px" height="400px" class="img-fluid" src="{{f.img}}" alt="">
-                    <div class="ml-1" fxLayout="column">
-                        <div fxLayout="row">
-                            <h2 class="font-weight-bold">{{f.number}}.</h2>
-                            <h2 class="font-weight-bold">{{f.desc}}</h2>
-                        </div>
-                        <div class="row-content-step" style="font-size: large;margin-bottom: 5px;">{{f.step}}</div>
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
+                <img width="600px" height="400px" class="img-fluid" src="{{f.img}}" alt="">
+                <div class="ml-1" fxLayout="column">
+                    <div fxLayout="row">
+                        <h2 class="font-weight-bold">{{f.number}}.</h2>
+                        <h2 class="font-weight-bold">{{f.desc}}</h2>
                     </div>
+                    <div class="row-content-step" style="font-size: large;margin-bottom: 5px;">{{f.step}}</div>
                 </div>
-            </mat-card>
+            </div>
         </div>
     </mat-card>
 </div>
