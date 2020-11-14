@@ -37,6 +37,6 @@ let food_donation = new Schema({
     }
 });
 
-food_donation = mongoose.model("foodDonation", food_donation);
+food_donation = mongoose.model("fooddonations", food_donation);
 
 module.exports = food_donation;
