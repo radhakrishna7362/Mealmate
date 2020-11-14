@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {KitchentoolsService} from '../services/kitchentools.service';
 import { PageEvent } from '@angular/material/paginator';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kitchen-menu',
@@ -20,7 +22,7 @@ export class KitchenMenuComponent implements OnInit {
   pageSize: number = 10;  //displaying three cards each row
   pageSizeOptions: number[] = [5,10];
 
-  constructor(private kitchentoolService:KitchentoolsService) {
+  constructor(private kitchentoolService:KitchentoolsService,private _router: Router) {
     
   }
 
@@ -31,6 +33,13 @@ export class KitchenMenuComponent implements OnInit {
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
       this.pagedList = this.productsList.slice(0, 10);
       this.length = this.productsList.length;
+    },
+    err => {
+      if( err instanceof HttpErrorResponse ) {
+        if (err.status === 401) {
+          this._router.navigate(['/login'])
+        }
+      }
     })
     // this.productsList=this.foodService.getFood();
   }
