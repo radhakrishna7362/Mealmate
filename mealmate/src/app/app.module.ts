@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,11 +16,18 @@ import { KitchenMenuComponent } from './kitchen-menu/kitchen-menu.component';
 import { KitchentoolDetailsComponent } from './kitchentool-details/kitchentool-details.component';
 import { FallWineBundlesComponent } from './fall-wine-bundles/fall-wine-bundles.component';
 import { EssentialWinesComponent } from './essential-wines/essential-wines.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FoodDonationComponent } from './food-donation/food-donation.component';
+import { CartComponent } from './cart/cart.component';
 
+import {TokenInterceptorService} from './services/token-interceptor.service';
+import { CartService } from './services/cart.service';
 import { FoodService } from './services/food.service';
 import { KitchentoolsService } from './services/kitchentools.service';
 import {FoodDonationService} from './services/food-donation.service';
 import {WineService} from './services/wine.service';
+import { AuthService } from './services/auth.service';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
@@ -35,7 +43,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
-import {ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -44,9 +51,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
-import { FoodDonationComponent } from './food-donation/food-donation.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -61,7 +68,10 @@ import { MatDividerModule } from '@angular/material/divider';
     KitchentoolDetailsComponent,
     FoodDonationComponent,
     FallWineBundlesComponent,
-    EssentialWinesComponent
+    EssentialWinesComponent,
+    LoginComponent,
+    RegisterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +79,7 @@ import { MatDividerModule } from '@angular/material/divider';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -86,14 +97,14 @@ import { MatDividerModule } from '@angular/material/divider';
     MatFormFieldModule,
     MatCheckboxModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatSliderModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
   ],
-  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService],
+  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,TokenInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

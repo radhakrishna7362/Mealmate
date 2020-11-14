@@ -1,0 +1,13 @@
+.jumbo {
+    margin: 0px auto;
+    padding: 70px 30px;
+    background: rgb(241, 156, 28);
+    color: #871A1A;;
+    min-height: 100px;
+}
+
+.mini-jumbo {
+    margin: 0px auto;
+    padding: 70px 30px;
+    min-height: 100px;
+}
