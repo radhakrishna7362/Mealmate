@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginData)
     .subscribe(
       res => {
+        this.snackbar.open('LOGIN SUCCESSFULL', 'OK', {
+          duration: 3000,
+        });
         localStorage.setItem('token', res.token)
         this._router.navigate(['/home'])
       },
