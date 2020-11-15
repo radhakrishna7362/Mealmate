@@ -1,4 +1,4 @@
-<mat-drawer-container class="example-container">
+<mat-drawer-container>
     <mat-drawer #drawer class="side-nav">
         <mat-list role="list" class="side-list">
             <mat-list-item *ngIf="User" class="list-item">
@@ -39,7 +39,7 @@
                 <div mat-line>FoodDonation</div>
             </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item routerLink='#' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+            <mat-list-item routerLink='/wine' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-cocktail" aria-hidden="true"></i>
                 </mat-icon>
@@ -48,7 +48,7 @@
             <mat-divider></mat-divider>
         </mat-list>
     </mat-drawer>
-    <mat-drawer-content>
+    <mat-drawer-content fxLayout="column" fxFlexFill>
         <div fxLayout="row" fxLayoutAlign="space-between center" style="background-color: #871A1A;height: 65px;color: white;padding-right: 5px;">
             <div fxLayoutAlign="center center">
                 <button mat-icon-button (click)="drawer.toggle()" style="outline: none;"><span class="material-icons">menu</span></button>
@@ -60,7 +60,9 @@
                 <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" mat-button routerLink='/register' routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
             </div>
         </div>
-        <router-outlet></router-outlet>
+        <div fxFlex>
+            <router-outlet></router-outlet>
+        </div>
         <app-footer></app-footer>
     </mat-drawer-content>
 </mat-drawer-container>

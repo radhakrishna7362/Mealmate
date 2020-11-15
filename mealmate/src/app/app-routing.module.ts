@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { CartComponent } from './cart/cart.component';
+import { WineComponent } from './wine/wine.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -23,10 +24,11 @@ const routes: Routes = [
   {path:'details/:id',component:FooddetailsComponent},
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent},
-  {path:'wines',component:FallWineBundlesComponent},
+  {path:'fallwines',component:FallWineBundlesComponent},
   {path:'essentialwines',component:EssentialWinesComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'wine',component:WineComponent},
   {path:'',redirectTo:'home',pathMatch:'full'}
 ];
 

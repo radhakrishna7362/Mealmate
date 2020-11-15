@@ -1,0 +1,27 @@
+.example-card {
+    width: 350px;
+    height: 450px;
+}
+
+.heading{
+  width: fit-content;
+  height: 40px;
+}
+
+.row-content{
+  padding: 25px;
+  border-bottom: 3px ridge;
+}
+
+.title{
+  font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #0f346c;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.row-heading{
+  margin-left: 10px;
+}

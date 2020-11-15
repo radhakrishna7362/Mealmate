@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FoodDonationComponent } from './food-donation/food-donation.component';
 import { CartComponent } from './cart/cart.component';
+import { WineComponent } from './wine/wine.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -71,7 +72,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     EssentialWinesComponent,
     LoginComponent,
     RegisterComponent,
-    CartComponent
+    CartComponent,
+    WineComponent
   ],
   imports: [
     BrowserModule,
