@@ -40,7 +40,14 @@
                         <span class="font-weight-bold m-1">{{food.calories}}</span>
                     </div>
                 </div>
-                <div class="mb-3"><button style="background-color:#ff9f00" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button></div>
+                <div class="mb-3">
+                    <button mat-icon-button style="outline: none;" (click)="minus()"><mat-icon>remove</mat-icon></button>
+                    <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="qty" style="text-align: center;">
+                    </mat-form-field>
+                    <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
+                    <button style="background-color:#ff9f00" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+                </div>
             </div>
             <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
                 <img class="img-fluid" height="500px" width="450px" src="{{food.image}}" alt="">

@@ -10,6 +10,10 @@ let cart = new Schema({
     ProductId:{
         type:Number,
         required:true
+    },
+    Qty:{
+        type:Number,
+        required:true
     }
 });
 

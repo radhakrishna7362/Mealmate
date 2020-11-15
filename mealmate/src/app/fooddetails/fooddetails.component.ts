@@ -15,7 +15,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class FooddetailsComponent implements OnInit {
 
   food;
-  cart={userid:null,productid:null};
+  qty=1;
+  cart={userid:null,productid:null,qty:null};
   constructor(private route:ActivatedRoute,private foodService:FoodService,public _authService: AuthService,
     private cartService:CartService,private snackbar:MatSnackBar) { }
 
@@ -28,24 +29,43 @@ export class FooddetailsComponent implements OnInit {
     })
   }
 
+  add(){
+    if(this.qty<6)
+      this.qty=this.qty+1
+  }
+
+  minus(){
+    if(this.qty>1)
+      this.qty=this.qty-1
+  }
+
   onCart(){
     if(this._authService.getToken()){
       this._authService.getUserId().subscribe((data)=>{
         this.cart.userid=data;
         this.cart.productid=this.food.id;
+        this.cart.qty=this.qty;
         this.cartService.addCart(this.cart)
           .subscribe(
-            res => {
-              this.snackbar.open('Added to Cart Successfully!!', 'OK', {
-                duration: 3000,
-              });
+            (res) => {
+              console.log(res);
             },
             err => {
               if( err instanceof HttpErrorResponse ) {
-                if (err.status === 401) {
+                if (err.status === 401 || err.status === 500) {
                   this.snackbar.open('Error Failed Adding to Cart', 'OK', {
                     duration: 3000,
                   });
+                }
+                if (err.status === 409) {
+                  this.snackbar.open('Already in Cart', 'OK', {
+                    duration: 3000,
+                  });
+                }
+                if(err.status===200){
+                  this.snackbar.open('Added to Cart Successfully!!', 'OK', {
+                    duration: 3000,
+                  })
                 }
               }
             });
