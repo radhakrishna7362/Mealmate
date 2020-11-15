@@ -21,6 +21,8 @@ import { RegisterComponent } from './register/register.component';
 import { FoodDonationComponent } from './food-donation/food-donation.component';
 import { CartComponent } from './cart/cart.component';
 import { WineComponent } from './wine/wine.component';
+import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
+import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-details/essential-wine-bundle-details.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -33,6 +35,7 @@ import { AuthService } from './services/auth.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
@@ -55,8 +58,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
-import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-details/essential-wine-bundle-details.component';
 
 @NgModule({
   declarations: [

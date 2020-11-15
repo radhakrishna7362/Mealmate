@@ -1,7 +1,8 @@
 <app-header></app-header>
 <div fxLayout="column" class="row-content">
-  <div class="row row-heading">
+  <div class="row row-heading" fxLayoutAlign="space-between center">
     <h1 class="title">Top Food</h1>
+    <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/menu'>View All</button>
   </div>
   <div class="row" fxLayoutAlign="space-around">
     <div *ngFor="let f of food" style="padding: 10px;outline: none;" [routerLink]="['/details',f.id]">
@@ -20,8 +21,9 @@
   </div>
 </div>
 <div fxLayout="column" class="row-content">
-  <div class="row row-heading">
+  <div class="row row-heading" fxLayoutAlign="space-between center">
     <h1 class="title">Kitchen Tools</h1>
+    <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/kitchenmenu'>View All</button>
   </div>
   <div class="row" fxLayoutAlign="space-around">
     <div *ngFor="let f of kitchentls" style="padding: 10px;outline: none;" [routerLink]="['/kitchendetails',f.id]">
@@ -38,3 +40,4 @@
     </div>
   </div>
 </div>
+<app-wine></app-wine>
