@@ -23,7 +23,7 @@ function verifyToken(req, res, next) {
 
 UserRoute.route('/register').post((req, res) => {
     let user = new User({
-      username : req.body.username,
+      name : req.body.name,
       email : req.body.email,
       password : bcrypt.hashSync(req.body.password, 10)
     })
@@ -44,7 +44,7 @@ UserRoute.route('/register').post((req, res) => {
 })
 
 UserRoute.route('/login').post((req, res) => { 
-    User.findOne({username: req.body.username}, (error, u) => {
+    User.findOne({email: req.body.email}, (error, u) => {
         if (error) {
             console.log( error)
         } else {
@@ -69,7 +69,7 @@ UserRoute.route('/username/:id').get((req,res,next)=>{
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(resp.username);
+        res.json(resp.name);
     }, (err) => next(err))
     .catch((err) => next(err));
 })

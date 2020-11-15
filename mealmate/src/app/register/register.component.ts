@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = { username: "", email: "", password: "" }
+  registerUserData = { name: "", email: "", password: "" }
   constructor(private _auth: AuthService,
               private _router: Router,private snackbar:MatSnackBar) { }
 
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
             this.snackbar.open('EMAIL ALREADY REGISTERED', 'OK', {
               duration: 3000,
             });
-            this.registerUserData.username="";
+            this.registerUserData.name="";
             this.registerUserData.email="";
             this.registerUserData.password="";
           }

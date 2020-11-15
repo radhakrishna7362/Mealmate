@@ -22,7 +22,7 @@ CartRoute.route('/add').post((req, res) => {
 
 CartRoute.route('/get/:id').get((req,res)=>{
     console.log(req.params.id)
-    Cart.findOne({UserId:req.params.id})
+    Cart.find({UserId:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

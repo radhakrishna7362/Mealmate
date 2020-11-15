@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = { username: "", password: "" }
+  loginUserData = { email: "", password: "" }
 
   constructor(private _auth: AuthService,
               private _router: Router,private snackbar:MatSnackBar) { }
@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 401) {
-            this.snackbar.open('INVALID USERNAME OR PASSWORD', 'OK', {
+            this.snackbar.open('INVALID EMAIL OR PASSWORD', 'OK', {
               duration: 3000,
             });
-            this.loginUserData.username="";
+            this.loginUserData.email="";
             this.loginUserData.password="";
           }
         }
