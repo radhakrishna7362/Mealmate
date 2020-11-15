@@ -19,6 +19,7 @@ export class WineComponent implements OnInit {
     })
     this.wineService.getMainEssentialWine().subscribe((data)=>{
       this.EsseWine=data;
+      console.log(data);
     })
   }
 

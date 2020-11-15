@@ -56,6 +56,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
+import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-details/essential-wine-bundle-details.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-
     RegisterComponent,
     CartComponent,
     WineComponent,
-    FallWineBundleDetailsComponent
+    FallWineBundleDetailsComponent,
+    EssentialWineBundleDetailsComponent
   ],
   imports: [
     BrowserModule,

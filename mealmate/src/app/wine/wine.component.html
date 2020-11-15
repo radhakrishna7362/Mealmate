@@ -24,7 +24,7 @@
       <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/essentialwines'>View All</button>
     </div>
     <div class="row" fxLayoutAlign="space-around">
-      <div *ngFor="let f of EsseWine" style="padding: 10px;outline: none;" [routerLink]="['/essentialwines',f.id]">
+      <div *ngFor="let f of EsseWine" style="padding: 10px;outline: none;" [routerLink]="['/essentialwine',f.id]">
         <mat-card class="example-card">
           <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
           <mat-card-content class="font-weight-bold">
@@ -37,4 +37,4 @@
         <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
     </div>
-  </div>
+</div>
