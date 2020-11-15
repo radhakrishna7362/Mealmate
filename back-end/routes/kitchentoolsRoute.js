@@ -18,7 +18,7 @@ function verifyToken(req, res, next) {
     })
 }
 
-Kitchen.route('/menu').get(verifyToken,(req,res,next) => {
+Kitchen.route('/menu').get((req,res,next) => {
     KitchenTool.find({})
     .then((resp) => {
         res.statusCode = 200;

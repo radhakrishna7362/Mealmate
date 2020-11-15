@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'menu',component:MenuComponent},
   {path:'cart',component:CartComponent,canActivate: [AuthGuard]},
-  {path:'kitchenmenu',component:KitchenMenuComponent,canActivate: [AuthGuard]},
+  {path:'kitchenmenu',component:KitchenMenuComponent},
   {path:'details/:id',component:FooddetailsComponent},
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent},
