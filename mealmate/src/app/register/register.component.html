@@ -10,7 +10,8 @@
         </mat-icon>
         <mat-form-field class="example">
           <mat-label>Name</mat-label>
-          <input matInput type="text" [(ngModel)]="registerUserData.name" placeholder="Name">
+          <input matInput type="text" [formControl]="registerData.name" placeholder="Name" required>
+          <mat-error *ngIf="registerData.name.invalid">{{getMessage()}}</mat-error>
         </mat-form-field>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
@@ -19,22 +20,27 @@
         </mat-icon>
         <mat-form-field class="example">
           <mat-label>Email</mat-label>
-          <input matInput type="text" [(ngModel)]="registerUserData.email" placeholder="Email">
+          <input matInput type="text" [formControl]="registerData.email" placeholder="Email" required>
+          <mat-error *ngIf="registerData.email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-        <mat-icon>
+        <mat-icon matSuffix>
           <span class="material-icons">vpn_key</span>
         </mat-icon>
         <mat-form-field class="example">
           <mat-label>Password</mat-label>
-          <input matInput type="password" [(ngModel)]="registerUserData.password" placeholder="Password">
+          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="registerData.password" placeholder="Password" required> 
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="registerData.password.invalid">{{getError()}}</mat-error>
         </mat-form-field>
       </div>
       <p style="cursor: pointer;outline:none" routerLink="/login">Already a User in MealMate? Click here to login</p>
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
-      <button mat-raised-button color="primary" (click)="registerUser()" class="example-button">Register</button>
+      <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="registerData.password.invalid || registerData.name.invalid || registerData.email.invalid" class="example-button">Register</button>
     </div>
   </mat-card>
 </div>
