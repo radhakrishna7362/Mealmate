@@ -4,7 +4,7 @@
       <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/fallwines'>View All</button>
     </div>
     <div class="row" fxLayoutAlign="space-around">
-      <div *ngFor="let f of FallWine" style="padding: 10px;outline: none;" [routerLink]="['/fallwines',f.id]">
+      <div *ngFor="let f of FallWine" style="padding: 10px;outline: none;" [routerLink]="['/fallwine',f.id]">
         <mat-card class="example-card">
           <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
           <mat-card-content class="font-weight-bold">

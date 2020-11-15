@@ -1,0 +1,19 @@
+<div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content" *ngIf="fallwine" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
+        <img class="img-fluid" style="border-radius: 5px;" height="500px" width="450px" src="{{fallwine.image}}" alt="{{fallwine.name}}">
+    </div>
+    <div fxFlex.md="50" fxFlex.lg="50">
+        <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{fallwine.name}}</h1>
+        <h2 class="font-weight-bold">{{fallwine.description}}</h2>
+        <h3 style="border-bottom: 2px ridge;">Price: {{fallwine.price}}</h3>
+        <div fxLayout="column">
+            <div fxLayout="column" style="border-bottom: 2px ridge;padding-bottom: 10px;">
+                <h2 style="margin: 0;font-weight: bold;font-family: 'Times New Roman', Times, serif;">Details</h2>
+                <li *ngFor="let d of fallwine.summary">{{d.msg}}</li>
+            </div>
+        </div>
+    </div>
+</div>
+<div fxFlex [hidden]="fallwine">
+    <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>

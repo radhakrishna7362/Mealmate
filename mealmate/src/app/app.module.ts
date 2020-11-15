@@ -55,6 +55,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     LoginComponent,
     RegisterComponent,
     CartComponent,
-    WineComponent
+    WineComponent,
+    FallWineBundleDetailsComponent
   ],
   imports: [
     BrowserModule,

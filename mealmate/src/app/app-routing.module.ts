@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { CartComponent } from './cart/cart.component';
 import { WineComponent } from './wine/wine.component';
+import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent},
   {path:'fallwines',component:FallWineBundlesComponent},
+  {path:'fallwine/:id',component:FallWineBundleDetailsComponent},
   {path:'essentialwines',component:EssentialWinesComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
