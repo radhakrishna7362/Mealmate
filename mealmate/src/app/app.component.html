@@ -49,6 +49,12 @@
                 </mat-icon>
                 <div mat-line>Wine</div>
             </mat-list-item>
+            <mat-list-item routerLink='/orders' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="material-icons">shopping_cart</i>
+                </mat-icon>
+                <div mat-line>Your Orders</div>
+            </mat-list-item>
             <mat-divider></mat-divider>
         </mat-list>
     </mat-drawer>

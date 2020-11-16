@@ -23,6 +23,8 @@ import { CartComponent } from './cart/cart.component';
 import { WineComponent } from './wine/wine.component';
 import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
 import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-details/essential-wine-bundle-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OrderComponent } from './order/order.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -31,6 +33,7 @@ import { KitchentoolsService } from './services/kitchentools.service';
 import {FoodDonationService} from './services/food-donation.service';
 import {WineService} from './services/wine.service';
 import { AuthService } from './services/auth.service';
+import { OrderService } from './services/order.service';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
@@ -58,7 +61,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     WineComponent,
     FallWineBundleDetailsComponent,
     EssentialWineBundleDetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +116,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatSnackBarModule,
     MatTooltipModule
   ],
-  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,TokenInterceptorService],
+  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,TokenInterceptorService,OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

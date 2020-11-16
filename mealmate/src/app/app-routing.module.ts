@@ -17,6 +17,7 @@ import { WineComponent } from './wine/wine.component';
 import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-wine-bundle-details.component';
 import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-details/essential-wine-bundle-details.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'wine',component:WineComponent},
+  {path:'orders',component:OrderComponent,canActivate: [AuthGuard]},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent}
 ];
