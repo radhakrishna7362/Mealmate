@@ -3,8 +3,7 @@ import { CartService } from '../services/cart.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FoodService } from '../services/food.service';
-import { PageEvent } from '@angular/material/paginator';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -26,6 +25,8 @@ export class CartComponent implements OnInit {
   // length: number = 0;
   // pageSize: number = 10;  displaying three cards each row
   // pageSizeOptions: number[] = [5,10];
+  deleteProduct={userid:null,productid:null};
+
   constructor(private cartService:CartService,public authService:AuthService,private router:Router,private snackbar:MatSnackBar) { 
     
   }
@@ -94,11 +95,31 @@ export class CartComponent implements OnInit {
     })
     return total;
   }
+
   getQuantity(){
     let total:number=0;
     this.cart.forEach(x=>{
       total=total+x.qty*1;
     })
     return total;
+  }
+
+  delete(userid,productid){
+    console.log(userid,productid)
+    this.deleteProduct.userid=userid;
+    this.deleteProduct.productid=productid;
+    this.cartService.deleteProduct(this.deleteProduct)
+    .subscribe((res)=>{
+      
+    },err=>{
+      if( err instanceof HttpErrorResponse ) {
+        if (err.status === 200) {
+          this.snackbar.open('DELETED SUCCESSFULLY!!','OK',{
+            duration: 3000,
+          });
+        }
+        this.ngOnInit();
+      }
+    })
   }
 }

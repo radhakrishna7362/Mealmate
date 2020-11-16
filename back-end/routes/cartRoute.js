@@ -26,13 +26,23 @@ CartRoute.route('/add').post((req, res) => {
     })
 })
 
-CartRoute.route('/get/:id').get((req,res)=>{
+CartRoute.route('/get/:id').get((req,res,next)=>{
     console.log(req.params.id)
     Cart.find({userid:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
+CartRoute.route('/remove/:userid/:productid').delete((req,res,next)=>{
+    console.log(req.params.userid,req.params.productid)
+    Cart.deleteOne({userid:req.params.userid,productid:req.params.productid})
+    .then((resp) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send("Removed Successfully")
     }, (err) => next(err))
     .catch((err) => next(err));
 })

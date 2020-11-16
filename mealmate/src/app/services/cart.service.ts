@@ -16,4 +16,9 @@ export class CartService {
   getCart(UserId){
     return this.http.get(`http://localhost:3000/cart/get/${UserId}`);
   }
+
+  deleteProduct(cart){
+    console.log(cart)
+    return this.http.delete(`http://localhost:3000/cart/remove/${cart.userid}/${cart.productid}`);
+  }
 }
