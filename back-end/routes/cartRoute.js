@@ -7,12 +7,7 @@ const CartRoute=express.Router();
 
 CartRoute.route('/add').post((req, res) => {
     console.log(req.body);
-    let cart = new Cart({
-      UserId : req.body.userid,
-      ProductId : req.body.productid,
-      Qty:req.body.qty
-    })
-    Cart.findOne({UserId:req.body.userid,ProductId:req.body.productid},(err,u)=>{
+    Cart.findOne({userid:req.body.userid,productid:req.body.productid},(err,u)=>{
         if(err){
             return res.status(500).send(err);
         }
@@ -20,20 +15,20 @@ CartRoute.route('/add').post((req, res) => {
             return res.status(409).send("Already in the cart")
         }
         else{
-            cart.save((error, c) => {
-                if (error) {
-                    return res.status(401).send("Error adding to cart");
-                } else {
-                    return res.status(200).send("Added to cart")
-                }
-            })
+            Cart.create(req.body)
+            .then((resp) => {
+                console.log('new responce ', resp);
+                res.setHeader('Content-Type', 'application/json');
+                res.status(200).send("Added to cart")
+            }, (err) => res.status(401).send("Error adding to cart"))
+            .catch((err) => res.status(401).send("Error adding to cart"));
         }
     })
 })
 
 CartRoute.route('/get/:id').get((req,res)=>{
     console.log(req.params.id)
-    Cart.find({UserId:req.params.id})
+    Cart.find({userid:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
