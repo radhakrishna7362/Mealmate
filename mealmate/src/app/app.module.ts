@@ -58,6 +58,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     CartComponent,
     WineComponent,
     FallWineBundleDetailsComponent,
-    EssentialWineBundleDetailsComponent
+    EssentialWineBundleDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
