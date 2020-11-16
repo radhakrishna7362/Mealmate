@@ -17,6 +17,7 @@ const FallWineBundle=require('./routes/fall_wine_bundleRoute');
 const EssentialWine=require('./routes/essential_wineRoute');
 const UserRoute=require('./routes/userRoute');
 const CartRoute=require('./routes/cartRoute');
+const OrderRoute=require('./routes/orderRoute');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -27,5 +28,6 @@ app.use('/fallwinebundle',FallWineBundle);
 app.use('/essentialwine',EssentialWine);
 app.use('/user',UserRoute);
 app.use('/cart',CartRoute);
+app.use('/order',OrderRoute);
 
 app.listen(port, () => console.log(`running on the server ${port}`));
