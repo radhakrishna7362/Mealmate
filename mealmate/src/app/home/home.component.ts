@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this._authService.loggedIn()){
+      this._authService.onLogin();
+    }
     this.foodService.getMainFood().subscribe((data)=>{
       this.food=data;
     })

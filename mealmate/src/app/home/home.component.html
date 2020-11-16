@@ -28,7 +28,7 @@
   <div class="row" fxLayoutAlign="space-around">
     <div *ngFor="let f of kitchentls" style="padding: 10px;outline: none;" [routerLink]="['/kitchendetails',f.id]">
       <mat-card class="example-card">
-        <img mat-card-image height="300px" src="{{f.img}}" alt="Photo of {{f.title}}">
+        <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
         <mat-card-content class="font-weight-bold">
           <mat-card-title>{{f.name}}</mat-card-title>
           <mat-card-subtitle>Price: ${{f.price}}</mat-card-subtitle>

@@ -61,7 +61,7 @@
             <div fxLayoutAlign="center center">
                 <button style="outline: none;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
                 <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-button routerLink='/login' routerLinkActive='active'><i class="material-icons">login</i>Login</button>
-                <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
+                <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="logout()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
             </div>
         </div>
         <div fxFlex>

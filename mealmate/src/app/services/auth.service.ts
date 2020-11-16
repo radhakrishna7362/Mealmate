@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Router } from '@angular/router'
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class AuthService {
   constructor(private http: HttpClient,
     private _router: Router) { }
 
+    invokeAppComponent=new EventEmitter();
+    subsVar:Subscription;
+
     registerUser(user) {
       return this.http.post<any>(this._registerUrl, user)
     }
@@ -23,9 +27,12 @@ export class AuthService {
   
     logoutUser() {
       localStorage.removeItem('token')
-      this._router.navigate(['/home'])
     }
   
+    onLogin(){
+      this.invokeAppComponent.emit();
+    }
+
     getToken() {
       return localStorage.getItem('token')
     }

@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
           duration: 3000,
         });
         localStorage.setItem('token', res.token)
+        this._auth.onLogin();
         this._router.navigate(['/home'])
       },
       err => {
