@@ -30,4 +30,5 @@
     background-color: rgb(241, 156, 28);
     justify-content: center;
     width: 100px;
+    outline: none;
 }
