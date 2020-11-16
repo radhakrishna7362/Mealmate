@@ -16,7 +16,7 @@ export class FooddetailsComponent implements OnInit {
 
   food;
   qty=1;
-  cart={userid:null,productid:null,qty:null};
+  cart={userid:null,productid:null,qty:null,image:null,name:null,price:null};
   constructor(private route:ActivatedRoute,private foodService:FoodService,public _authService: AuthService,
     private cartService:CartService,private snackbar:MatSnackBar) { }
 
@@ -45,6 +45,9 @@ export class FooddetailsComponent implements OnInit {
         this.cart.userid=data;
         this.cart.productid=this.food.id;
         this.cart.qty=this.qty;
+        this.cart.image=this.food.image;
+        this.cart.name=this.food.name;
+        this.cart.price=this.food.price;
         this.cartService.addCart(this.cart)
           .subscribe(
             (res) => {
