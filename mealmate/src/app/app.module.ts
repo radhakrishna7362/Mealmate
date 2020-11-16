@@ -25,6 +25,7 @@ import { FallWineBundleDetailsComponent } from './fall-wine-bundle-details/fall-
 import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-details/essential-wine-bundle-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OrderComponent } from './order/order.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -84,6 +85,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     EssentialWineBundleDetailsComponent,
     PageNotFoundComponent,
     OrderComponent,
+    ThankYouComponent,
   ],
   imports: [
     BrowserModule,

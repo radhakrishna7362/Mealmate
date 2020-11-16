@@ -1,5 +1,5 @@
-<div>
-    <h1 *ngIf="!authService.loggedIn()" class="title">Please Login</h1>
+<div style="padding: 10px;margin: 10px;">
+    <h1 *ngIf="length!=0" class="title">Your Orders</h1>
     <div *ngIf="length==0" fxLayoutAlign="center">
         <img class="img-fluid" src="../../assets//noorder-1.jpg" alt="">
     </div>
@@ -28,7 +28,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
-      <div fxLayoutAlign="space-between">
+      <div fxLayoutAlign="end">
         <button mat-raised-button [routerLink]="['/home']" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-right: 5px;">
           Continue Shopping
         </button>
