@@ -47,7 +47,7 @@
                         <input matInput [(ngModel)]="qty" style="text-align: center;">
                     </mat-form-field>
                     <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
-                    <button style="background-color:#ff9f00" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+                    <button style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
                 </div>
             </div>
             <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
