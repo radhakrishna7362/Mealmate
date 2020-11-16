@@ -7,3 +7,27 @@
     text-transform: uppercase;
     text-align: center;
 }
+
+/* .example-card {
+    width: 350px;
+    height: 450px;
+}*/
+
+.CartList{
+    flex: 1 1 auto;
+    margin: 1%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+  
+tr.mat-footer-row {
+    font-weight: bold;
+}
+
+th.mat-header-cell {
+    font-weight: bold;
+    text-align: center;
+}

@@ -3,6 +3,8 @@ import { CartService } from '../services/cart.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FoodService } from '../services/food.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-cart',
@@ -11,8 +13,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CartComponent implements OnInit {
 
-  cart;
+  displayedColumns=['name','quantity','price','actions'];
+  // displayedColumns=['name','quantity','price'];
+  cart=[];
   UserId;
+  // productsList=[];
+  length;
+  // filterList=[];
+  // pagedList;
+  // breakpoint: number = 3;  to adjust to screen
+  // MatPaginator Inputs
+  // length: number = 0;
+  // pageSize: number = 10;  displaying three cards each row
+  // pageSizeOptions: number[] = [5,10];
   constructor(private cartService:CartService,public authService:AuthService,private router:Router,private snackbar:MatSnackBar) { 
     
   }
@@ -23,11 +36,15 @@ export class CartComponent implements OnInit {
         (res)=>{
           this.UserId=res
           console.log(this.UserId)
-          this.cartService.getCart(this.UserId).subscribe(
-            (data)=>{
+          this.cartService.getCart(res).subscribe(
+            (data:any[])=>{
               console.log(data)
               this.cart=data
-            });  
+              this.length=this.cart.length;
+              // this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
+              // this.pagedList = this.productsList.slice(0, 10);
+              // this.length = this.productsList.length;
+            });
         });
     }
     else{
@@ -38,4 +55,50 @@ export class CartComponent implements OnInit {
     }
   }
 
+  // OnPageChange(event: PageEvent){
+  //   let startIndex = event.pageIndex * event.pageSize;
+  //   let endIndex = startIndex + event.pageSize;
+  //   if(endIndex > this.length){
+  //     endIndex = this.length;
+  //   }
+  //   this.pagedList = this.productsList.slice(startIndex, endIndex);
+  // }
+
+  // onResize(event) { //to adjust to screen size
+  //   this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
+  // }
+
+  // OnChange(){
+  //   this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
+  //   this.pagedList = this.filterList.slice(0, 10);
+  //   this.length = this.filterList.length;
+  // }
+
+  // Search(){
+  //   if(this.name != ""){
+  //     this.filterList = this.productsList.filter(res=>{
+  //       return res.title.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+  //     });
+  //     console.log(this.filterList);
+  //     this.OnChange();
+  //   }
+  //   else if(this.name == ""){
+  //    this.ngOnInit();
+  //   }
+  // }
+
+  getTotalCost() {
+    let total:number=0;
+    this.cart.forEach(x=>{
+      total=total+(x.qty*x.price);
+    })
+    return total;
+  }
+  getQuantity(){
+    let total:number=0;
+    this.cart.forEach(x=>{
+      total=total+x.qty*1;
+    })
+    return total;
+  }
 }
