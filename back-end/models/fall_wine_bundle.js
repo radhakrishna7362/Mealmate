@@ -16,7 +16,7 @@ let fall_wine_bundle = new Schema({
         required:true
     },
     price:{
-        type:String,
+        type:Number,
         required:true
     },
     image:{

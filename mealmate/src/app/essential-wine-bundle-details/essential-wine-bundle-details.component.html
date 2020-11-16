@@ -5,7 +5,7 @@
     <div fxFlex.md="50" fxFlex.lg="50">
         <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{essentialwine.name}}</h1>
         <h2 class="font-weight-bold">{{essentialwine.description}}</h2>
-        <h3 style="border-bottom: 2px ridge;">Price: {{essentialwine.price}}</h3>
+        <h3 style="border-bottom: 2px ridge;">Price: {{essentialwine.price | currency}}/SERVING</h3>
         <div fxLayout="column">
             <div fxLayout="column" style="border-bottom: 2px ridge;padding-bottom: 10px;">
                 <h2 style="margin: 0;font-weight: bold;font-family: 'Times New Roman', Times, serif;">Details</h2>
