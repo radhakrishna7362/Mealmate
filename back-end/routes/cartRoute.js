@@ -1,5 +1,3 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
 const Cart=require('../models/cart');
 const express=require('express');
 
@@ -40,6 +38,15 @@ CartRoute.route('/get/:id').get((req,res,next)=>{
 CartRoute.route('/remove/:userid/:productid').delete((req,res,next)=>{
     console.log(req.params.userid,req.params.productid)
     Cart.deleteOne({userid:req.params.userid,productid:req.params.productid})
+    .then((resp) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send("Removed Successfully")
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
+CartRoute.route('/removeAll/:userid').delete((req,res,next)=>{
+    Cart.deleteMany({userid:req.params.userid})
     .then((resp) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).send("Removed Successfully")

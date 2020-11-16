@@ -21,4 +21,13 @@ export class CartService {
     console.log(cart)
     return this.http.delete(`http://localhost:3000/cart/remove/${cart.userid}/${cart.productid}`);
   }
+
+  checkOut(cart){
+    return this.http.post("http://localhost:3000/order/move",cart);
+  }
+
+  clearCart(cart){
+    console.log(cart)
+    return this.http.delete(`http://localhost:3000/cart/removeAll/${cart[0].userid}`);
+  }
 }

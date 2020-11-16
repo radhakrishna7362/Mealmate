@@ -122,4 +122,32 @@ export class CartComponent implements OnInit {
       }
     })
   }
+
+  onCheckout(){
+    this.cartService.checkOut(this.cart)
+    .subscribe(()=>{
+      
+    },
+    err=>{
+      if(err instanceof HttpErrorResponse){
+        if(err.status===200){
+          this.cartService.clearCart(this.cart)
+          .subscribe(()=>{
+
+          },
+          err=>{
+            if( err instanceof HttpErrorResponse ) {
+              if (err.status === 200) {
+                this.snackbar.open('ORDER PLACED SUCCESSFULLY!!','OK',{
+                  duration: 3000,
+                });
+              }
+              this.ngOnInit();
+            }
+          })
+        }
+      }
+    })
+  }
+
 }
