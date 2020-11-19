@@ -27,6 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { OrderComponent } from './order/order.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
+import { FoodThanksComponent } from './food-thanks/food-thanks.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -63,7 +64,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { FoodThanksComponent } from './food-thanks/food-thanks.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { FoodThanksComponent } from './food-thanks/food-thanks.component';
     MatSliderModule,
     MatTableModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
   ],
   providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,TokenInterceptorService,OrderService],
   bootstrap: [AppComponent]

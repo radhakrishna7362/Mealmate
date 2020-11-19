@@ -1,5 +1,6 @@
-<mat-drawer-container>
-    <mat-drawer #drawer class="side-nav">
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="side-nav"
+        [mode]="'over'">
         <mat-list role="list" class="side-list">
             <mat-list-item *ngIf="User" class="list-item">
                 <div mat-line style="font-weight: bold;font-style: italic;">Hello {{User}}</div>
@@ -12,68 +13,68 @@
                 <mat-icon mat-list-icon>
                     <i class="fa fa-home"></i>
                 </mat-icon>
-                <div mat-line>Home</div>
+                <div mat-line style="font-weight: bold;">Home</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item routerLink='/about' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fa fa-info-circle fa-md" aria-hidden="true"></i>
                 </mat-icon>
-                <div mat-line>About</div>
+                <div mat-line style="font-weight: bold;">About</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item routerLink='/menu' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-hamburger"></i>
                 </mat-icon>
-                <div mat-line>Food & Recipes</div>
+                <div mat-line style="font-weight: bold;">Food & Recipes</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item routerLink='/kitchenmenu' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-utensils"></i>
                 </mat-icon>
-                <div mat-line>Kitchen Tools</div>
+                <div mat-line style="font-weight: bold;">Kitchen Tools</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item routerLink='/fooddonation' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-hand-holding-usd"></i>
                 </mat-icon>
-                <div mat-line>FoodDonation</div>
+                <div mat-line style="font-weight: bold;">FoodDonation</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item routerLink='/wine' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-cocktail" aria-hidden="true"></i>
                 </mat-icon>
-                <div mat-line>Wine</div>
+                <div mat-line style="font-weight: bold;">Wine</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item routerLink='/orders' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="material-icons">shopping_cart</i>
                 </mat-icon>
-                <div mat-line>Your Orders</div>
+                <div mat-line style="font-weight: bold;">Your Orders</div>
             </mat-list-item>
             <mat-divider></mat-divider>
         </mat-list>
-    </mat-drawer>
-    <mat-drawer-content fxLayout="column" fxFlexFill>
+    </mat-sidenav>
+    <mat-sidenav-content fxLayout="column" fxFlexFill>
         <div fxLayout="row" fxLayoutAlign="space-between center" style="background-color: #871A1A;height: 65px;color: white;padding-right: 5px;">
             <div fxLayoutAlign="center center">
                 <button mat-icon-button (click)="drawer.toggle()" style="outline: none;"><span class="material-icons">menu</span></button>
-                <span class="font-weight-bold" style="font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: large;">MealMate</span>
+                <span class="title">MealMate</span>
             </div>
             <div fxLayoutAlign="center center">
-                <button style="outline: none;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
-                <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-button routerLink='/login' routerLinkActive='active'><i class="material-icons">login</i>Login</button>
-                <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="logout()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
+                <button style="outline: none;font-weight: bold;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
+                <button style="outline: none;font-weight: bold;" *ngIf="!_authService.loggedIn()" mat-button routerLink='/login' routerLinkActive='active'><i class="material-icons">login</i>Login</button>
+                <button style="outline: none;font-weight: bold;" *ngIf="_authService.loggedIn()" (click)="logout()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
             </div>
         </div>
         <div fxFlex>
             <router-outlet></router-outlet>
         </div>
         <app-footer></app-footer>
-    </mat-drawer-content>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

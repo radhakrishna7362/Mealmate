@@ -1,16 +1,6 @@
 .example-card {
-    width: 350px;
+    width: 340px;
     height: 450px;
-}
-
-.heading{
-  width: fit-content;
-  height: 40px;
-}
-
-.row-content{
-  padding: 25px;
-  border-bottom: 3px ridge;
 }
 
 .title{
@@ -20,8 +10,4 @@
   color: #0f346c;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.row-heading{
-  margin-left: 10px;
 }

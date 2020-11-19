@@ -21,3 +21,14 @@
     color: black;
     background-color: rgb(241, 156, 28) ;
 }
+
+.title {
+    font-family: 'Satisfy', cursive !important;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.side-title{
+    font-family: 'Satisfy', cursive !important;
+}
