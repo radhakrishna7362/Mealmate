@@ -80,7 +80,7 @@
             <h1 class="title">Instructions</h1>
         </div>
         <div *ngFor="let f of food.steps" class="mt-5">
-            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.gt-sm="row" fxLayoutGap="15px">
                 <img width="600px" height="400px" class="img-fluid" src="{{f.img}}" alt="">
                 <div class="ml-1" fxLayout="column">
                     <div fxLayout="row">
