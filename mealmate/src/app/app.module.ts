@@ -26,6 +26,7 @@ import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-det
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OrderComponent } from './order/order.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -86,6 +87,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     PageNotFoundComponent,
     OrderComponent,
     ThankYouComponent,
+    CartConfirmComponent,
   ],
   imports: [
     BrowserModule,
