@@ -4,6 +4,8 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CartConfirmComponent } from '../cart-confirm/cart-confirm.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -18,8 +20,12 @@ export class CartComponent implements OnInit {
   length;
   deleteProduct={userid:null,productid:null};
 
-  constructor(private cartService:CartService,public authService:AuthService,private router:Router,private snackbar:MatSnackBar) { 
+  constructor(private cartService:CartService,public authService:AuthService,private router:Router,private snackbar:MatSnackBar,private dialog:MatDialog) { 
     
+  }
+
+  onConfirm(){
+    this.dialog.open(CartConfirmComponent,{width:'300px',height:'150px'})
   }
 
   ngOnInit(): void {
@@ -78,32 +84,32 @@ export class CartComponent implements OnInit {
     })
   }
 
-  onCheckout(){
-    this.cartService.checkOut(this.cart)
-    .subscribe(()=>{
+  // onCheckout(){
+  //   this.cartService.checkOut(this.cart)
+  //   .subscribe(()=>{
       
-    },
-    err=>{
-      if(err instanceof HttpErrorResponse){
-        if(err.status===200){
-          this.cartService.clearCart(this.cart)
-          .subscribe(()=>{
+  //   },
+  //   err=>{
+  //     if(err instanceof HttpErrorResponse){
+  //       if(err.status===200){
+  //         this.cartService.clearCart(this.cart)
+  //         .subscribe(()=>{
 
-          },
-          err=>{
-            if( err instanceof HttpErrorResponse ) {
-              if (err.status === 200) {
-                this.snackbar.open('ORDER PLACED SUCCESSFULLY!!','OK',{
-                  duration: 3000,
-                });
-              }
-              this.ngOnInit();
-              this.router.navigate(['/thankyou'])
-            }
-          })
-        }
-      }
-    })
-  }
+  //         },
+  //         err=>{
+  //           if( err instanceof HttpErrorResponse ) {
+  //             if (err.status === 200) {
+  //               this.snackbar.open('ORDER PLACED SUCCESSFULLY!!','OK',{
+  //                 duration: 3000,
+  //               });
+  //             }
+  //             this.ngOnInit();
+  //             this.router.navigate(['/thankyou'])
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  // }
 
 }
