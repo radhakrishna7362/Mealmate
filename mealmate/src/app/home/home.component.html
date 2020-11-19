@@ -1,15 +1,15 @@
-<!-- <app-header></app-header> -->
 <mat-tab-group mat-align-tabs="center">
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon"><i class="fas fa-hamburger"></i></mat-icon>
       Food
     </ng-template>
+    <app-header></app-header>
     <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
       <h1 class="title">Top Food</h1>
       <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/menu'>View All</button>
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around center">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around center">
       <div *ngFor="let f of food" style="padding: 10px;outline: none;" [routerLink]="['/details',f.id]">
         <mat-card class="example-card">
           <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
@@ -35,7 +35,7 @@
       <h1 class="title">Kitchen Tools</h1>
       <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/kitchenmenu'>View All</button>
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
       <div *ngFor="let f of kitchentls" style="padding: 10px;outline: none;" [routerLink]="['/kitchendetails',f.id]">
         <mat-card class="example-card">
           <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
