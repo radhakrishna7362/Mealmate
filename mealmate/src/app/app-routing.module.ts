@@ -19,6 +19,7 @@ import { EssentialWineBundleDetailsComponent } from './essential-wine-bundle-det
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { OrderComponent } from './order/order.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import {FoodThanksComponent} from './food-thanks/food-thanks.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path:'kitchenmenu',component:KitchenMenuComponent},
   {path:'details/:id',component:FooddetailsComponent},
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
-  {path:'fooddonation',component:FoodDonationComponent},
+  {path:'fooddonation',component:FoodDonationComponent,canActivate: [AuthGuard]},
   {path:'fallwines',component:FallWineBundlesComponent},
   {path:'fallwine/:id',component:FallWineBundleDetailsComponent},
   {path:'essentialwine/:id',component:EssentialWineBundleDetailsComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'wine',component:WineComponent},
   {path:'thankyou',component:ThankYouComponent},
+  {path:'donationthanks',component:FoodThanksComponent},
   {path:'orders',component:OrderComponent,canActivate: [AuthGuard]},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent}

@@ -63,6 +63,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { FoodThanksComponent } from './food-thanks/food-thanks.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     OrderComponent,
     ThankYouComponent,
     CartConfirmComponent,
+    FoodThanksComponent,
   ],
   imports: [
     BrowserModule,
