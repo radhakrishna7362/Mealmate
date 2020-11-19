@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center" class="login-card">
   <mat-card class="example-card">
-    <mat-toolbar class="title" color="primary">
+    <mat-toolbar class="title">
       Register
     </mat-toolbar>
     <div fxLayout="column" fxLayoutAlign="center center">
@@ -25,7 +25,7 @@
         </mat-form-field>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-        <mat-icon matSuffix>
+        <mat-icon>
           <span class="material-icons">vpn_key</span>
         </mat-icon>
         <mat-form-field class="example">
@@ -40,7 +40,7 @@
       <p style="cursor: pointer;outline:none" routerLink="/login">Already a User in MealMate? Click here to login</p>
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
-      <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="registerData.password.invalid || registerData.name.invalid || registerData.email.invalid" class="example-button">Register</button>
+      <button mat-raised-button (click)="registerUser()" [disabled]="registerData.password.invalid || registerData.name.invalid || registerData.email.invalid" class="example-button">Register</button>
     </div>
   </mat-card>
 </div>
