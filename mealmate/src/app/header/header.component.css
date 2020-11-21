@@ -2,14 +2,13 @@
     border-bottom: 3px ridge;
   }
   
-  .carousel-item{
+.carousel-item{
     height: 400px;
-  }
+}
   
-  .carousel-item img{
+.carousel-item img{
     position: absolute;
     top: 0;
     left: 0;
     min-height: 400px;
-  }
-  
+}  

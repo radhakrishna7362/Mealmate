@@ -1,4 +1,10 @@
 .example-card {
     width: 350px;
     height: 475px;
+    cursor: pointer;
 }  
+
+.example-card:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #871A1A;
+}

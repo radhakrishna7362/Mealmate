@@ -1,6 +1,7 @@
 .example-card {
     width: 340px;
     height: 450px;
+    cursor: pointer;
 }
 
 .title{
@@ -10,4 +11,14 @@
   color: #0f346c;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.example-card:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px #871A1A;
+}
+
+.view-all:hover {
+  transform: scale(1.10);
+  box-shadow: 5px 5px 10px #871A1A;
 }

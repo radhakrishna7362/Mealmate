@@ -55,3 +55,38 @@
 .address{
     padding: 0px 16px;
 }
+
+.btn-facebook:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-google-plus:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-linkedin:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-mail:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-twitter:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-youtube:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.view-all:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}

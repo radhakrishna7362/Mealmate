@@ -17,6 +17,13 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.list-item-title{
+    outline: none;
+    color: floralwhite;
+    font-size: medium;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .active {
     color: black;
     background-color: rgb(241, 156, 28) ;
@@ -29,6 +36,12 @@
     letter-spacing: 2px;
 }
 
-.side-title{
-    font-family: 'Satisfy', cursive !important;
+.list-item:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.view-all:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #ff9f00;
 }

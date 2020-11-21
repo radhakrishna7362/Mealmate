@@ -1,6 +1,6 @@
 <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content" *ngIf="ktool" fxLayoutAlign="center" fxLayoutGap="20px">
     <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
-        <img class="img-fluid" style="border-radius: 5px;" height="500px" width="450px" src="{{ktool.image}}" alt="{{ktool.name}}">
+        <img class="img-fluid ex-card" style="border-radius: 5px;cursor: pointer;" height="500px" width="450px" src="{{ktool.image}}" alt="{{ktool.name}}">
     </div>
     <div fxFlex.md="50" fxFlex.lg="50">
         <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{ktool.name}}</h1>
@@ -11,7 +11,7 @@
                 <input matInput [(ngModel)]="qty" style="text-align: center;">
             </mat-form-field>
             <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
-            <button style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+            <button class="view-all" style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
         </div>
         <div fxLayout="column" fxLayoutGap="20px">
             <div fxLayout="column" style="border-bottom: 2px ridge;padding-bottom: 10px;">

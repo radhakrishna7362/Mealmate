@@ -1,7 +1,7 @@
-<div style="padding: 10px;margin: 10px;">
+<div>
     <h1 *ngIf="length!=0" class="title">Your Orders</h1>
     <div *ngIf="length==0" fxLayoutAlign="center">
-        <img class="img-fluid" src="../../assets//noorder-1.jpg" alt="">
+        <img class="img-fluid" src="../../assets/order.webp" alt="">
     </div>
     <div style="margin: 20px;padding: 25px;" *ngIf="length!=0">
       <table mat-table  [dataSource]="orders">
@@ -29,7 +29,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
       <div fxLayoutAlign="end">
-        <button mat-raised-button [routerLink]="['/home']" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-right: 5px;">
+        <button class="view-all" mat-raised-button [routerLink]="['/home']" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-right: 5px;">
           Continue Shopping
         </button>
       </div>

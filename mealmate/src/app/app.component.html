@@ -2,10 +2,10 @@
     <mat-sidenav #drawer class="side-nav"
         [mode]="'over'">
         <mat-list role="list" class="side-list">
-            <mat-list-item *ngIf="User" class="list-item">
+            <mat-list-item *ngIf="User" class="list-item-title">
                 <div mat-line style="font-weight: bold;font-style: italic;">Hello {{User}}</div>
             </mat-list-item>
-            <mat-list-item *ngIf="!User" class="list-item">
+            <mat-list-item *ngIf="!User" class="list-item-title">
                 <div mat-line style="font-weight: bold;font-style: italic;">Hello</div>
             </mat-list-item>
             <mat-divider></mat-divider>
@@ -67,15 +67,13 @@
                 <span class="title">MealMate</span>
             </div>
             <div fxLayoutAlign="center center">
-                <button style="outline: none;font-weight: bold;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
-                <button style="outline: none;font-weight: bold;" *ngIf="!_authService.loggedIn()" mat-button routerLink='/login' routerLinkActive='active'><i class="material-icons">login</i>Login</button>
-                <button style="outline: none;font-weight: bold;" *ngIf="_authService.loggedIn()" (click)="logout()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
+                <button class="view-all" style="outline: none;font-weight: bold;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
+                <button class="view-all" style="outline: none;font-weight: bold;" *ngIf="!_authService.loggedIn()" mat-button routerLink='/login' routerLinkActive='active'><i class="material-icons">login</i>Login</button>
+                <button class="view-all" style="outline: none;font-weight: bold;" *ngIf="_authService.loggedIn()" (click)="logout()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
             </div>
         </div>
-        <div class="container" fxLayout="column">
-            <div fxFlex>
-                <router-outlet></router-outlet>
-            </div>
+        <div fxFlex style="padding: 10px;">
+            <router-outlet></router-outlet>
         </div>
         <app-footer></app-footer>
     </mat-sidenav-content>

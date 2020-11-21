@@ -1,7 +1,9 @@
 .row-content{
     padding: 25px;
     font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
 }
+
 .row-content-step{
   padding: 5px;
   font-family: 'Times New Roman', Times, serif;
@@ -22,4 +24,14 @@
 
 .example-full-width{
   width:10%
+}
+
+.row-content:hover {
+  transform: scale(1.01);
+  box-shadow: 5px 5px 10px #871A1A;
+}
+
+.view-all:hover {
+  transform: scale(1.10);
+  box-shadow: 5px 5px 10px #871A1A;
 }

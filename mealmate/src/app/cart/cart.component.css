@@ -21,3 +21,8 @@ th.mat-header-cell {
     font-weight: bold;
     text-align: center;
 }
+
+.view-all:hover {
+    transform: scale(1.10);
+    box-shadow: 5px 5px 10px #871A1A;
+}

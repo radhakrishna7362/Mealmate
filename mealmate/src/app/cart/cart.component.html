@@ -1,7 +1,7 @@
 <div style="padding: 10px;margin: 10px;">
     <h1 *ngIf="length!=0" class="title">Your Cart</h1>
     <div *ngIf="length==0" fxLayoutAlign="center">
-        <img class="img-fluid" src="https://i.pinimg.com/originals/2e/ac/fa/2eacfa305d7715bdcd86bb4956209038.png" alt="">
+        <img class="img-fluid" src="../../assets/cart.webp" alt="">
     </div>
     <div style="margin: 20px;padding: 25px;" *ngIf="length!=0">
       <table mat-table  [dataSource]="cart">
@@ -26,7 +26,7 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let row">
-            <button mat-raised-button style="background-color: #f19c1c;color: #871a1a;" (click)="delete(row.userid,row.productid)">Remove</button>
+            <button mat-raised-button style="background-color: #f19c1c;color: #871a1a;" class="view-all" (click)="delete(row.userid,row.productid)">Remove</button>
           </td>
           <td mat-footer-cell *matFooterCellDef>    
           </td>
@@ -36,10 +36,10 @@
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
       </table>
       <div fxLayoutAlign="space-between">
-        <button mat-raised-button [routerLink]="['/home']" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-right: 5px;">
+        <button mat-raised-button [routerLink]="['/home']" class="view-all" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-right: 5px;">
           Continue Shopping
         </button>
-        <button mat-raised-button (click)="onConfirm()" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-left: 5px;">
+        <button mat-raised-button (click)="onConfirm()" class="view-all" style="margin-top: 10px;background-color: #f19c1c;color: #871a1a;margin-left: 5px;">
           CheckOut
         </button>
       </div>
