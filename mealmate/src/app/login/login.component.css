@@ -33,6 +33,7 @@
     background-color: rgb(241, 156, 28);
     color: white;
     outline: none;
+    transition: 0.5s ease;
 }
 
 .example-button:hover {

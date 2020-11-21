@@ -12,26 +12,32 @@
     color: white;
 }
 .btn-facebook {
+    transition: 0.5s ease;
     color: #fff !important;
     background-color: #3b5998 !important;
 }
 .btn-google-plus {
+    transition: 0.5s ease;
     color: #fff !important;
     background-color: #dd4b39 !important;
 }
 .btn-youtube {
+    transition: 0.5s ease;
     color: #fff !important;
     background-color: #ff4b39 !important;
 }
 .btn-linkedin {
+    transition: 0.5s ease;
     color: #fff !important;
     background-color: #007bb6 !important;
 }
 .btn-twitter {
+    transition: 0.5s ease;
     color: #fff !important;
     background-color: #55acee !important;
 }
 .btn-mail {
+    transition: 0.5s ease;
     color: #fff !important;
     background-color: #512da8 !important;
 }
@@ -89,4 +95,8 @@
 .view-all:hover {
     transform: scale(1.10);
     box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.view-all{
+    transition: 0.5s ease;
 }

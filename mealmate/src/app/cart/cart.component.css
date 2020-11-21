@@ -22,6 +22,10 @@ th.mat-header-cell {
     text-align: center;
 }
 
+.view-all{
+    transition: 0.5s ease;
+}
+
 .view-all:hover {
     transform: scale(1.10);
     box-shadow: 5px 5px 10px #871A1A;
