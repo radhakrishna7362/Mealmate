@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const connection = mongoose.connection;
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 mongoose.connect('mongodb+srv://rk:190031187@first.cpozf.mongodb.net/mealmate?retryWrites=true&w=majority',{useNewUrlParser: true , useUnifiedTopology: true});
 
@@ -18,6 +18,7 @@ const EssentialWine=require('./routes/essential_wineRoute');
 const UserRoute=require('./routes/userRoute');
 const CartRoute=require('./routes/cartRoute');
 const OrderRoute=require('./routes/orderRoute');
+const ContactRoute=require('./routes/contactRoute');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,5 +30,6 @@ app.use('/essentialwine',EssentialWine);
 app.use('/user',UserRoute);
 app.use('/cart',CartRoute);
 app.use('/order',OrderRoute);
+app.use('/contact',ContactRoute)
 
 app.listen(port, () => console.log(`running on the server ${port}`));
