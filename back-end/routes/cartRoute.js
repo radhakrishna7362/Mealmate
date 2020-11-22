@@ -4,7 +4,6 @@ const express=require('express');
 const CartRoute=express.Router();
 
 CartRoute.route('/add').post((req, res) => {
-    console.log(req.body);
     Cart.findOne({userid:req.body.userid,productid:req.body.productid},(err,u)=>{
         if(err){
             return res.status(500).send(err);
@@ -25,7 +24,6 @@ CartRoute.route('/add').post((req, res) => {
 })
 
 CartRoute.route('/get/:id').get((req,res,next)=>{
-    console.log(req.params.id)
     Cart.find({userid:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
@@ -36,7 +34,6 @@ CartRoute.route('/get/:id').get((req,res,next)=>{
 })
 
 CartRoute.route('/remove/:userid/:productid').delete((req,res,next)=>{
-    console.log(req.params.userid,req.params.productid)
     Cart.deleteOne({userid:req.params.userid,productid:req.params.productid})
     .then((resp) => {
         res.setHeader('Content-Type', 'application/json');

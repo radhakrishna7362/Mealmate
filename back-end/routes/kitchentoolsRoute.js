@@ -5,19 +5,6 @@ const Kitchen=express.Router();
 
 const KitchenTool=require('../models/kitchentools');
 
-function verifyToken(req, res, next) {
-    let token=req.query.token;
-    console.log(token);
-    jwt.verify(token,'112SecretKey',(err,tokendata)=>{
-        if(err)
-            return res.status(401).send('Unauthorized request')
-        if(tokendata){
-            decodedToken=tokendata
-            next()
-        }
-    })
-}
-
 Kitchen.route('/menu').get((req,res,next) => {
     KitchenTool.find({})
     .then((resp) => {

@@ -4,7 +4,6 @@ const express=require('express');
 const OrderRoute=express.Router();
 
 OrderRoute.route('/move').post((req, res) => {
-    // console.log(req.body);
     Order.create(req.body)
     .then((resp) => {
         res.setHeader('Content-Type', 'application/json');
