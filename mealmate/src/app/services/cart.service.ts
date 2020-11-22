@@ -6,28 +6,31 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CartService {
 
+  _url="http://localhost:3000/cart";
+  _ordelUrl="http://localhost:3000/order"
+
   constructor(private http:HttpClient) { }
 
   addCart(cart){
     console.log(cart);
-    return this.http.post("http://localhost:3000/cart/add",cart);
+    return this.http.post(`${this._url}/add`,cart);
   }
 
   getCart(UserId){
-    return this.http.get(`http://localhost:3000/cart/get/${UserId}`);
+    return this.http.get(`${this._url}/get/${UserId}`);
   }
 
   deleteProduct(cart){
     console.log(cart)
-    return this.http.delete(`http://localhost:3000/cart/remove/${cart.userid}/${cart.productid}`);
+    return this.http.delete(`${this._url}/remove/${cart.userid}/${cart.productid}`);
   }
 
   checkOut(cart){
-    return this.http.post("http://localhost:3000/order/move",cart);
+    return this.http.post(`${this._ordelUrl}/move`,cart);
   }
 
   clearCart(cart){
     console.log(cart)
-    return this.http.delete(`http://localhost:3000/cart/removeAll/${cart[0].userid}`);
+    return this.http.delete(`${this._url}/removeAll/${cart[0].userid}`);
   }
 }

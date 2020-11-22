@@ -6,20 +6,19 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 })
 export class KitchentoolsService {
 
+  _url="http://localhost:3000/kitchen"
   constructor(private http:HttpClient) { }
 
   getKitchenTools(){
-    return this.http.get<any>("http://localhost:3000/kitchen/menu",{
-      params:new HttpParams().append('token',localStorage.getItem('token'))
-    });
+    return this.http.get<any>(`${this._url}/menu`)
   }
 
   getMainKitchenTools(){
-    return this.http.get<any>("http://localhost:3000/kitchen/home");
+    return this.http.get<any>(`${this._url}/home`);
   }
 
   getAKitchenTool(id){
-    return this.http.get<any>(`http://localhost:3000/kitchen/particular/${id}`);
+    return this.http.get<any>(`${this._url}/particular/${id}`);
   }
   
 }

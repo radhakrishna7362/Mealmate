@@ -6,29 +6,30 @@ import {HttpClient} from '@angular/common/http';
 })
 export class WineService {
 
+  _url="http://localhost:3000"
   constructor(private http:HttpClient) { }
 
   getFallWineBundle(){
-    return this.http.get("http://localhost:3000/fallwinebundle/menu");
+    return this.http.get(`${this._url}/fallwinebundle/menu`);
   }
 
   getMainFallWineBundle(){
-    return this.http.get("http://localhost:3000/fallwinebundle/home");
+    return this.http.get(`${this._url}/fallwinebundle/home`);
   }
 
   getAFallWineBundle(id){
-    return this.http.get(`http://localhost:3000/fallwinebundle/particular/${id}`);
+    return this.http.get(`${this._url}/fallwinebundle/particular/${id}`);
   }
 
   getEssentialWine(){
-    return this.http.get("http://localhost:3000/essentialwine/menu");
+    return this.http.get(`${this._url}/essentialwine/menu`);
   }
 
   getMainEssentialWine(){
-    return this.http.get("http://localhost:3000/essentialwine/home");
+    return this.http.get(`${this._url}/essentialwine/home`);
   }
 
   getAEssentialWine(id){
-    return this.http.get(`http://localhost:3000/essentialwine/particular/${id}`);
+    return this.http.get(`${this._url}/essentialwine/particular/${id}`);
   }
 }

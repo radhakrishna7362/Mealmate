@@ -6,10 +6,11 @@ import {HttpClient} from '@angular/common/http';
 })
 export class OrderService {
 
+  _url="http://localhost:3000/order"
   constructor(private http:HttpClient) { }
 
   getOrders(userid){
-    return this.http.get(`http://localhost:3000/order/orders/${userid}`);
+    return this.http.get(`${this._url}/orders/${userid}`);
   }
 
 }

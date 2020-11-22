@@ -7,9 +7,10 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FoodDonationService {
 
+  _url="http://localhost:3000/fooddonation"
   constructor(private http:HttpClient) { }
 
   addForm(form){
-    return this.http.post("http://localhost:3000/fooddonation/addform",form);
+    return this.http.post(`${this._url}/addform`,form);
   }
 }

@@ -7,19 +7,20 @@ import {HttpClient} from '@angular/common/http';
 
 export class FoodService {
 
+  _url="http://localhost:3000/food"
   constructor(private http:HttpClient) { 
   
   }
 
   getFood(){
-    return this.http.get("http://localhost:3000/food/menu");
+    return this.http.get(`${this._url}/menu`);
   }
 
   getMainFood(){
-    return this.http.get("http://localhost:3000/food/home");
+    return this.http.get(`${this._url}/home`);
   }
 
   getAFood(id){
-    return this.http.get(`http://localhost:3000/food/particular/${id}`);
+    return this.http.get(`${this._url}/particular/${id}`);
   }
 }

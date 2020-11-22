@@ -8,8 +8,7 @@ import { Subscription } from 'rxjs';
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost:3000/user/register";
-  private _loginUrl = "http://localhost:3000/user/login";
+  private _url = "http://localhost:3000/user";
 
   constructor(private http: HttpClient,
     private _router: Router) { }
@@ -18,11 +17,11 @@ export class AuthService {
     subsVar:Subscription;
 
     registerUser(user) {
-      return this.http.post<any>(this._registerUrl, user)
+      return this.http.post<any>(`${this._url}/register`, user)
     }
   
     loginUser(user) {
-      return this.http.post<any>(this._loginUrl, user)
+      return this.http.post<any>(`${this._url}/login`, user)
     }
   
     logoutUser() {
@@ -42,12 +41,12 @@ export class AuthService {
     }
 
     getUserId(){
-      return this.http.get("http://localhost:3000/user/userid",{
+      return this.http.get(`${this._url}/userid`,{
         params:new HttpParams().append('token',localStorage.getItem('token'))
       })
     }
 
     getUserName(id){
-      return this.http.get(`http://localhost:3000/user/username/${id}`)
+      return this.http.get(`${this._url}/username/${id}`)
     }
 }
