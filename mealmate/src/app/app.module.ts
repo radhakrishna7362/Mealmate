@@ -28,6 +28,7 @@ import { OrderComponent } from './order/order.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
 import { FoodThanksComponent } from './food-thanks/food-thanks.component';
+import { ContactComponent } from './contact/contact.component';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
@@ -65,6 +66,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     ThankYouComponent,
     CartConfirmComponent,
     FoodThanksComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -122,7 +125,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTableModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressBarModule
   ],
   providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,TokenInterceptorService,OrderService],
   bootstrap: [AppComponent]

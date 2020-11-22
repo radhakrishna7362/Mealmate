@@ -20,6 +20,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { OrderComponent } from './order/order.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import {FoodThanksComponent} from './food-thanks/food-thanks.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path:'thankyou',component:ThankYouComponent},
   {path:'donationthanks',component:FoodThanksComponent},
   {path:'orders',component:OrderComponent,canActivate: [AuthGuard]},
+  {path:'contactus',component:ContactComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent}
 ];
