@@ -5,24 +5,26 @@
       Food
     </ng-template>
     <app-header></app-header>
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
-      <h1 class="title">Top Food</h1>
-      <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" class="view-all" routerLink='/menu'>View All</button>
-    </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around center">
-      <div *ngFor="let f of food" style="padding: 10px;outline: none;" [routerLink]="['/details',f.id]">
-        <mat-card class="example-card">
-          <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
-          <mat-card-content class="font-weight-bold">
-            <mat-card-title>{{f.name}}</mat-card-title>
-            <mat-card-subtitle>{{f.subtitle}}</mat-card-subtitle>
-            <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
-            <i class="fas fa-clock">{{f.time}}</i>
-          </mat-card-content>
-        </mat-card>
+    <div style="background-color: #FFCCBC;margin-top: 10px;">
+      <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
+        <h1 class="title">Top Food</h1>
+        <button mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" class="view-all" routerLink='/menu'>View All</button>
       </div>
-      <div fxFlex [hidden]="food">
-        <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around center">
+        <div *ngFor="let f of food" style="padding: 10px;outline: none;" [routerLink]="['/details',f.id]">
+          <mat-card class="example-card">
+            <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
+            <mat-card-content class="font-weight-bold">
+              <mat-card-title>{{f.name}}</mat-card-title>
+              <mat-card-subtitle>{{f.subtitle}}</mat-card-subtitle>
+              <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
+              <i class="fas fa-clock">{{f.time}}</i>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div [hidden]="food" style="text-align: center;">
+          <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
+        </div>
       </div>
     </div>
   </mat-tab>
@@ -31,22 +33,24 @@
       <mat-icon class="example-tab-icon"><i class="fas fa-utensils"></i></mat-icon>
       Kitchen Tools
     </ng-template>
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
-      <h1 class="title">Kitchen Tools</h1>
-      <button class="view-all" mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/kitchenmenu'>View All</button>
-    </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
-      <div *ngFor="let f of kitchentls" style="padding: 10px;outline: none;" [routerLink]="['/kitchendetails',f.id]">
-        <mat-card class="example-card">
-          <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
-          <mat-card-content class="font-weight-bold">
-            <mat-card-title>{{f.name}}</mat-card-title>
-            <mat-card-subtitle>Price: {{f.price | currency}}</mat-card-subtitle>
-          </mat-card-content>
-        </mat-card>
+    <div style="background-color: #FFCCBC;margin-top: 10px;">
+      <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
+        <h1 class="title">Kitchen Tools</h1>
+        <button class="view-all" mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/kitchenmenu'>View All</button>
       </div>
-      <div fxFlex [hidden]="food">
-        <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
+        <div *ngFor="let f of kitchentls" style="padding: 10px;outline: none;" [routerLink]="['/kitchendetails',f.id]">
+          <mat-card class="example-card">
+            <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.title}}">
+            <mat-card-content class="font-weight-bold">
+              <mat-card-title>{{f.name}}</mat-card-title>
+              <mat-card-subtitle>Price: {{f.price | currency}}</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div [hidden]="food" style="text-align: center;">
+          <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
+        </div>
       </div>
     </div>
   </mat-tab>

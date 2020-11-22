@@ -1,22 +1,24 @@
-<div [hidden]="pagedList">
-    <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+<div [hidden]="pagedList" style="text-align: center;">
+  <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
 </div>
 <div *ngIf="pagedList">
-  <div style="padding: 10px;">
-    <h1 class="title">Essential Wines</h1>
+  <div style="background-color: #FFCCBC;">
+    <div style="padding: 10px;">
+      <h1 class="title">Essential Wines</h1>
+    </div>
+    <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
+      <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/essentialwine',f.id]">
+        <div>
+          <mat-card class="example-card">
+            <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
+            <mat-card-content class="font-weight-bold">
+              <mat-card-title>{{f.name}}</mat-card-title>
+              <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
-  <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
-    <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/essentialwine',f.id]">
-      <div>
-        <mat-card class="example-card">
-          <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
-          <mat-card-content class="font-weight-bold">
-            <mat-card-title>{{f.name}}</mat-card-title>
-            <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)"></mat-paginator>
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)"></mat-paginator>
 </div>

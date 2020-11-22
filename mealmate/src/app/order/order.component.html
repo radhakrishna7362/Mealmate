@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="orders">
     <h1 *ngIf="length!=0" class="title">Your Orders</h1>
     <div *ngIf="length==0" fxLayoutAlign="center">
         <img class="img-fluid" src="../../assets/order.webp" alt="">
@@ -34,4 +34,8 @@
         </button>
       </div>
     </div>
+</div>
+
+<div [hidden]="orders" style="text-align: center;">
+  <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
 </div>

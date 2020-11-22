@@ -1,8 +1,6 @@
-.row-content{
-    padding: 25px;
-    font-family: 'Times New Roman', Times, serif;
-    cursor: pointer;
-    transition: 0.5s ease;
+.row-content-s{
+  padding: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .row-content-step{
@@ -33,10 +31,19 @@
 }
 
 .view-all:hover {
-  transform: scale(1.10);
+  transform: scale(1.05);
   box-shadow: 5px 5px 10px #871A1A;
 }
 
 .view-all{
   transition: 0.5s ease;
+}
+
+.example-card{
+  transition: 0.5s ease;
+}
+
+.example-card:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 5px 10px #871A1A;
 }

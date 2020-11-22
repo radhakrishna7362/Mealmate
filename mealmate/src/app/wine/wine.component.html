@@ -1,41 +1,45 @@
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="Fall Wines">
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
-      <h1 class="title">Fall Wines</h1>
-      <button mat-raised-button class="view-all" style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/fallwines'>View All</button>
-    </div>
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
-      <div *ngFor="let f of FallWine" style="padding: 10px;outline: none;" [routerLink]="['/fallwine',f.id]">
-        <mat-card class="example-card">
-          <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
-          <mat-card-content class="font-weight-bold">
-            <mat-card-title>{{f.name}}</mat-card-title>
-            <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
-          </mat-card-content>
-        </mat-card>
+    <div style="background-color: #FFCCBC;margin-top: 10px;">
+      <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
+        <h1 class="title">Fall Wines</h1>
+        <button mat-raised-button class="view-all" style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/fallwines'>View All</button>
       </div>
-      <div fxFlex [hidden]="FallWine">
-        <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+      <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
+        <div *ngFor="let f of FallWine" style="padding: 10px;outline: none;" [routerLink]="['/fallwine',f.id]">
+          <mat-card class="example-card">
+            <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
+            <mat-card-content class="font-weight-bold">
+              <mat-card-title>{{f.name}}</mat-card-title>
+              <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div fxFlex [hidden]="FallWine" style="text-align: center;">
+          <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
+        </div>
       </div>
     </div>
   </mat-tab>
   <mat-tab label="Essential Wines">
-    <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
-      <h1 class="title">Essential Wines</h1>
-      <button class="view-all" mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/essentialwines'>View All</button>
-    </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
-      <div *ngFor="let f of EsseWine" style="padding: 10px;outline: none;" [routerLink]="['/essentialwine',f.id]">
-        <mat-card class="example-card">
-          <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
-          <mat-card-content class="font-weight-bold">
-            <mat-card-title>{{f.name}}</mat-card-title>
-            <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
-          </mat-card-content>
-        </mat-card>
+    <div style="background-color: #FFCCBC;margin-top: 10px;">
+      <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" style="padding: 25px 25px 0px 25px;" fxLayoutAlign="space-between center">
+        <h1 class="title">Essential Wines</h1>
+        <button class="view-all" mat-raised-button style="margin: 0px 0px 16px;background-color: rgb(241, 156, 28);" routerLink='/essentialwines'>View All</button>
       </div>
-      <div fxFlex [hidden]="EsseWine">
-        <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" style="padding-bottom: 10px;" fxLayoutAlign="space-around">
+        <div *ngFor="let f of EsseWine" style="padding: 10px;outline: none;" [routerLink]="['/essentialwine',f.id]">
+          <mat-card class="example-card">
+            <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">
+            <mat-card-content class="font-weight-bold">
+              <mat-card-title>{{f.name}}</mat-card-title>
+              <mat-card-subtitle>Price: {{f.price | currency}}/SERVING</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div fxFlex [hidden]="EsseWine" style="text-align: center;">
+          <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
+        </div>
       </div>
     </div>
   </mat-tab>

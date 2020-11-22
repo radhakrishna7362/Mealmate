@@ -1,4 +1,4 @@
-<div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content" *ngIf="ktool" fxLayoutAlign="center" fxLayoutGap="20px">
+<div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content" *ngIf="ktool" fxLayoutAlign="center" fxLayoutGap="20px"  style="background-color:#FFCCBC">
     <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
         <img class="img-fluid ex-card" style="border-radius: 5px;cursor: pointer;" height="500px" width="450px" src="{{ktool.image}}" alt="{{ktool.name}}">
     </div>
@@ -25,6 +25,6 @@
         </div>
     </div>
 </div>
-<div fxFlex [hidden]="ktool">
-    <mat-spinner color="warn"></mat-spinner><h4>Loading . . . Please Wait</h4>
+<div [hidden]="ktool" style="text-align: center;">
+    <mat-progress-bar mode="query"></mat-progress-bar><h1>Loading . . . Please Wait</h1>
 </div>

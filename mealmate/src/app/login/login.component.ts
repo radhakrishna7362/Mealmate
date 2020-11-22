@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       return 'Email is required';
     }
     else if(this.loginUserData.email.hasError('email')){
-      return 'Email must be a valid email Address';
+      return "This doesn't look like an email address";
     }
   }
   getError(){
