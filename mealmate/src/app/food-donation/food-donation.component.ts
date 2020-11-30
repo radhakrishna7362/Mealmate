@@ -19,11 +19,11 @@ export class FoodDonationComponent implements OnInit {
   }
 
   formData={
-    fname:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-z]*")]),
-    lname:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-z]*")]),
+    fname:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z ]*")]),
+    lname:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z ]*")]),
     add1:new FormControl('',[Validators.required]),
     add2:new FormControl(''),
-    city:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z]*")]),
+    city:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
     pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]*'),Validators.minLength(6),Validators.maxLength(6)]),
     phone:new FormControl('',[Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(10),Validators.minLength(10)]),
     email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),

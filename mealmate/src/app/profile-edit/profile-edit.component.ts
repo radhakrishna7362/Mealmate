@@ -17,10 +17,10 @@ export class ProfileEditComponent implements OnInit {
   form={name:null,address:null,city:null,state:null,pincode:null,dob:null,phone:null,email:null,gender:null,aboutme:null}
   
   formData={
-    name:new FormControl('',[Validators.required,Validators.minLength(2)]),
+    name:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern('[a-zA-Z ]*')]),
     address: new FormControl(''),
-    city: new FormControl('',[Validators.pattern('[a-zA-Z]*')]),
-    state: new FormControl('',[Validators.pattern('[a-zA-Z]*')]),
+    city: new FormControl('',[Validators.pattern('[a-zA-Z ]*')]),
+    state: new FormControl('',[Validators.pattern('[a-zA-Z ]*')]),
     pincode: new FormControl('',[Validators.pattern('[0-9]*')]),
     dob: new FormControl(''),
     phone:new FormControl('',[Validators.maxLength(10),Validators.pattern('[0-9]*'),Validators.minLength(10)]),
@@ -35,6 +35,9 @@ export class ProfileEditComponent implements OnInit {
     }
     else if(this.formData.name.hasError('minlength')){
       return 'Name must be a minimum length of 2';
+    }
+    else if (this.formData.name.hasError('pattern')) {
+      return 'Name should not contain numbers';
     }
   }
 

@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 401) {
-            this.snackbarService.error("INVLAID EMAIN OR PASSWORD!!!",'Error');
+            this.snackbarService.error("Invalid Email Or Password!!!",'Error');
             this.loginUserData.email.reset();
             this.loginUserData.password.reset();
             this.loginData.email='';
