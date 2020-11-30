@@ -2,7 +2,7 @@
     width: 350px;
     padding: 0;
     margin: 0;
-    box-shadow: 10px 10px 10px 10px #871A1A;
+    box-shadow: 10px 10px 10px #871A1A;
 }
 
 .example{
@@ -38,6 +38,6 @@
 }
 
 .example-button:hover {
-    transform: scale(1.10);
+    transform: scale(1.02);
     box-shadow: 5px 5px 10px #871A1A;
 }

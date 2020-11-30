@@ -9,15 +9,13 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class FallWineBundlesComponent implements OnInit {
 
-  // food;
   name:String;
   productsList=[];
   filterList=[];
   pagedList;
-  breakpoint: number = 3;  //to adjust to screen
-  // MatPaginator Inputs
+  breakpoint: number = 3;  
   length: number = 0;
-  pageSize: number = 10;  //displaying three cards each row
+  pageSize: number = 10;  
   pageSizeOptions: number[] = [5,10];
   
   constructor(private fallWineService:WineService) { }
@@ -25,7 +23,6 @@ export class FallWineBundlesComponent implements OnInit {
   ngOnInit(): void {
     this.fallWineService.getFallWineBundle().subscribe((data:any[])=>{
       this.productsList=data;
-      console.log(this.productsList);
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
       this.pagedList = this.productsList.slice(0, 10);
       this.length = this.productsList.length;
@@ -41,7 +38,7 @@ export class FallWineBundlesComponent implements OnInit {
     this.pagedList = this.productsList.slice(startIndex, endIndex);
   }
 
-  onResize(event) { //to adjust to screen size
+  onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
   }
 
@@ -51,17 +48,16 @@ export class FallWineBundlesComponent implements OnInit {
     this.length = this.filterList.length;
   }
 
-  // Search(){
-  //   if(this.name != ""){
-  //     this.filterList = this.productsList.filter(res=>{
-  //       return res.title.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-  //     });
-  //     console.log(this.filterList);
-  //     this.OnChange();
-  //   }
-  //   else if(this.name == ""){
-  //    this.ngOnInit();
-  //   }
-  // }
+  Search(){
+    if(this.name != ""){
+      this.filterList = this.productsList.filter(res=>{
+        return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+      });
+      this.OnChange();
+    }
+    else if(this.name == ""){
+     this.ngOnInit();
+    }
+  }
 
 }

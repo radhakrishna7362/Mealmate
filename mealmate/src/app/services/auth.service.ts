@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { Router } from '@angular/router'
 import { Subscription } from 'rxjs';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,7 @@ export class AuthService {
 
   private _url = "http://localhost:3000/user";
 
-  constructor(private http: HttpClient,
-    private _router: Router) { }
+  constructor(private http: HttpClient,private snackbarService:SnackbarService) { }
 
     invokeAppComponent=new EventEmitter();
     subsVar:Subscription;
@@ -26,6 +25,7 @@ export class AuthService {
   
     logoutUser() {
       localStorage.removeItem('token')
+      this.snackbarService.info('Logged Out Successfully!!!','Info')
     }
   
     onLogin(){
@@ -48,5 +48,13 @@ export class AuthService {
 
     getUserName(id){
       return this.http.get(`${this._url}/username/${id}`)
+    }
+
+    getProfile(id){
+      return this.http.get(`${this._url}/profile/${id}`)
+    }
+
+    editProfile(id,user){
+      return this.http.patch(`${this._url}/edit-profile/${id}`,user);
     }
 }

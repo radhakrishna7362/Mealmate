@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
         }
       }
     })
-    // this.food=this.foodservice.getMainFood();
   }
 
 }

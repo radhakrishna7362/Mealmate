@@ -1,10 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
+import { SnackbarService } from '../services/snackbar.service';
 
 @Component({
   selector: 'app-cart-confirm',
@@ -16,27 +16,18 @@ export class CartConfirmComponent implements OnInit {
   cart=[];
   UserId;
   length;
-  constructor(private cartService:CartService,public authService:AuthService,private router:Router,private snackbar:MatSnackBar,public dialogRef: MatDialogRef<CartConfirmComponent>) { }
+  constructor(private cartService:CartService,public authService:AuthService,private router:Router,private snackBarService:SnackbarService,public dialogRef: MatDialogRef<CartConfirmComponent>) { }
 
   ngOnInit(): void {
-    if(this.authService.loggedIn()){
-      this.authService.getUserId().subscribe(
-        (res)=>{
-          this.UserId=res
-          console.log(this.UserId)
-          this.cartService.getCart(res).subscribe(
-            (data:any[])=>{
-              console.log(data)
-              this.cart=data
-              this.length=this.cart.length;
-            });
-        });
-    }
-    else{
-      this.snackbar.open('PLEASE LOGIN','OK',{
-        duration: 3000,
+    this.authService.getUserId().subscribe(
+      (res)=>{
+        this.UserId=res
+        this.cartService.getCart(res).subscribe(
+          (data:any[])=>{
+            this.cart=data
+            this.length=this.cart.length;
+          });
       });
-    }
   }
 
   onNoClick(): void {
@@ -58,9 +49,7 @@ export class CartConfirmComponent implements OnInit {
           err=>{
             if( err instanceof HttpErrorResponse ) {
               if (err.status === 200) {
-                this.snackbar.open('ORDER PLACED SUCCESSFULLY!!','OK',{
-                  duration: 3000,
-                });
+                this.snackBarService.success('Order Placed Successfully!!!','Success');
               }
               this.ngOnInit();
               this.dialogRef.close();

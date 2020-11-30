@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center" class="login-card">
   <mat-card class="example-card">
-    <mat-toolbar class="title">
+    <mat-toolbar style="border-top-left-radius: inherit;border-top-right-radius: inherit;" class="title">
       Login
     </mat-toolbar>
     <div fxLayout="column" fxLayoutAlign="center center">
@@ -11,7 +11,7 @@
         <mat-form-field class="example">
           <mat-label>Email</mat-label>
           <input matInput type="text" [formControl]="loginUserData.email" placeholder="Email" required>
-          <mat-error *ngIf="loginUserData.email.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-error *ngIf="loginUserData.email.invalid">{{emailError()}}</mat-error>
         </mat-form-field>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
@@ -24,10 +24,10 @@
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
-          <mat-error *ngIf="loginUserData.password.invalid">{{getError()}}</mat-error>
+          <mat-error *ngIf="loginUserData.password.invalid">{{passwordError()}}</mat-error>
         </mat-form-field>
       </div>
-      <p style="cursor: pointer;outline:none" routerLink="/register">New to MealMate? Create an account</p>
+      <p style="cursor: pointer;outline:none">New to MealMate? <a routerLink="/register">Create an account</a></p>
     </div>
     <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
       <button mat-raised-button (click)="loginUser()" [disabled]="loginUserData.password.invalid || loginUserData.email.invalid" class="example-button">Login</button>

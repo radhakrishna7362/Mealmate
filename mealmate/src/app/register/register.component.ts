@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, Validators } from '@angular/forms';
+import { SnackbarService } from '../services/snackbar.service';
 
 @Component({
   selector: 'app-register',
@@ -15,22 +15,22 @@ export class RegisterComponent implements OnInit {
   registerUserData = { name: "", email: "", password: "" }
   
   registerData={
-    name:new FormControl('',[Validators.required,Validators.minLength(2)]),
-    email:new FormControl('',[Validators.required,Validators.email]),
+    name:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z]*")]),
+    email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     password:new FormControl('',[Validators.required,Validators.minLength(6)])
   }
   
   hide = true;
   
-  getErrorMessage() {
+  emailError() {
     if (this.registerData.email.hasError('required')) {
       return 'Email is required';
     }
-    else if(this.registerData.email.hasError('email')){
+    else if(this.registerData.email.hasError('pattern')){
       return "This doesn't look like an email address";
     }
   }
-  getError(){
+  passwordError(){
     if (this.registerData.password.hasError('required')) {
       return 'Password is required';
     }
@@ -38,9 +38,12 @@ export class RegisterComponent implements OnInit {
       return 'Password must be a minimum length of 6';
     }
   }
-  getMessage(){
+  nameError(){
     if (this.registerData.name.hasError('required')) {
       return 'Name is required';
+    }
+    else if(this.registerData.name.hasError('pattern')){
+      return 'Name must contain only Characters';
     }
     else if(this.registerData.name.hasError('minlength')){
       return 'Name must be a minimum length of 2';
@@ -48,7 +51,7 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(private _auth: AuthService,
-              private _router: Router,private snackbar:MatSnackBar) { }
+              private _router: Router,private snackbarService:SnackbarService) { }
 
   ngOnInit() {
   }
@@ -60,18 +63,14 @@ export class RegisterComponent implements OnInit {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        this.snackbar.open('USER REGISTERED SUCCESSFULL', 'OK', {
-          duration: 3000,
-        });
+        this.snackbarService.success("User Registered Succesffully!!!",'Congrats')
         localStorage.setItem('token', res.token)
         this._router.navigate(['/home'])
       },
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 409) {
-            this.snackbar.open('EMAIL ALREADY REGISTERED', 'OK', {
-              duration: 3000,
-            });
+            this.snackbarService.info("Oops Email Already Registered!!!",'Info')
             this.registerData.email.reset();
             this.registerData.name.reset();
             this.registerData.password.reset();

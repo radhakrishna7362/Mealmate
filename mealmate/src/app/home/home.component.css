@@ -3,7 +3,6 @@
     height: 475px;
     transition: 0.5s ease;
     cursor: pointer;
-    /* margin:30px; */
 }
 
 .title{
@@ -16,12 +15,12 @@
 }
 
 .example-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 5px 5px 10px #871A1A;
 }
 
 .view-all:hover {
-  transform: scale(1.10);
+  transform: scale(1.02);
   box-shadow: 5px 5px 10px #871A1A;
 }
 

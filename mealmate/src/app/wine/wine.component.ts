@@ -15,11 +15,9 @@ export class WineComponent implements OnInit {
   ngOnInit(): void {
     this.wineService.getMainFallWineBundle().subscribe((data)=>{
       this.FallWine=data;
-      console.log(data);
     })
     this.wineService.getMainEssentialWine().subscribe((data)=>{
       this.EsseWine=data;
-      console.log(data);
     })
   }
 

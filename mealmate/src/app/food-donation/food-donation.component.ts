@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import {FormBuilder,FormControl,FormGroup,Validators} from '@angular/forms';
+import {FormControl,FormGroup,Validators} from '@angular/forms';
 import {FoodDonationService} from '../services/food-donation.service';
+import { SnackbarService } from '../services/snackbar.service';
 
 @Component({
   selector: 'app-food-donation',
@@ -13,60 +14,66 @@ export class FoodDonationComponent implements OnInit {
   donationForm:FormGroup;
   // form
   form={fname:null,lname:null,add1:null,add2:null,city:null,pincode:null,phone:null,email:null}
-  constructor(private fb:FormBuilder,private router:Router,private donationService:FoodDonationService) {
+  constructor(private snackbarService:SnackbarService,private router:Router,private donationService:FoodDonationService) {
     
   }
 
   formData={
-    fname:new FormControl('',[Validators.required,Validators.minLength(2)]),
-    lname:new FormControl('',[Validators.required,Validators.minLength(2)]),
+    fname:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-z]*")]),
+    lname:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-z]*")]),
     add1:new FormControl('',[Validators.required]),
-    add2:new FormControl('',[Validators.required]),
-    city:new FormControl('',[Validators.required]),
-    pincode:new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(6)]),
-    phone:new FormControl('',[Validators.required,Validators.maxLength(10),Validators.minLength(10)]),
-    email:new FormControl('',[Validators.required,Validators.email]),
+    add2:new FormControl(''),
+    city:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z]*")]),
+    pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]*'),Validators.minLength(6),Validators.maxLength(6)]),
+    phone:new FormControl('',[Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(10),Validators.minLength(10)]),
+    email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
   }
 
-  getErrorMessage() {
+  firstNameError() {
     if (this.formData.fname.hasError('required')) {
       return 'First Name is required';
+    }
+    else if(this.formData.fname.hasError('pattern')){
+      return 'First Name must contain only Characters'
     }
     else if(this.formData.fname.hasError('minlength')){
       return 'First Name must be a minimum length of 2';
     }
   }
 
-  getMsg(){
+  lastNameError(){
     if (this.formData.lname.hasError('required')) {
       return 'Last Name is required';
+    }
+    else if(this.formData.lname.hasError('pattern')){
+      return 'Last Name must contain only Characters'
     }
     else if(this.formData.lname.hasError('minlength')){
       return 'Last Name must be a minimum length of 2';
     }
   }
 
-  Error() {
+  add1Error() {
     if (this.formData.add1.hasError('required')) {
       return 'Address1 is required';
     }
   }
 
-  err() {
-    if (this.formData.add2.hasError('required')) {
-      return 'Address2 is required';
-    }
-  }
-
-  msg(){
+  cityError(){
     if (this.formData.city.hasError('required')) {
       return 'City is required';
     }
+    else if(this.formData.city.hasError('pattern')){
+      return 'City must contain only Characters'
+    }
   }
 
-  Msg(){
+  pincodeError(){
     if (this.formData.pincode.hasError('required')) {
       return 'Pincode is required';
+    }
+    else if(this.formData.pincode.hasError('pattern')){
+      return 'Pincode must be a 6 digit number'
     }
     else if(this.formData.pincode.hasError('minlength')){
       return 'Pincode must be 6 digits';
@@ -76,9 +83,12 @@ export class FoodDonationComponent implements OnInit {
     }
   }
 
-  ErrMsg(){
+  phoneError(){
     if (this.formData.phone.hasError('required')) {
       return 'Mobile no is required';
+    }
+    else if(this.formData.phone.hasError('pattern')){
+      return 'Mobile no must be a 10 digit number'
     }
     else if(this.formData.phone.hasError('minlength')){
       return 'Mobile no. must be 10 digits';
@@ -88,34 +98,20 @@ export class FoodDonationComponent implements OnInit {
     }
   }
 
-  getError(){
+  emailError(){
     if (this.formData.email.hasError('required')) {
       return 'Email is required';
     }
-    else if(this.formData.email.hasError('email')){
+    else if(this.formData.email.hasError('pattern')){
       return 'Email must be a valid email Address';
     }
   }
 
   ngOnInit(): void {
-    // this.createForm();
+
   }
 
-  // createForm(){
-  //   this.donationForm=this.fb.group({
-  //     fname:['',[Validators.required]],
-  //     lname:['',[Validators.required]],
-  //     add1:['',[Validators.required]],
-  //     add2:['',[Validators.required]],
-  //     city:['',[Validators.required]],
-  //     pincode:['',[Validators.required]],
-  //     phone:['',[Validators.required]],
-  //     email:['',[Validators.required]]
-  //   });
-  // }
-
   onSubmit(){
-    // this.form=this.donationForm.value;
     this.form.fname=this.formData.fname.value;
     this.form.lname=this.formData.lname.value;
     this.form.add1=this.formData.add1.value;
@@ -124,24 +120,12 @@ export class FoodDonationComponent implements OnInit {
     this.form.pincode=this.formData.pincode.value;
     this.form.phone=this.formData.phone.value;
     this.form.email=this.formData.email.value;
-    console.log(this.form);
     this.donationService.addForm(this.form).subscribe(
       (res)=>{
+        this.snackbarService.info("Thank you!!!",'Info');
         this.router.navigate(['/donationthanks'])
       }
     );
-    this.form = null;
-    // this.donationForm.reset({
-    //   fname:'',
-    //   lname:'',
-    //   add1:'',
-    //   add2:'',
-    //   city:'',
-    //   pincode:'',
-    //   phone:'',
-    //   email:'',
-    // });
-    // this.router.navigate(['/view']);
   }
 
 }

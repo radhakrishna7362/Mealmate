@@ -1,19 +1,19 @@
-.row-content{
+/* .row-content{
     padding: 25px;
     margin-right: 20px;
-}
+} */
 
 .example-full-width{
     width:10%
 }
 
 .view-all:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 5px 5px 10px #871A1A;
 }
 
 .ex-card:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 5px 5px 10px #871A1A;
 }
 

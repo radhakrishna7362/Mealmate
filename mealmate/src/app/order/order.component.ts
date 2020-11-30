@@ -16,22 +16,14 @@ export class OrderComponent implements OnInit {
   constructor(public authService:AuthService,private orderService:OrderService,private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
-    if(this.authService.loggedIn()){
-      this.authService.getUserId().subscribe(
-        (res)=>{
-          this.orderService.getOrders(res).subscribe(
-            (data:any[])=>{
-              console.log(data)
-              this.orders=data
-              this.length=this.orders.length;
-            });
-        });
-    }
-    else{
-      this.snackbar.open('PLEASE LOGIN','OK',{
-        duration: 3000,
+    this.authService.getUserId().subscribe(
+      (res)=>{
+        this.orderService.getOrders(res).subscribe(
+          (data:any[])=>{
+            this.orders=data
+            this.length=this.orders.length;
+          });
       });
-    }
   }
 
 }

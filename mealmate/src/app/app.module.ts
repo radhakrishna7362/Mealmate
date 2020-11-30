@@ -29,8 +29,9 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
 import { FoodThanksComponent } from './food-thanks/food-thanks.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
-import {TokenInterceptorService} from './services/token-interceptor.service';
 import { CartService } from './services/cart.service';
 import { FoodService } from './services/food.service';
 import { KitchentoolsService } from './services/kitchentools.service';
@@ -38,10 +39,15 @@ import {FoodDonationService} from './services/food-donation.service';
 import {WineService} from './services/wine.service';
 import { AuthService } from './services/auth.service';
 import { OrderService } from './services/order.service';
+import { ContactService } from './services/contact.service';
+import { AuthGuard } from './auth.guard';
+import { SnackbarService } from './services/snackbar.service';
+import {TokenInterceptorService} from './services/token-interceptor.service';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
@@ -94,6 +100,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     CartConfirmComponent,
     FoodThanksComponent,
     ContactComponent,
+    ProfileComponent,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -126,9 +134,14 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSnackBarModule,
     MatTooltipModule,
     MatTabsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,TokenInterceptorService,OrderService],
+  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,OrderService,ContactService,SnackbarService,AuthGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

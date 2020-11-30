@@ -12,7 +12,6 @@ export class CartService {
   constructor(private http:HttpClient) { }
 
   addCart(cart){
-    console.log(cart);
     return this.http.post(`${this._url}/add`,cart);
   }
 
@@ -21,7 +20,6 @@ export class CartService {
   }
 
   deleteProduct(cart){
-    console.log(cart)
     return this.http.delete(`${this._url}/remove/${cart.userid}/${cart.productid}`);
   }
 
@@ -30,7 +28,6 @@ export class CartService {
   }
 
   clearCart(cart){
-    console.log(cart)
     return this.http.delete(`${this._url}/removeAll/${cart[0].userid}`);
   }
 }

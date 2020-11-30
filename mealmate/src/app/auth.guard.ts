@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from './services/snackbar.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
   constructor(private _authService: AuthService,
-    private _router: Router,private snackbar:MatSnackBar) { }
+    private _router: Router,private snackbarService:SnackbarService) { }
   
   canActivate(): boolean {
     if (this._authService.loggedIn()) {
-      console.log('true')
       return true
-    } else {
-      console.log('false')            
+    } else {       
       this._router.navigate(['/login'])
-      this.snackbar.open('PLEASE LOGIN','OK',{
-        duration: 3000,
-      });
+      this.snackbarService.warning("Please Login!!!",'Warning')
       return false
     }
   }

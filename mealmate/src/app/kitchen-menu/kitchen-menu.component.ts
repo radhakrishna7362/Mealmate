@@ -11,15 +11,13 @@ import { Router } from '@angular/router';
 })
 export class KitchenMenuComponent implements OnInit {
 
-  // food;
   name:String;
   productsList=[];
   filterList=[];
   pagedList;
-  breakpoint: number = 3;  //to adjust to screen
-  // MatPaginator Inputs
+  breakpoint: number = 3;  
   length: number = 0;
-  pageSize: number = 10;  //displaying three cards each row
+  pageSize: number = 10;  
   pageSizeOptions: number[] = [5,10];
 
   constructor(private kitchentoolService:KitchentoolsService,private _router: Router) {
@@ -29,7 +27,6 @@ export class KitchenMenuComponent implements OnInit {
   ngOnInit(): void {
     this.kitchentoolService.getKitchenTools().subscribe((data:any[])=>{
       this.productsList=data;
-      console.log(this.productsList);
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
       this.pagedList = this.productsList.slice(0, 10);
       this.length = this.productsList.length;
@@ -41,7 +38,6 @@ export class KitchenMenuComponent implements OnInit {
         }
       }
     })
-    // this.productsList=this.foodService.getFood();
   }
 
   OnPageChange(event: PageEvent){
@@ -53,7 +49,7 @@ export class KitchenMenuComponent implements OnInit {
     this.pagedList = this.productsList.slice(startIndex, endIndex);
   }
 
-  onResize(event) { //to adjust to screen size
+  onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
   }
 
@@ -63,17 +59,16 @@ export class KitchenMenuComponent implements OnInit {
     this.length = this.filterList.length;
   }
 
-  // Search(){
-  //   if(this.name != ""){
-  //     this.filterList = this.productsList.filter(res=>{
-  //       return res.title.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-  //     });
-  //     console.log(this.filterList);
-  //     this.OnChange();
-  //   }
-  //   else if(this.name == ""){
-  //    this.ngOnInit();
-  //   }
-  // }
+  Search(){
+    if(this.name != ""){
+      this.filterList = this.productsList.filter(res=>{
+        return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+      });
+      this.OnChange();
+    }
+    else if(this.name == ""){
+     this.ngOnInit();
+    }
+  }
 
 }

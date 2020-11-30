@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { SnackbarService } from '../services/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -13,21 +13,21 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginUserData ={
-    email: new FormControl('', [Validators.required,Validators.email]),
+    email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     password: new FormControl('', [Validators.required,Validators.minLength(6)])
   }
 
   loginData={email:"",password:""}
 
-  getErrorMessage() {
+  emailError() {
     if (this.loginUserData.email.hasError('required')) {
       return 'Email is required';
     }
-    else if(this.loginUserData.email.hasError('email')){
+    else if(this.loginUserData.email.hasError('pattern')){
       return "This doesn't look like an email address";
     }
   }
-  getError(){
+  passwordError(){
     if (this.loginUserData.password.hasError('required')) {
       return 'Password is required';
     }
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   
   constructor(private _auth: AuthService,
-              private _router: Router,private snackbar:MatSnackBar) { }
+              private _router: Router,private snackbarService:SnackbarService) { }
 
   ngOnInit() {
   }
@@ -50,9 +50,7 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginData)
     .subscribe(
       res => {
-        this.snackbar.open('LOGIN SUCCESSFULL', 'OK', {
-          duration: 3000,
-        });
+        this.snackbarService.success("Logged In Successfully!!!",'Congrats');
         localStorage.setItem('token', res.token)
         this._auth.onLogin();
         this._router.navigate(['/home'])
@@ -60,9 +58,7 @@ export class LoginComponent implements OnInit {
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 401) {
-            this.snackbar.open('INVALID EMAIL OR PASSWORD', 'OK', {
-              duration: 3000,
-            });
+            this.snackbarService.error("INVLAID EMAIN OR PASSWORD!!!",'Error');
             this.loginUserData.email.reset();
             this.loginUserData.password.reset();
             this.loginData.email='';
