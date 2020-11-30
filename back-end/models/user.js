@@ -13,7 +13,15 @@ let userSchema = new Schema({
     password :{
         type:String,
         required:true
-    }
+    },
+    address: String,
+    city: String,
+    state: String,
+    gender: String,
+    pincode: String,
+    dob: String,
+    phone: Number,
+    aboutme: String
 })
 
 userSchema=mongoose.model("users",userSchema);
