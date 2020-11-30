@@ -21,6 +21,8 @@ import { OrderComponent } from './order/order.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import {FoodThanksComponent} from './food-thanks/food-thanks.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -28,6 +30,8 @@ const routes: Routes = [
   {path:'menu',component:MenuComponent},
   {path:'cart',component:CartComponent,canActivate: [AuthGuard]},
   {path:'kitchenmenu',component:KitchenMenuComponent},
+  {path:'yourprofile/:id',component:ProfileComponent},
+  {path:'profile-edit/:id',component:ProfileEditComponent},
   {path:'details/:id',component:FooddetailsComponent},
   {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent,canActivate: [AuthGuard]},
@@ -47,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
