@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
+import { SpinnerService } from './services/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit{
   title = 'mealmate';
   UserId;
   User;
-  constructor(public _authService: AuthService,private _router: Router){
+  constructor(public _authService: AuthService,private _router: Router,public loaderService: SpinnerService){
     
   }
 

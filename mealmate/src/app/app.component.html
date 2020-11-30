@@ -87,6 +87,7 @@
             </div>
         </div>
         <div fxFlex style="padding: 10px;">
+            <mat-progress-bar *ngIf="loaderService.isLoading | async" mode="indeterminate"></mat-progress-bar>
             <router-outlet></router-outlet>
         </div>
         <app-footer></app-footer>

@@ -43,6 +43,8 @@ import { ContactService } from './services/contact.service';
 import { AuthGuard } from './auth.guard';
 import { SnackbarService } from './services/snackbar.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
+import {SpinnerService} from './services/spinner.service';
+import {SpinnerInterceptorService} from './services/spinner-interceptor.service';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
@@ -137,9 +139,13 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressBarModule,
     ToastrModule.forRoot(),
   ],
-  providers: [FoodService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,OrderService,ContactService,SnackbarService,AuthGuard,{
+  providers: [FoodService,SpinnerService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,OrderService,ContactService,SnackbarService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
+    multi: true
+  },{
+    provide: HTTP_INTERCEPTORS,
+    useClass: SpinnerInterceptorService,
     multi: true
   }],
   bootstrap: [AppComponent]
