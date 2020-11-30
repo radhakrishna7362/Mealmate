@@ -16,25 +16,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    // if(this._authService.getToken()){
-    //   this._authService.getUserId().subscribe((data)=>{
-    //     this.UserId=data
-    //     console.log(this.UserId)
-    //     this._authService.getUserName(this.UserId).subscribe((name)=>{
-    //       this.User=name;
-    //     })
-    //   })
-    // }
-    // else{
-      // this.User=null;
-      // this.UserId=null;
-    // }
     if(this._authService.subsVar===undefined){
       this._authService.subsVar=this._authService.invokeAppComponent.subscribe(
         (res)=>{
           this._authService.getUserId().subscribe((data)=>{
             this.UserId=data
-            console.log(this.UserId)
             this._authService.getUserName(this.UserId).subscribe((name)=>{
               this.User=name;
             })
@@ -47,7 +33,6 @@ export class AppComponent implements OnInit{
   logout(){
     this._authService.logoutUser();
     this._authService.subsVar=undefined;
-    // this.ngOnInit();
     this.User=null;
     this.UserId=null;
     this._router.navigate(['/home'])

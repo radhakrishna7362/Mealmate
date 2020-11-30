@@ -65,13 +65,20 @@
                 <div mat-line style="font-weight: bold;">ContactUs</div>
             </mat-list-item>
             <mat-divider></mat-divider>
+            <mat-list-item *ngIf="_authService.loggedIn()" [routerLink]="['/yourprofile',UserId]" routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="fas fa-user"></i>
+                </mat-icon>
+                <div mat-line style="font-weight: bold;">Your Profile</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column" fxFlexFill>
         <div fxLayout="row" fxLayoutAlign="space-between center" style="background-color: #871A1A;height: 65px;color: white;padding-right: 5px;">
             <div fxLayoutAlign="center center">
                 <button mat-icon-button (click)="drawer.toggle()" style="outline: none;"><span class="material-icons">menu</span></button>
-                <span class="title">MealMate</span>
+                <span class="title" routerLink="/home" style="outline: none;cursor: pointer;">MealMate</span>
             </div>
             <div fxLayoutAlign="center center">
                 <button class="view-all" style="outline: none;font-weight: bold;" mat-button routerLink='/cart' routerLinkActive='active'><i class="material-icons">shopping_cart</i>Cart</button>
