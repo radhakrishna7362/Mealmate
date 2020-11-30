@@ -14,7 +14,6 @@ CartRoute.route('/add').post((req, res) => {
         else{
             Cart.create(req.body)
             .then((resp) => {
-                console.log('new responce ', resp);
                 res.setHeader('Content-Type', 'application/json');
                 res.status(200).send("Added to cart")
             }, (err) => res.status(401).send("Error adding to cart"))

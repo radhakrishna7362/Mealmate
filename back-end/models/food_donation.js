@@ -17,7 +17,6 @@ let food_donation = new Schema({
     },
     add2:{
         type:String,
-        required:true
     },
     city:{
         type:String,
