@@ -6,11 +6,9 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ContactService {
 
-  _url="http://localhost:3000/contact";
-
   constructor(private http:HttpClient) { }
 
   feedback(data){
-    return this.http.post(`${this._url}/feedback`,data);
+    return this.http.post(`/contact/feedback`,data);
   }
 }

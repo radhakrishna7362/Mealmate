@@ -2,8 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const compression=require('compression');
+const dotenv=require('dotenv');
+const helmet=require('helmet');
+const path=require('path');
 const connection = mongoose.connection;
 const app = express();
+dotenv.config({path:"./config.env"});
 const port = process.env.PORT || 3000;
 
 mongoose.connect('mongodb+srv://rk:190031187@first.cpozf.mongodb.net/mealmate?retryWrites=true&w=majority',{useNewUrlParser: true , useUnifiedTopology: true});
@@ -20,6 +25,19 @@ const CartRoute=require('./routes/cartRoute');
 const OrderRoute=require('./routes/orderRoute');
 const ContactRoute=require('./routes/contactRoute');
 
+app.use(compression());
+app.use(express.static(process.cwd() + "/mealmate/dist/mealmate"));
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: ["'self'", "https:", "http:", "data:", "ws:"],
+        baseUri: ["'self'"],
+        fontSrc: ["'self'", "https:", "http:", "data:"],
+        scriptSrc: ["'self'", "https:", "http:", "blob:"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https:", "http:"],
+      },
+    })
+);
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/food',FoodRoute);
@@ -31,5 +49,9 @@ app.use('/user',UserRoute);
 app.use('/cart',CartRoute);
 app.use('/order',OrderRoute);
 app.use('/contact',ContactRoute)
+
+app.get("*", (req, res) => { 
+    res.sendFile(path.resolve(process.cwd() + "/mealmate/dist/mealmate/index.html"));
+});
 
 app.listen(port, () => console.log(`running on the server ${port}`));

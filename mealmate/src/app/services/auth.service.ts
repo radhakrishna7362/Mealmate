@@ -8,19 +8,17 @@ import { SnackbarService } from './snackbar.service';
 })
 export class AuthService {
 
-  private _url = "http://localhost:3000/user";
-
   constructor(private http: HttpClient,private snackbarService:SnackbarService) { }
 
     invokeAppComponent=new EventEmitter();
     subsVar:Subscription;
 
     registerUser(user) {
-      return this.http.post<any>(`${this._url}/register`, user)
+      return this.http.post<any>(`/user/register`, user)
     }
   
     loginUser(user) {
-      return this.http.post<any>(`${this._url}/login`, user)
+      return this.http.post<any>(`/user/login`, user)
     }
   
     logoutUser() {
@@ -41,20 +39,20 @@ export class AuthService {
     }
 
     getUserId(){
-      return this.http.get(`${this._url}/userid`,{
+      return this.http.get(`/user/userid`,{
         params:new HttpParams().append('token',localStorage.getItem('token'))
       })
     }
 
     getUserName(id){
-      return this.http.get(`${this._url}/username/${id}`)
+      return this.http.get(`/user/username/${id}`)
     }
 
     getProfile(id){
-      return this.http.get(`${this._url}/profile/${id}`)
+      return this.http.get(`/user/profile/${id}`)
     }
 
     editProfile(id,user){
-      return this.http.patch(`${this._url}/edit-profile/${id}`,user);
+      return this.http.patch(`/user/edit-profile/${id}`,user);
     }
 }
