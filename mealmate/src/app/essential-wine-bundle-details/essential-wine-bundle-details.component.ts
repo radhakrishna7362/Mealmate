@@ -21,7 +21,7 @@ export class EssentialWineBundleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let id=this.route.snapshot.params['id'];
-    this.essentialWineService.getAEssentialWine(parseInt(id)).subscribe((data)=>{
+    this.essentialWineService.getAEssentialWine(id).subscribe((data)=>{
       this.essentialwine=data[0];
     })
   }

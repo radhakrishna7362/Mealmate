@@ -21,7 +21,7 @@ export class FooddetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let id=this.route.snapshot.params['id'];
-    this.foodService.getAFood(parseInt(id)).subscribe((data)=>{
+    this.foodService.getAFood(id).subscribe((data)=>{
       this.food=data[0];
     })
   }

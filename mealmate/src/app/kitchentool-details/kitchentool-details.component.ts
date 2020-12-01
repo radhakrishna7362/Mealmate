@@ -21,7 +21,7 @@ export class KitchentoolDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let id=this.route.snapshot.params['id'];
-    this.kitchentoolsService.getAKitchenTool(parseInt(id)).subscribe((data)=>{
+    this.kitchentoolsService.getAKitchenTool(id).subscribe((data)=>{
       this.ktool=data[0];
     })
   }

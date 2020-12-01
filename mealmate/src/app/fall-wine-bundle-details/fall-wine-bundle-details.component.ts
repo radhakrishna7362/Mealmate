@@ -21,7 +21,7 @@ export class FallWineBundleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let id=this.route.snapshot.params['id'];
-    this.fallWineService.getAFallWineBundle(parseInt(id)).subscribe((data)=>{
+    this.fallWineService.getAFallWineBundle(id).subscribe((data)=>{
       this.fallwine=data[0];
     })
   }
