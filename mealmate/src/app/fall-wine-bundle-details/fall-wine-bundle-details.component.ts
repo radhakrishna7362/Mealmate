@@ -40,7 +40,7 @@ export class FallWineBundleDetailsComponent implements OnInit {
     if(this._authService.getToken()){
       this._authService.getUserId().subscribe((data)=>{
         this.cart.userid=data;
-        this.cart.productid=this.fallwine.id;
+        this.cart.productid=this.fallwine._id;
         this.cart.qty=this.qty;
         this.cart.image=this.fallwine.image;
         this.cart.name=this.fallwine.name;

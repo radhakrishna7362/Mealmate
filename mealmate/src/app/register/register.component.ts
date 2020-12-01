@@ -12,9 +12,10 @@ import { SnackbarService } from '../services/snackbar.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = { name: "", email: "", password: "" }
+  registerUserData = { username: "", name: "", email: "", password: "" }
   
   registerData={
+    username:new FormControl('',[Validators.required,Validators.minLength(2)]),
     name:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z ]*")]),
     email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     password:new FormControl('',[Validators.required,Validators.minLength(6)])
@@ -38,6 +39,14 @@ export class RegisterComponent implements OnInit {
       return 'Password must be a minimum length of 6';
     }
   }
+  usernameError(){
+    if (this.registerData.username.hasError('required')) {
+      return 'Username is required';
+    }
+    else if(this.registerData.username.hasError('pattern')){
+      return 'Username must contain only Characters';
+    }
+  }
   nameError(){
     if (this.registerData.name.hasError('required')) {
       return 'Name is required';
@@ -57,6 +66,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
+    this.registerUserData.username=this.registerData.username.value;
     this.registerUserData.email=this.registerData.email.value;
     this.registerUserData.name=this.registerData.name.value;
     this.registerUserData.password=this.registerData.password.value;
@@ -71,9 +81,11 @@ export class RegisterComponent implements OnInit {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 409) {
             this.snackbarService.info("Oops Email Already Registered!!!",'Info')
+            this.registerData.username.reset();
             this.registerData.email.reset();
             this.registerData.name.reset();
             this.registerData.password.reset();
+            this.registerUserData.username="";
             this.registerUserData.name="";
             this.registerUserData.email="";
             this.registerUserData.password="";

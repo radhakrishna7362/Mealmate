@@ -25,7 +25,7 @@ FallWineBundle.route('/home').get((req,res,next) => {
 });
 
 FallWineBundle.route('/particular/:id').get((req,res,next) => {
-    FallWine.find({id:req.params.id})
+    FallWine.find({_id:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

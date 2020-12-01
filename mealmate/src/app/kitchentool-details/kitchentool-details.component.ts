@@ -40,7 +40,7 @@ export class KitchentoolDetailsComponent implements OnInit {
     if(this._authService.getToken()){
       this._authService.getUserId().subscribe((data)=>{
         this.cart.userid=data;
-        this.cart.productid=this.ktool.id;
+        this.cart.productid=this.ktool._id;
         this.cart.qty=this.qty;
         this.cart.image=this.ktool.image;
         this.cart.name=this.ktool.name;

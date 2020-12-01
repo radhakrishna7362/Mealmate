@@ -14,7 +14,7 @@
       </div>
     </div>
     <mat-grid-list [cols]="breakpoint" rowHeight="500px" (window:resize)="onResize($event)" >
-      <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/details',f.id]">
+      <mat-grid-tile style="outline: none;" *ngFor="let f of pagedList" [routerLink]="['/details',f._id]">
         <div>
           <mat-card class="example-card">
             <img mat-card-image height="300px" src="{{f.image}}" alt="Photo of {{f.name}}">

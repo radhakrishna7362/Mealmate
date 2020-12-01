@@ -26,7 +26,7 @@ Kitchen.route('/home').get((req,res,next) => {
 });
 
 Kitchen.route('/particular/:id').get((req,res,next) => {
-    KitchenTool.find({id:req.params.id})
+    KitchenTool.find({_id:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

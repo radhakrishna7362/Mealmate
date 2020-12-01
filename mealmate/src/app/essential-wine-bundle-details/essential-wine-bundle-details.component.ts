@@ -40,7 +40,7 @@ export class EssentialWineBundleDetailsComponent implements OnInit {
     if(this._authService.getToken()){
       this._authService.getUserId().subscribe((data)=>{
         this.cart.userid=data;
-        this.cart.productid=this.essentialwine.id;
+        this.cart.productid=this.essentialwine._id;
         this.cart.qty=this.qty;
         this.cart.image=this.essentialwine.image;
         this.cart.name=this.essentialwine.name;

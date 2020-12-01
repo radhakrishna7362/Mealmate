@@ -10,6 +10,6 @@ export class FoodDonationService {
   constructor(private http:HttpClient) { }
 
   addForm(form){
-    return this.http.post(`/fooddonation/addform`,form);
+    return this.http.post<any>(`/fooddonation/addform`,form);
   }
 }

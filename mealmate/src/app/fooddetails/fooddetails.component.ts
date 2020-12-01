@@ -40,7 +40,7 @@ export class FooddetailsComponent implements OnInit {
     if(this._authService.getToken()){
       this._authService.getUserId().subscribe((data)=>{
         this.cart.userid=data;
-        this.cart.productid=this.food.id;
+        this.cart.productid=this.food._id;
         this.cart.qty=this.qty;
         this.cart.image=this.food.image;
         this.cart.name=this.food.name;

@@ -14,10 +14,11 @@ export class ProfileEditComponent implements OnInit {
   constructor(private _router: Router,private router:ActivatedRoute,private authService: AuthService,private snackbarService:SnackbarService) { }
   _id
 
-  form={name:null,address:null,city:null,state:null,pincode:null,dob:null,phone:null,email:null,gender:null,aboutme:null}
+  form={username:null,name:null,address:null,city:null,state:null,pincode:null,dob:null,phone:null,email:null,gender:null,aboutme:null}
   
   formData={
-    name:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern('[a-zA-Z ]*')]),
+    username:new FormControl(''),
+    name:new FormControl('',[Validators.required,Validators.minLength(2)]),
     address: new FormControl(''),
     city: new FormControl('',[Validators.pattern('[a-zA-Z ]*')]),
     state: new FormControl('',[Validators.pattern('[a-zA-Z ]*')]),
@@ -35,9 +36,6 @@ export class ProfileEditComponent implements OnInit {
     }
     else if(this.formData.name.hasError('minlength')){
       return 'Name must be a minimum length of 2';
-    }
-    else if (this.formData.name.hasError('pattern')) {
-      return 'Name should not contain numbers';
     }
   }
 
@@ -84,6 +82,7 @@ export class ProfileEditComponent implements OnInit {
     this.router.params.subscribe((params)=>{
       this._id=params.id;
       this.authService.getProfile(this._id).subscribe((data:any)=>{
+        this.formData.username.setValue(data.username);
         this.formData.name.setValue(data.name);
         this.formData.address.setValue(data.address);
         this.formData.city.setValue(data.city);
@@ -99,6 +98,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   onSubmit(){
+    this.form.username=this.formData.username.value;
     this.form.name=this.formData.name.value;
     this.form.address=this.formData.address.value;
     this.form.city=this.formData.city.value;

@@ -9,7 +9,7 @@ export class OrderService {
   constructor(private http:HttpClient) { }
 
   getOrders(userid){
-    return this.http.get(`/order/orders/${userid}`);
+    return this.http.get<any>(`/order/orders/${userid}`);
   }
 
 }

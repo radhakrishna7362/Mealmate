@@ -9,6 +9,6 @@ export class ContactService {
   constructor(private http:HttpClient) { }
 
   feedback(data){
-    return this.http.post(`/contact/feedback`,data);
+    return this.http.post<any>(`/contact/feedback`,data);
   }
 }

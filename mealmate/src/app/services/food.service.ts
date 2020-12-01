@@ -12,14 +12,14 @@ export class FoodService {
   }
 
   getFood(){
-    return this.http.get(`/food/menu`);
+    return this.http.get<any>(`/food/menu`);
   }
 
   getMainFood(){
-    return this.http.get(`/food/home`);
+    return this.http.get<any>(`/food/home`);
   }
 
   getAFood(id){
-    return this.http.get(`/food/particular/${id}`);
+    return this.http.get<any>(`/food/particular/${id}`);
   }
 }

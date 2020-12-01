@@ -22,6 +22,7 @@ function verifyToken(req, res, next) {
 
 UserRoute.route('/register').post((req, res) => {
     let user = new User({
+        username: req.body.username,
         name : req.body.name,
         email : req.body.email,
         password : bcrypt.hashSync(req.body.password, 10),
@@ -55,7 +56,19 @@ UserRoute.route('/login').post((req, res) => {
         if (error) {
         } else {
            if (!u) {
-              res.status(401).send("Invalid Email...!")
+            User.findOne({username: req.body.email}, (error, u) => {
+                if (error) {
+                } else {
+                   if (!u) {
+                      res.status(401).send("Invalid Email or Username...!")
+                   } else if (bcrypt.compareSync(req.body.password, u.password)){
+                      let token =  jwt.sign({id:u._id}, secret) 
+                      res.status(200).send({token})  
+                   } else {
+                      res.status(401).send("Invalid Password...!")
+                   }
+                }
+            })
            } else if (bcrypt.compareSync(req.body.password, u.password)){
               let token =  jwt.sign({id:u._id}, secret) 
               res.status(200).send({token})  
@@ -94,6 +107,7 @@ UserRoute.route('/edit-profile/:id').patch((req,res,next)=>{
     User.findById(req.params.id,(err,data)=>{
         if (err) next(err)
         else {
+        data.username=req.body.username;
         data.name=req.body.name;
         data.address=req.body.address;
         data.city=req.body.city;

@@ -39,20 +39,20 @@ export class AuthService {
     }
 
     getUserId(){
-      return this.http.get(`/user/userid`,{
+      return this.http.get<any>(`/user/userid`,{
         params:new HttpParams().append('token',localStorage.getItem('token'))
       })
     }
 
     getUserName(id){
-      return this.http.get(`/user/username/${id}`)
+      return this.http.get<any>(`/user/username/${id}`)
     }
 
     getProfile(id){
-      return this.http.get(`/user/profile/${id}`)
+      return this.http.get<any>(`/user/profile/${id}`)
     }
 
     editProfile(id,user){
-      return this.http.patch(`/user/edit-profile/${id}`,user);
+      return this.http.patch<any>(`/user/edit-profile/${id}`,user);
     }
 }

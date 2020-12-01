@@ -13,7 +13,7 @@ import { SnackbarService } from '../services/snackbar.service';
 export class LoginComponent implements OnInit {
 
   loginUserData ={
-    email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    email:new FormControl('',[Validators.required]),
     password: new FormControl('', [Validators.required,Validators.minLength(6)])
   }
 
@@ -22,9 +22,6 @@ export class LoginComponent implements OnInit {
   emailError() {
     if (this.loginUserData.email.hasError('required')) {
       return 'Email is required';
-    }
-    else if(this.loginUserData.email.hasError('pattern')){
-      return "This doesn't look like an email address";
     }
   }
   passwordError(){
@@ -58,7 +55,7 @@ export class LoginComponent implements OnInit {
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 401) {
-            this.snackbarService.error("Invalid Email Or Password!!!",'Error');
+            this.snackbarService.error("Invalid Email/Username Or Password!!!",'Error');
             this.loginUserData.email.reset();
             this.loginUserData.password.reset();
             this.loginData.email='';

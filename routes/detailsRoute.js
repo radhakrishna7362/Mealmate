@@ -25,7 +25,7 @@ Food.route('/home').get((req,res,next) => {
 });
 
 Food.route('/particular/:id').get((req,res,next) => {
-    FoodDetail.find({id:req.params.id})
+    FoodDetail.find({_id:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

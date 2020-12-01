@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   form={name:null,address:null,city:null,state:null,pincode:null,dob:null,phone:null,email:null,gender:null,aboutme:null}
   
   formData={
+    username:new FormControl(''),
     name:new FormControl(''),
     address: new FormControl(''),
     city: new FormControl(''),
@@ -32,6 +33,7 @@ export class ProfileComponent implements OnInit {
     this.router.params.subscribe((params)=>{
       this._id=params.id;
       this.authService.getProfile(this._id).subscribe((data:any)=>{
+        this.formData.username.setValue(data.username);
         this.formData.name.setValue(data.name);
         this.formData.address.setValue(data.address);
         this.formData.city.setValue(data.city);

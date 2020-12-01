@@ -9,15 +9,15 @@ export class WineService {
   constructor(private http:HttpClient) { }
 
   getFallWineBundle(){
-    return this.http.get(`/fallwinebundle/menu`);
+    return this.http.get<any>(`/fallwinebundle/menu`);
   }
 
   getMainFallWineBundle(){
-    return this.http.get(`/fallwinebundle/home`);
+    return this.http.get<any>(`/fallwinebundle/home`);
   }
 
   getAFallWineBundle(id){
-    return this.http.get(`/fallwinebundle/particular/${id}`);
+    return this.http.get<any>(`/fallwinebundle/particular/${id}`);
   }
 
   getEssentialWine(){

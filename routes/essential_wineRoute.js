@@ -25,7 +25,7 @@ EssentialWine.route('/home').get((req,res,next) => {
 });
 
 EssentialWine.route('/particular/:id').get((req,res,next) => {
-    Wine.find({id:req.params.id})
+    Wine.find({_id:req.params.id})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
