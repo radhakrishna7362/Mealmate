@@ -5,7 +5,7 @@
     <div fxFlex.md="50" fxFlex.lg="50">
         <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{fallwine.name}}</h1>
         <h2 class="font-weight-bold">{{fallwine.description}}</h2>
-        <h3 style="border-bottom: 2px ridge;">Price: {{fallwine.price | currency}}/SERVING</h3>
+        <h3 style="border-bottom: 2px ridge;">Price: {{fallwine.price | currency:'INR'}}/SERVING</h3>
         <div class="mb-3">
             <button mat-icon-button style="outline: none;" (click)="minus()"><mat-icon>remove</mat-icon></button>
             <mat-form-field class="example-full-width">
