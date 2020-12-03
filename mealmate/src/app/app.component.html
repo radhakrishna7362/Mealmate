@@ -86,8 +86,8 @@
                 <button class="view-all" style="outline: none;font-weight: bold;" *ngIf="_authService.loggedIn()" (click)="logout()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
             </div>
         </div>
+        <mat-progress-bar *ngIf="loaderService.isLoading | async" mode="indeterminate"></mat-progress-bar>
         <div fxFlex style="padding: 10px;">
-            <mat-progress-bar *ngIf="loaderService.isLoading | async" mode="indeterminate"></mat-progress-bar>
             <router-outlet></router-outlet>
         </div>
         <app-footer></app-footer>

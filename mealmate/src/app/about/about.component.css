@@ -3,11 +3,82 @@
     padding: 70px 30px;
     background: rgb(241, 156, 28);
     color: #871A1A;;
-    min-height: 100px;
+    /* min-height: 100px; */
 }
 
 .mini-jumbo {
     margin: 0px auto;
     padding: 70px 30px;
-    min-height: 100px;
+    /* min-height: 100px; */
+}
+
+.content{
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+img {
+    height: 142px;
+    width: 142px;
+    border-radius: 50%;
+}
+
+.mat-card{
+    transition: 0.5s ease;
+}
+
+.mat-card:hover{
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px #871A1A;
+}
+
+.btn-facebook {
+    transition: 0.5s ease;
+    color: #fff !important;
+    background-color: #3b5998 !important;
+}
+.btn-instagram {
+    transition: 0.5s ease;
+    color: #fff !important;
+    background-color: #E1306C !important;
+}
+.btn-linkedin {
+    transition: 0.5s ease;
+    color: #fff !important;
+    background-color: #007bb6 !important;
+}
+.btn-github {
+    transition: 0.5s ease;
+    color: #fff !important;
+    background-color: #000000 !important;
+}
+.btn-mail {
+    transition: 0.5s ease;
+    color: #fff !important;
+    background-color: #512da8 !important;
+}
+
+.btn-facebook:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-linkedin:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-mail:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-instagram:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #ff9f00;
+}
+
+.btn-github:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #ff9f00;
 }
