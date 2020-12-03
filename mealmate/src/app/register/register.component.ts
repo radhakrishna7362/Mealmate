@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        this.snackbarService.success("User Registered Succesffully!!!",'Congrats')
+        this.snackbarService.info("Welcome To Our Family!!!",'Greetings')
         localStorage.setItem('token', res.token)
         this._router.navigate(['/home'])
       },
@@ -92,6 +92,6 @@ export class RegisterComponent implements OnInit {
           }
         }
       }
-    )      
+    )
   }
 }

@@ -27,6 +27,7 @@
 }
 
 .jumbo {
+    border-radius: 10px;
     margin: 0px auto;
     padding: 70px 30px;
     background: rgb(241, 156, 28);
