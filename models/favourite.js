@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let cart = new Schema({
+let favourite = new Schema({
     userid:{
         type:Schema.Types.ObjectId,
         required:true
@@ -11,20 +11,8 @@ let cart = new Schema({
         type:Schema.Types.ObjectId,
         required:true
     },
-    qty:{
-        type:Number,
-        required:true
-    },
-    image:{
-        type:String,
-        required:true
-    },
     name:{
         type:String,
-        required:true
-    },
-    price:{
-        type:Number,
         required:true
     },
     router:{
@@ -33,5 +21,5 @@ let cart = new Schema({
     }
 });
 
-cart = mongoose.model("carts", cart);
-module.exports = cart;
+favourite = mongoose.model("favourites", favourite);
+module.exports = favourite;

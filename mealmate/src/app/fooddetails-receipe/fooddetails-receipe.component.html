@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>
+    <div>
+        <span class="font-weight-bold" style="font-size: x-large;">step-by-step</span>
+        <h1 class="title">Instructions</h1>
+    </div>
+</h2>
+<mat-dialog-content>
+    <mat-card class="row-content-s" style="background-color:#FFCCBC">
+        <mat-card *ngFor="let f of data.steps" class="example-card mt-3">
+            <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.gt-sm="row" fxLayoutGap="15px">
+                <img width="600px" height="300px" class="img-fluid" style="border-radius: 5px;" src="{{f.img}}" alt="">
+                <div class="ml-1" fxLayout="column">
+                    <div fxLayout="row">
+                        <h2 class="font-weight-bold">{{f.number}}.</h2>
+                        <h2 class="font-weight-bold">{{f.desc}}</h2>
+                    </div>
+                    <div class="row-content-step" style="font-size: large;margin-bottom: 5px;">{{f.step}}</div>
+                </div>
+            </div>
+        </mat-card>
+    </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="background-color:#ff9f00;outline: none;" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>

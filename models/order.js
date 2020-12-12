@@ -30,6 +30,10 @@ let order = new Schema({
     date: {
         type: Date,
         default: Date.now(),
+    },
+    router:{
+        type:String,
+        required:true
     }
 });
 

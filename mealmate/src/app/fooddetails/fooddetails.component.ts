@@ -5,6 +5,13 @@ import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SnackbarService } from '../services/snackbar.service';
+import { MatDialog } from '@angular/material/dialog';
+import { FooddetailsReceipeComponent } from '../fooddetails-receipe/fooddetails-receipe.component';
+import {FavoriteService} from '../services/favorite.service';
+
+export interface DialogData {
+  steps
+}
 
 @Component({
   selector: 'app-fooddetails',
@@ -15,9 +22,11 @@ export class FooddetailsComponent implements OnInit {
 
   food;
   qty=1;
-  cart={userid:null,productid:null,qty:null,image:null,name:null,price:null};
+  cart={userid:null,productid:null,qty:null,image:null,name:null,price:null,router:null};
+  fav={userid:null,productid:null,name:null,router:null};
+
   constructor(private route:ActivatedRoute,private foodService:FoodService,public _authService: AuthService,
-    private cartService:CartService,private snackbarService:SnackbarService) { }
+    private cartService:CartService,private snackbarService:SnackbarService,public dialog: MatDialog,private favouriteService:FavoriteService) { }
 
   ngOnInit(): void {
     let id=this.route.snapshot.params['id'];
@@ -26,9 +35,52 @@ export class FooddetailsComponent implements OnInit {
     })
   }
 
+  openReceipe(): void {
+    if(this._authService.getToken()){
+      const dialogRef = this.dialog.open(FooddetailsReceipeComponent, {
+        data: {steps: this.food.steps}
+      });
+    }
+    else{
+      this.snackbarService.warning("Please Login To See the Receipe","Warning")
+    }
+  }
+
   add(){
     if(this.qty<6)
       this.qty=this.qty+1
+  }
+
+  favorite(){
+    if(this._authService.getToken()){
+      this._authService.getUserId().subscribe((data)=>{
+        this.fav.userid=data;
+        this.fav.productid=this.food._id;
+        this.fav.name=this.food.name;
+        this.fav.router="/details";
+        this.favouriteService.addFav(this.fav)
+          .subscribe(
+            (res) => {
+
+            },
+            err => {
+              if( err instanceof HttpErrorResponse ) {
+                if (err.status === 401 || err.status === 500) {
+                  this.snackbarService.error("Failed to add to Favourites", "Error")
+                }
+                if (err.status === 409) {
+                  this.snackbarService.info("Already in Favourites", "Info")
+                }
+                if(err.status===200){
+                  this.snackbarService.success("Added to Favourites Successfully..!", "Success")
+                }
+              }
+            });
+      })
+    }
+    else{
+      this.snackbarService.warning("Please Login To Add to Favourites","Warning")
+    }
   }
 
   minus(){
@@ -45,6 +97,7 @@ export class FooddetailsComponent implements OnInit {
         this.cart.image=this.food.image;
         this.cart.name=this.food.name;
         this.cart.price=this.food.price;
+        this.cart.router="/details";
         this.cartService.addCart(this.cart)
           .subscribe(
             (res) => {

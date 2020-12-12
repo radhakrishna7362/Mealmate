@@ -32,8 +32,8 @@ CartRoute.route('/get/:id').get((req,res,next)=>{
     .catch((err) => next(err));
 })
 
-CartRoute.route('/remove/:userid/:productid').delete((req,res,next)=>{
-    Cart.deleteOne({userid:req.params.userid,productid:req.params.productid})
+CartRoute.route('/remove/:id').delete((req,res,next)=>{
+    Cart.deleteOne({_id:req.params.id})
     .then((resp) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).send("Removed Successfully")

@@ -23,17 +23,19 @@ import {FoodThanksComponent} from './food-thanks/food-thanks.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import {FavouritesComponent} from './favourites/favourites.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path:'menu',component:MenuComponent},
   {path:'cart',component:CartComponent,canActivate: [AuthGuard]},
-  // {path:'kitchenmenu',component:KitchenMenuComponent},
-  // {path:'yourprofile/:id',component:ProfileComponent},
-  // {path:'profile-edit/:id',component:ProfileEditComponent},
+  {path:'favourites',component:FavouritesComponent,canActivate: [AuthGuard]},
+  {path:'kitchenmenu',component:KitchenMenuComponent},
+  {path:'yourprofile/:id',component:ProfileComponent},
+  {path:'profile-edit/:id',component:ProfileEditComponent},
   {path:'details/:id',component:FooddetailsComponent},
-  // {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
+  {path:'kitchendetails/:id',component:KitchentoolDetailsComponent},
   {path:'fooddonation',component:FoodDonationComponent,canActivate: [AuthGuard]},
   {path:'fallwines',component:FallWineBundlesComponent},
   {path:'fallwine/:id',component:FallWineBundleDetailsComponent},

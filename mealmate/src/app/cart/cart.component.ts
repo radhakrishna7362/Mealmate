@@ -13,11 +13,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CartComponent implements OnInit {
 
-  displayedColumns=['name','quantity','price','actions'];
+  displayedColumns=['name','quantity','price','actions','view'];
   cart=[];
   UserId;
   length;
-  deleteProduct={userid:null,productid:null};
 
   constructor(private cartService:CartService,public authService:AuthService,private snackBarService:SnackbarService,private dialog:MatDialog) { 
     
@@ -55,10 +54,8 @@ export class CartComponent implements OnInit {
     return total;
   }
 
-  delete(userid,productid){
-    this.deleteProduct.userid=userid;
-    this.deleteProduct.productid=productid;
-    this.cartService.deleteProduct(this.deleteProduct)
+  delete(_id){
+    this.cartService.deleteProduct(_id)
     .subscribe((res)=>{
       
     },err=>{

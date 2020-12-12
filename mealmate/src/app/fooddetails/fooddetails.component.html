@@ -1,5 +1,5 @@
 <div *ngIf="food">
-    <mat-card class="row-content-s" style="background-color:#FFCCBC">
+    <mat-card class="row-content-s m-5" style="background-color:#FFCCBC">
         <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
             <div fxFlex.md="50" fxFlex.lg="50">
                 <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{food.name}}</h1>
@@ -41,13 +41,21 @@
                         <span class="font-weight-bold m-1">{{food.calories}}</span>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <button mat-icon-button style="outline: none;" (click)="minus()"><mat-icon>remove</mat-icon></button>
-                    <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="qty" style="text-align: center;">
-                    </mat-form-field>
-                    <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
-                    <button class="view-all example-tooltip-red" style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+                <div class="mb-3" fxLayout="column" fxLayoutGap="15px">
+                    <div>
+                        <button mat-icon-button style="outline: none;" (click)="minus()"><mat-icon>remove</mat-icon></button>
+                        <mat-form-field class="example-full-width">
+                            <input matInput [(ngModel)]="qty" style="text-align: center;">
+                        </mat-form-field>
+                        <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
+                        <button class="view-all" style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+                    </div>
+                    <div>
+                        <button class="view-all" style="background-color:#ff9f00;outline: none;" mat-raised-button [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" (click)="openReceipe()"><i class="material-icons">menu_book</i> Receipe</button>
+                    </div>
+                    <div>
+                        <button class="view-all" style="background-color:#ff9f00;outline: none;" mat-raised-button [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" (click)="favorite()"><i class="material-icons">favorite</i>Add To Favourites</button>
+                    </div>
                 </div>
             </div>
             <div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
@@ -55,7 +63,7 @@
             </div>
         </div>
     </mat-card>
-    <mat-card class="row-content-s" style="background-color:#FFCCBC">
+    <mat-card class="row-content-s m-5" style="background-color:#FFCCBC">
         <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row">
             <div fxFlex.md="60" fxFlex.lg="60">
                 <span class="font-weight-bold" style="font-size: x-large;">fresh</span>
@@ -74,7 +82,7 @@
             </div>
         </div>
     </mat-card>
-    <mat-card class="row-content-s" style="background-color:#FFCCBC">
+    <!-- <mat-card class="row-content-s m-5" style="background-color:#FFCCBC">
         <div>
             <span class="font-weight-bold" style="font-size: x-large;">step-by-step</span>
             <h1 class="title">Instructions</h1>
@@ -91,5 +99,5 @@
                 </div>
             </div>
         </mat-card>
-    </mat-card>
+    </mat-card> -->
 </div>

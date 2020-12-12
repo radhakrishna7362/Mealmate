@@ -5,13 +5,18 @@
     <div fxFlex.md="50" fxFlex.lg="50">
         <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{ktool.name}}</h1>
         <h3 style="border-bottom: 2px ridge;">Price: {{ktool.price | currency:'INR'}}</h3>
-        <div class="mb-3">
-            <button mat-icon-button style="outline: none;" (click)="minus()"><mat-icon>remove</mat-icon></button>
-            <mat-form-field class="example-full-width">
-                <input matInput [(ngModel)]="qty" style="text-align: center;">
-            </mat-form-field>
-            <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
-            <button class="view-all" style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+        <div class="mb-3" fxLayout="column" fxLayoutGap="15px">
+            <div>
+                <button mat-icon-button style="outline: none;" (click)="minus()"><mat-icon>remove</mat-icon></button>
+                <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="qty" style="text-align: center;">
+                </mat-form-field>
+                <button mat-icon-button style="outline: none;" (click)="add()"><mat-icon>add</mat-icon></button>
+                <button class="view-all" style="background-color:#ff9f00;outline: none;" [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" mat-raised-button (click)="onCart()"><i class="material-icons">shopping_cart</i>Add To Cart</button>
+            </div>
+            <div>
+                <button class="view-all" style="background-color:#ff9f00;outline: none;" mat-raised-button [matTooltipDisabled]="_authService.loggedIn()" matTooltip="Pls Login" (click)="favorite()"><i class="material-icons">favorite</i>Add To Favourites</button>
+            </div>
         </div>
         <div fxLayout="column" fxLayoutGap="20px">
             <div fxLayout="column" style="border-bottom: 2px ridge;padding-bottom: 10px;">

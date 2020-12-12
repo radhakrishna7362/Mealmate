@@ -30,13 +30,13 @@
                 <div mat-line style="font-weight: bold;">Food & Recipes</div>
             </mat-list-item>
             <mat-divider></mat-divider>
-            <!-- <mat-list-item routerLink='/kitchenmenu' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+            <mat-list-item routerLink='/kitchenmenu' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-utensils"></i>
                 </mat-icon>
                 <div mat-line style="font-weight: bold;">Kitchen Tools</div>
             </mat-list-item>
-            <mat-divider></mat-divider> -->
+            <mat-divider></mat-divider>
             <mat-list-item routerLink='/fooddonation' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-hand-holding-usd"></i>
@@ -58,6 +58,13 @@
                 <div mat-line style="font-weight: bold;">Your Orders</div>
             </mat-list-item>
             <mat-divider></mat-divider>
+            <mat-list-item routerLink='/favourites' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="material-icons">favorite</i>
+                </mat-icon>
+                <div mat-line style="font-weight: bold;">Favourites</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
             <mat-list-item routerLink='/contactus' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-comments"></i>
@@ -65,13 +72,13 @@
                 <div mat-line style="font-weight: bold;">ContactUs</div>
             </mat-list-item>
             <mat-divider></mat-divider>
-            <!-- <mat-list-item *ngIf="_authService.loggedIn()" [routerLink]="['/yourprofile',UserId]" routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+            <mat-list-item *ngIf="_authService.loggedIn()" [routerLink]="['/yourprofile',UserId]" routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
                 <mat-icon mat-list-icon>
                     <i class="fas fa-user"></i>
                 </mat-icon>
                 <div mat-line style="font-weight: bold;">Your Profile</div>
             </mat-list-item>
-            <mat-divider></mat-divider> -->
+            <mat-divider></mat-divider>
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column" fxFlexFill>

@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class OrderComponent implements OnInit {
 
-  displayedColumns=['name','quantity','price','date'];
+  displayedColumns=['name','quantity','price','date','view'];
   orders=[];
   length;
   constructor(public authService:AuthService,private orderService:OrderService,private snackbar:MatSnackBar) { }

@@ -22,6 +22,7 @@ const FallWineBundle=require('./routes/fall_wine_bundleRoute');
 const EssentialWine=require('./routes/essential_wineRoute');
 const UserRoute=require('./routes/userRoute');
 const CartRoute=require('./routes/cartRoute');
+const FavouriteRoute=require('./routes/favouriteRoute');
 const OrderRoute=require('./routes/orderRoute');
 const ContactRoute=require('./routes/contactRoute');
 
@@ -47,6 +48,7 @@ app.use('/fallwinebundle',FallWineBundle);
 app.use('/essentialwine',EssentialWine);
 app.use('/user',UserRoute);
 app.use('/cart',CartRoute);
+app.use('/favourite',FavouriteRoute);
 app.use('/order',OrderRoute);
 app.use('/contact',ContactRoute)
 

@@ -31,7 +31,10 @@ import { FoodThanksComponent } from './food-thanks/food-thanks.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { FooddetailsReceipeComponent } from './fooddetails-receipe/fooddetails-receipe.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 
+import { FavoriteService } from './services/favorite.service';
 import { CartService } from './services/cart.service';
 import { FoodService } from './services/food.service';
 import { KitchentoolsService } from './services/kitchentools.service';
@@ -43,8 +46,8 @@ import { ContactService } from './services/contact.service';
 import { AuthGuard } from './auth.guard';
 import { SnackbarService } from './services/snackbar.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
-import {SpinnerService} from './services/spinner.service';
-import {SpinnerInterceptorService} from './services/spinner-interceptor.service';
+import { SpinnerService } from './services/spinner.service';
+import { SpinnerInterceptorService } from './services/spinner-interceptor.service';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
@@ -104,6 +107,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ContactComponent,
     ProfileComponent,
     ProfileEditComponent,
+    FooddetailsReceipeComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,7 +144,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressBarModule,
     ToastrModule.forRoot(),
   ],
-  providers: [FoodService,SpinnerService,KitchentoolsService,FoodDonationService,WineService,AuthService,CartService,OrderService,ContactService,SnackbarService,AuthGuard,{
+  providers: [FoodService,KitchentoolsService,SpinnerService,FoodDonationService,WineService,AuthService,CartService,OrderService,ContactService,SnackbarService,AuthGuard,FavoriteService,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
