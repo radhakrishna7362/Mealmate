@@ -43,6 +43,44 @@ UserRoute.route('/register').post((req, res) => {
                 if (error) {
                     
                 } else {
+                    var nodemailer = require('nodemailer');
+
+                    var transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: 'mealmate.sdp26@gmail.com',
+                        pass: 'Mealmate@sdp26'
+                    }
+                    });
+
+                    var mailOptions = {
+                    from: 'MealMate <mealmate.sdp26@gmail.com>',
+                    to: req.body.email,
+                    subject: 'Welcome to Mealmate',
+                    html: `
+                    <strong>Welcome to the MealMate Family.</strong> Hats off on making an excellent decision!
+                    
+                    <p>You are now officially in the loop to hear all about our new updates, releases, offers and much more.</p>
+                        
+                    <p>Have a Happy Meal with MealMate!</p>
+                        
+                    <p>Contact us for further queries at: mealmate.sdp26@gmail.com or +91 7286009239</p>
+                        
+                    <p>Mail us at: mealmate.sdp26@gmail.com</p>
+                    <p>LEPL, Centro Mall, 3rd Floor</p>
+                    <p>Opp. To CPR Hotel Fortune, Murali Park, MG Road</p>
+                    <p>Labbipet, Vijayawada,</p>
+                    <p>Andhra Pradesh 520010,</p>
+                    <p>India.</p>`
+                    };
+    
+                    transporter.sendMail(mailOptions, function(error, info){
+                        if (error) {
+                          console.log(error);
+                        } else {
+                          console.log('Email sent: ' + info.response);
+                        }
+                    });
                     let token =  jwt.sign({id:registeredUser._id}, secret)
                     res.status(200).send({token})
                 }
