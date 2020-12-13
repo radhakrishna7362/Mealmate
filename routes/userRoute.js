@@ -77,8 +77,10 @@ UserRoute.route('/register').post((req, res) => {
                     transporter.sendMail(mailOptions, function(error, info){
                         if (error) {
                           console.log(error);
+                            // return res.status(401)
                         } else {
                           console.log('Email sent: ' + info.response);
+                            // return res.status(200)
                         }
                     });
                     let token =  jwt.sign({id:registeredUser._id}, secret)
