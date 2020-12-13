@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class FavoriteService {
 
-  _url="http://localhost:3000/favourite";
+  _url="/favourite";
   constructor(private http:HttpClient) { }
 
   addFav(fav){
