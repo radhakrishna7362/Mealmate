@@ -24,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import {FavouritesComponent} from './favourites/favourites.component';
+import { DeleteComponent } from './delete/delete.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'donationthanks',component:FoodThanksComponent},
   {path:'orders',component:OrderComponent,canActivate: [AuthGuard]},
   {path:'contactus',component:ContactComponent},
+  {path:'manageaccount',component:DeleteComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent}
 ];

@@ -79,6 +79,13 @@
                 <div mat-line style="font-weight: bold;">Your Profile</div>
             </mat-list-item>
             <mat-divider></mat-divider>
+            <mat-list-item *ngIf="_authService.loggedIn()" routerLink='/manageaccount' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="material-icons">settings</i>
+                </mat-icon>
+                <div mat-line style="font-weight: bold;">Manage Account</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column" fxFlexFill>

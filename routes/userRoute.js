@@ -166,4 +166,13 @@ UserRoute.route('/edit-profile/:id').patch((req,res,next)=>{
   });
 })
 
+UserRoute.route('/delete/:id').delete((req,res)=>{
+    User.deleteOne({_id:req.params.id})
+    .then((resp) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send("Deleted Successfully")
+    }, (err) => res.status(409).send("failed"))
+    .catch((err) => res.status(409).send("failed"));
+})
+
 module.exports=UserRoute;

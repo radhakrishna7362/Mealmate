@@ -55,4 +55,8 @@ export class AuthService {
     editProfile(id,user){
       return this.http.patch<any>(`/user/edit-profile/${id}`,user);
     }
+
+    deleteaccount(id){
+      return this.http.delete<any>(`/user/delete/${id}`);
+    }
 }

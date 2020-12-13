@@ -33,6 +33,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { FooddetailsReceipeComponent } from './fooddetails-receipe/fooddetails-receipe.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { DeleteComponent } from './delete/delete.component';
 
 import { FavoriteService } from './services/favorite.service';
 import { CartService } from './services/cart.service';
@@ -109,6 +110,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ProfileEditComponent,
     FooddetailsReceipeComponent,
     FavouritesComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

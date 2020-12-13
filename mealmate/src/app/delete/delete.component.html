@@ -1,0 +1,50 @@
+<div fxLayout.md="row" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" style="padding: 20px;" fxLayoutGap="10px">
+    <mat-card class="example-card">
+        <mat-card-content style="color: #202124; font-size: x-large; font-weight: 500;">
+            Delete your Mealmate Account
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <h2 style="margin-top: 25px;">
+                Please read this carefully. It’s not the usual blah blah.
+            </h2>
+            <p>
+                You’re trying to delete your Mealmate Account.<br> 
+                You’ll no longer be able to use the services, and your account and data will be lost.
+            </p>
+            <mat-divider></mat-divider>
+            <h2 style="margin-top: 25px;">
+                All this content will be deleted
+            </h2>
+            <p>
+                <b>Note:</b> The information that belongs to you will be affected by your deletion, such as your <br>
+                profile information (if you given/edit your profile). <br>
+                <br>
+                Your data will be deleted completely. <b>Except your Order Information.</b>
+            </p>
+            <mat-divider></mat-divider>
+            <p style="margin-top: 25px;">
+                If you have any pending financial transactions you will still be responsible for those charges.
+            </p>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group form-check" style="color: #202124; font-weight: 475;">
+                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                    <label for="acceptTerms" class="form-check-label">Yes, I acknowledge that I am still responsible for any charges incurred due to any <br>
+                        pending financial transaction, and I understand that under certain circumstances my <br> earnings won’t be paid out.</label>
+                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Please acknowledge.</div>
+                </div>
+                <div class="form-group form-check" style="color: #202124; font-weight: 475;">
+                    <input type="checkbox" formControlName="acceptTerms2" id="acceptTerms2" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms2.errors }" />
+                    <label for="acceptTerms2" class="form-check-label">Yes, I want to permanently delete this Google Account and all its data.</label>
+                    <div *ngIf="submitted && f.acceptTerms2.errors" class="invalid-feedback">Please confirm that you wish to delete your Mealmate Account.</div>
+                </div>
+                <div>
+                    <button mat-raised-button style="margin-left: 5px;background-color: #871A1A;outline: none;color: aliceblue;">
+                        <span class="material-icons">delete</span>
+                        <span>DELETE ACCOUNT</span>
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+        </mat-card>
+</div>

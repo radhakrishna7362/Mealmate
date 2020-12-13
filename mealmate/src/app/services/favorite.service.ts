@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class FavoriteService {
 
-  _url="/favourite";
+  _url="http://localhost:3000/favourite";
   constructor(private http:HttpClient) { }
 
   addFav(fav){
@@ -23,5 +23,9 @@ export class FavoriteService {
 
   clearFav(fav){
     return this.http.delete<any>(`${this._url}/removeAll/${fav[0].userid}`);
+  }
+
+  deleteFavs(userid){
+    return this.http.delete<any>(`${this._url}/removeAll/${userid}`);
   }
 }
