@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CartService {
 
-  _url="http://localhost:3000/cart";
-  _ordelUrl="http://localhost:3000/order"
+  _url="/cart";
+  _ordelUrl="/order"
 
   constructor(private http:HttpClient) { }
 
